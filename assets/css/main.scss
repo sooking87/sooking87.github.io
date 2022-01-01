@@ -8,3 +8,9 @@
 @import "minimal-mistakes"; // main partials
 
 @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@300&display=swap');
+
+.category {
+  .active a {
+    color: purple;
+  }
+}
