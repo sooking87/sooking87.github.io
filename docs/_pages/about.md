@@ -1,11 +1,7 @@
 ---
-permalink: /about/
-title: "About"
+permalink: html/
+title: "HTML"
+excerpt: "about.md"
 toc: true
-toc_sticky: true
-toc_label: "MyDiary"
+tags: [HTML]
 ---
-
-![icon](/assets/image/bear.jpg)
-
-내 일기장으로 쓸까?ㅎㅎ
