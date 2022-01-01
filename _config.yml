@@ -282,10 +282,12 @@ defaults:
       path: ""
       type: posts
     values:
-      layout: single
-      author_profile: False
+      layout: single      
+      author_profile: true
       read_time: true
       comments: true
       share: true
       related: true
+      mathjax: true
+      sidebar_main: true
       
