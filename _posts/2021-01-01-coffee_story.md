@@ -13,8 +13,6 @@ title:  "COFFEE 이야기"
   <head>
     <meta charset="utf-8">
     <title>커피 이야기</title>
-
-
     <style media="screen">
     .title {
       font-size: 30px;
