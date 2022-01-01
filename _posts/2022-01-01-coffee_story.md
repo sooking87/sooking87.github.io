@@ -1,7 +1,7 @@
 ---
 layout: post
 title: coffee story
-permalink: web
+permalink: WEB
 author_profile: true
 sidebar:
   nav: "main"
