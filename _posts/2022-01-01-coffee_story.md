@@ -1,7 +1,7 @@
 ---
 layout: post
 title: coffee story
-categories: ['WEB', 'OpsyDopsy']
+categories: ['WEB', 'project']
 ---
 
 # 첫 웹 사이트 제작기
