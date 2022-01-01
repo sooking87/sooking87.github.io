@@ -1,7 +1,7 @@
 ---
-layout: post
+layout: categories
 title: coffee story
-permalink: WEB
+permalink: /categories/
 author_profile: true
 sidebar:
   nav: "main"
