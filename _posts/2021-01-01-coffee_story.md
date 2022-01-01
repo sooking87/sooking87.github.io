@@ -1,6 +1,7 @@
 ---
-layout: post
-title:  "COFFEE 이야기"
+author_profile: true
+sidebar:
+  nav: "_data/navigation.yml/main"
 ---
 
 # 첫 웹 사이트 제작기
