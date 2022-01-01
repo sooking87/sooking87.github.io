@@ -1,10 +1,8 @@
 ---
-layout: category
+layout: categoroies
 title: coffee story
 permalink: /categories/
 author_profile: true
-sidebar:
-  nav: "main"
 ---
 
 # 첫 웹 사이트 제작기
