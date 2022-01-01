@@ -1,5 +1,5 @@
 ---
-permalink: /about/
+permalink: https://sooking87.github.io/minimal-mistakes/about/
 title: "About"
 toc: true
 toc_sticky: true
