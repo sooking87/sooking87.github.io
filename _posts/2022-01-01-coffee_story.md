@@ -5,7 +5,6 @@ permalink: /categories/
 author_profile: true
 sidebar:
   nav: "main"
-categories: ['WEB', 'project']
 ---
 
 # 첫 웹 사이트 제작기
