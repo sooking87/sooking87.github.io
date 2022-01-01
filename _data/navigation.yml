@@ -9,7 +9,7 @@
   #- title: "Tags"
   # url: /tags/
  
-docs:
+main:
   - title: WEB
     children:
       - title: "HTML"
