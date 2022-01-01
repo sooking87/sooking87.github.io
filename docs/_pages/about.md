@@ -1,5 +1,5 @@
 ---
-permalink: https://sooking87.github.io/docs/_pages/about.md
+permalink: /about/
 title: "About"
 toc: true
 toc_sticky: true
