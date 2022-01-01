@@ -1,7 +1,7 @@
 ---
-author_profile: true
-sidebar:
-  nav: "_data/navigation.yml/main"
+layout: post
+title: coffee story
+categories: ['WEB', 'OpsyDopsy']
 ---
 
 # 첫 웹 사이트 제작기
