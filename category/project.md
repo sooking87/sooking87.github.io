@@ -1,1 +1,5 @@
+---
+layout: category
+category: project
+---
 
