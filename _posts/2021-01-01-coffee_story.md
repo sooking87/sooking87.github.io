@@ -7,13 +7,13 @@ title:  "COFFEE 이야기"
 
 앞으로 어떻게 블로그를 사용해야되며, CSS와 html, 웹 사이트에 사용된 사진 등을 어떻게 올려야 되는지 공부를 해야겠다. 
 
-'''html
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <title>커피 이야기</title>
-'''
+
 '''css
     <style media="screen">
     .title {
@@ -54,7 +54,7 @@ title:  "COFFEE 이야기"
     </style>
 '''
   </head>
-'''
+
   <body>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
