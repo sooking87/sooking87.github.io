@@ -14,7 +14,7 @@ title:  "COFFEE 이야기"
     <meta charset="utf-8">
     <title>커피 이야기</title>
 
-'''css
+
     <style media="screen">
     .title {
       font-size: 30px;
@@ -52,7 +52,6 @@ title:  "COFFEE 이야기"
       color: #312222;
     }
     </style>
-'''
   </head>
 
   <body>
@@ -132,4 +131,4 @@ s0.parentNode.insertBefore(s1,s0);
 http://paletton.com/#uid=1000u0k2ljc6hnI3vhb50fr6wdx 밝은 계열
 http://paletton.com/#uid=1000u0k3i7H4mcB3L9O4O7c9y6a 어두운 계열
 -->
-'''
+
