@@ -1,6 +1,10 @@
 ---
 layout: post
 title: coffee story
+permalink: web
+author_profile: true
+sidebar:
+  nav: "main"
 categories: ['WEB', 'project']
 ---
 
