@@ -5,7 +5,7 @@ title: "HTML"
 
 author_profile: true
 sidebar:
-  nav: "docs"
+  nav: "main"
 ---
 
 {% assign posts = site.categories.html %}
