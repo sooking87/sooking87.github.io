@@ -1,5 +1,5 @@
 ---
-layout: categories
+layout: category
 title: coffee story
 permalink: /categories/
 author_profile: true
