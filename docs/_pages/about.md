@@ -6,6 +6,6 @@ toc_sticky: true
 toc_label: "MyDiary"
 ---
 
-![icon](/assets/logo.ico/apple-icon-120x120.png)
+![icon](/assets/image/bear.jpg)
 
 내 일기장으로 쓸까?ㅎㅎ
