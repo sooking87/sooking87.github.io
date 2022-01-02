@@ -25,6 +25,9 @@ layout: archive
     <li {% category[0] == page.category %}class="active"{% endif %}><a href="/category/{{ category | first }}"{{category |first }} {{{category | last | size }}}</a></li>
   </ul>
 </div>
+
+{% include paginator.html %}
+
 <ul class="posts-list">
   
   {% assign category = page.category | default: page.title %}
