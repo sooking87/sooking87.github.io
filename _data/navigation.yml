@@ -10,7 +10,7 @@
   # url: /tags/
  
 main:
-  - title: WEB
+  - title: HTML
     children:
       - title: "HTML"
         url: html/
