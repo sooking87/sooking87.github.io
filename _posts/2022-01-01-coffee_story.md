@@ -1,8 +1,9 @@
 ---
-layout: categoroies
+layout: post
 title: coffee story
-permalink: /categories/
-author_profile: true
+comments: true
+categories: [WEB]
+tags: [WEB]
 ---
 
 # 첫 웹 사이트 제작기
