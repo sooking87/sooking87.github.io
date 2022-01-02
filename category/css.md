@@ -1,6 +1,6 @@
 ---
 layout: archive
-permalink: css
+permalink: /WEB/css
 title: "CSS"
 
 author_profile: true
