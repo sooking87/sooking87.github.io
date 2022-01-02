@@ -1,31 +1,11 @@
-# main links
-#main:
-  # - title: "Quick-Start Guide"
-  # url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
-  #- title: "Introduce"
-  #  url:  https://sooking87.github.io/sooking87/docs/about/
-  #- title: "Category"
-  #  url: /categories/
-  #- title: "Tags"
-  # url: /tags/
- 
+main links
 main:
-  - title: HTML
-    children:
-      - title: "HTML"
-        url: html/
-        category: "html"
-      - title: "CSS"
-        url: css/
-        category: "css"
-      - title: "JavaScript"
-        url: javascript/
-        category: "javascript"
-  - title: PROJECT
-    children:
-      - title: "MyProject"
-        url: myproject/
-        category: "myproject"
-      - title: "OpsyDopsy Let's Go~!"
-        url: projects/
-        category: "projects"
+   - title: "Quick-Start Guide"
+   url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
+  - title: "Introduce"
+    url:  https://sooking87.github.io/sooking87/docs/about/
+  - title: "Category"
+    url: /categories/
+  - title: "Tags"
+    url: /tags/
+ 
