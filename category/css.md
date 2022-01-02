@@ -1,11 +1,6 @@
 ---
 layout: archive
-permalink: /WEB/css
-title: "CSS"
-
-author_profile: true
-sidebar:
-  nav: "main"
+category: /WEB/css
 ---
 
 {% assign posts = site.categories.css %}
