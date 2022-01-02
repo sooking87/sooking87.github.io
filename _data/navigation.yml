@@ -1,7 +1,7 @@
 #main links
 main:
   - title: "Home"
-    url: https://sooking87.github.io
+    url: /howtouse/
   - title: "MyDiary"
     url: /about/
   - title: "Category"
