@@ -1,11 +1,9 @@
 main links
 main:
-   - title: "Quick-Start Guide"
-   url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
-  - title: "Introduce"
-    url:  /docs/about/
+  - title: "MyDiary"
+    permalink: /about/
   - title: "Category"
-    url: docs/categories/
+    permalink: /categories/
   - title: "Tags"
-    url: docs/tags/
+    permalink: /tags/
  
