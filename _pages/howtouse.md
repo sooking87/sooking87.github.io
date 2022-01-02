@@ -15,3 +15,6 @@ Category -> Shit / WEB / Opsy / Dopsy
   - Dopsy: 프로그래머스 풀기
  
 Tags -> Shit / WEB / OpsyDopsy 
+
+https://kr.piliapp.com/emoji/list/
+-> 이모티콘
