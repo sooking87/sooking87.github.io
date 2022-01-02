@@ -1,7 +1,7 @@
 ---
-permalink: docs/about/
-title: "HTML"
-excerpt: "about.md"
-toc: true
-tags: [HTML]
+permalink: /about/
+title: "About Me"
+layout: single
 ---
+
+## 핫소스 개꿀잼~~~
