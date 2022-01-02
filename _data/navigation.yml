@@ -3,9 +3,9 @@ main:
    - title: "Quick-Start Guide"
    url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
   - title: "Introduce"
-    url:  https://sooking87.github.io/sooking87/docs/about/
+    url:  /docs/about/
   - title: "Category"
-    url: /categories/
+    url: docs/categories/
   - title: "Tags"
-    url: /tags/
+    url: docs/tags/
  
