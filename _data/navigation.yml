@@ -1,6 +1,6 @@
 #main links
 main:
-   -title: "Home"
+  - title: "Home"
     url: https://sooking87.github.io
   - title: "MyDiary"
     url: /about/
