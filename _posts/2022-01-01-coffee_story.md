@@ -1,5 +1,4 @@
 ---
-layout: category
 title: coffee story
 categories: [WEB]
 tags: [WEB]
