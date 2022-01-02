@@ -1,5 +1,5 @@
 ---
 layout: category
-category: /WEB/css
+category: /web/css
 ---
 
