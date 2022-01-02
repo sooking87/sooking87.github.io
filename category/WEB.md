@@ -1,7 +1,3 @@
-#---
-#layout: category
-#category: WEB
-#---
 ---
 layout: archive
 permalink: /category/WEB
