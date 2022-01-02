@@ -7,7 +7,7 @@ tags: [WEB]
 # 첫 웹 사이트 제작기
 
 앞으로 어떻게 블로그를 사용해야되며, CSS와 html, 웹 사이트에 사용된 사진 등을 어떻게 올려야 되는지 공부를 해야겠다. 
-layout: category인 경우
+
 
 <!DOCTYPE html>
 <html>
