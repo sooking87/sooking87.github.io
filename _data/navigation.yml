@@ -1,9 +1,11 @@
 #main links
 main:
-  - title: "MyDiary"
-    url: /about/
-  - title: "Category"
-    url: /categories/
-  - title: "Tags"
-    url: /tags/
+  -title: "Homd"
+   url: https://sooking87.github.io
+ - title: "MyDiary"
+   url: /about/
+ - title: "Category"
+   url: /categories/
+ - title: "Tags"
+   url: /tags/
  
