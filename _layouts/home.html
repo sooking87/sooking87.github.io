@@ -19,4 +19,11 @@ layout: archive
   {% endfor %}
 </div>
 
+<div class="col-lg-4 col-md-2">
+  <ul class="category">
+  {% for category in site.categories %}
+    <li {% category[0] == page.category %}class="active"{% endif %}><a href="/category/{{ category | first }}"{{category |first }} {{{category | last | size }}}</a></li>
+  </ul>
+</div>
+
 {% include paginator.html %}
