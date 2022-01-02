@@ -1,9 +1,9 @@
 main links
 main:
-  - title: "MyDiary"
-    permalink: /about/
-  - title: "Category"
-    permalink: /categories/
-  - title: "Tags"
-    permalink: /tags/
+ - title: "MyDiary"
+   url: /about/
+ - title: "Category"
+   url: /categories/
+ - title: "Tags"
+   url: /tags/
  
