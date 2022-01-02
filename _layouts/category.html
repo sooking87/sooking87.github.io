@@ -1,29 +1,18 @@
 ---
-layout: archive
+layout: default
 ---
-
-{{ content }}
-
-<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
-
-{% if paginator %}
-  {% assign posts = paginator.posts %}
-{% else %}
-  {% assign posts = site.posts %}
-{% endif %}
-
-{% assign entries_layout = page.entries_layout | default: 'list' %}
-<div class="entries-{{ entries_layout }}">
-  {% for post in posts %}
-    {% include archive-single.html type=entries_layout %}
+<ul class="posts-list">
+  
+  {% assign category = page.category | default: page.title %}
+  {% for post in site.categories[category] %}
+    <li>
+      <h3>
+        <a href="{{ site.baseurl }}{{ post.url }}">
+          {{ post.title }}
+        </a>
+        <small>{{ post.date | date_to_string }}</small>
+      </h3>
+    </li>
   {% endfor %}
-</div>
-
-<div class="col-lg-4 col-md-2">
-  <ul class="category">
-  {% for category in site.categories %}
-    <li {% category[0] == page.category %}class="active"{% endif %}><a href="/category/{{ category | first }}"{{category |first }} {{{category | last | size }}}</a></li>
-  </ul>
-</div>
-
-{% include paginator.html %}
+  
+</ul>
