@@ -16,5 +16,5 @@ Category -> Shit / WEB / Opsy / Dopsy
  
 Tags -> Shit / WEB / OpsyDopsy 
 
-<a href=https://kr.piliapp.com/emoji/list/>
-이모티콘</a>
+https://kr.piliapp.com/emoji/list/
+-> 이모티콘
