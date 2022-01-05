@@ -288,6 +288,7 @@ defaults:
       comments: true
       share: false
       related: false
+      sidebar_main: true
       
   #_pages
   - scope:
