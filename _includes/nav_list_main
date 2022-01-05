@@ -18,30 +18,24 @@
                 <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/cpp 주소의 글로 링크 연결-->
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 {% for category in site.categories %}
-                    {% if category[0] == "web" %}
-                        <li><a href="/categories/web" class="">C ++ ({{category[1].size}})</a></li>
+                    {% if category[0] == "codding_everybody" %}
+                        <li><a href="/categories/web" class="">생활 코딩 ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
+        <span class="nav__sub-title">Backjoon</span>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "STL" %}
-                        <li><a href="/categories/stl" class="">C++ STL & 표준 ({{category[1].size}})</a></li>
+                    {% if category[0] == "backjoon_java" %}
+                        <li><a href="/categories/backjoon_java" class="">Java ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
-        <span class="nav__sub-title">Coding Test</span>
+        <span class="nav__sub-title">Backjoon</span>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "Algorithm" %}
-                        <li><a href="/categories/algorithm" class="">알고리즘 구현 (with C++) ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "Programmers" %}
-                        <li><a href="/categories/programmers" class="">프로그래머스 ({{category[1].size}})</a></li>
+                    {% if category[0] == "programmers_java" %}
+                        <li><a href="/categories/programmers_java" class="">Java ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
