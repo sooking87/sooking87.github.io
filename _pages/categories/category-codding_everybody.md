@@ -1,7 +1,7 @@
 ---
 title: "HTML/CSS/JavaScript"
 layout: archive
-permalink: categories/web
+permalink: categories/codding_everybody
 author_profile: true
 sidebar_main: true
 ---
