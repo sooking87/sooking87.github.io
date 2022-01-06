@@ -18,7 +18,7 @@
                 <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/cpp 주소의 글로 링크 연결-->
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 {% for category in site.categories %}
-                    {% if category[0] == "codding everybody" %}
+                    {% if category[0] == "생활 코딩" %}
                         <li><a href="/categories/codding-everybody" class="">생활 코딩 ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
@@ -26,7 +26,7 @@
         <span class="nav__sub-title">Backjoon</span>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "backjoon java" %}
+                    {% if category[0] == "Backjoon Java" %}
                         <li><a href="/categories/backjoon-java" class="">Java ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
@@ -34,7 +34,7 @@
         <span class="nav__sub-title">Programmers</span>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "programmers java" %}
+                    {% if category[0] == "Programmers Java" %}
                         <li><a href="/categories/programmers-java" class="">Java ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
@@ -42,7 +42,7 @@
         <span class="nav__sub-title">OpsyDopsy</span>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "opsydopsy" %}
+                    {% if category[0] == "OpsyDopsy" %}
                         <li><a href="/categories/opsydopsy" class="">하하핫😂 ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
