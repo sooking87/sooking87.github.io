@@ -7,5 +7,5 @@ sidebar_main: true
 ---
 
 
-{% assign posts = site.categories['programmers java'] %}
+{% assign posts = site.categories['Programmers Java'] %}
 {% for post in posts %} {% include archive-single2.html type=page.entries_layout %} {% endfor %}
