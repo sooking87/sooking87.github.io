@@ -262,9 +262,9 @@ tag_archive:
 #   layouts:
 #     category: archive-taxonomy
 #     tag: archive-taxonomy
-permalinks:
-   category: /categories/:name/
-   tag: /tags/:name/
+# permalinks:
+#    category: /categories/:name/
+#    tag: /tags/:name/
 
 
 # HTML Compression
@@ -290,16 +290,3 @@ defaults:
       related: true
       mathjax: true
       sidebar_main: true
-      
-  #_pages
-  - scope:
-      path: ""
-      type: pages
-    values:
-      layout: single
-      author_profile: true
-      read_time: false
-      comments: true
-      share: false
-      related: false
-      
