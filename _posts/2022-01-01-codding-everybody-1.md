@@ -1,5 +1,5 @@
 ---
-title: coffee story
+title: "[생활 코딩] 실습 coffee story"
 categories: [생활 코딩, WEB]
 tags: [생활 코딩]
 toc: true
