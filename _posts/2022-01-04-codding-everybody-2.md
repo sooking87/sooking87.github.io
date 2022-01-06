@@ -1,7 +1,12 @@
 ---
 title: 미디어 쿼리를 이용한 반응형 디자인
-categories: [WEB]
-tags: [WEB]
+categories: [codding everybody]
+tags: [codding everybody, WEB]
+toc: true
+toc_sticky: true
+ 
+date: 2022-01-01
+last_modified_at: 2022-01-01
 ---
 
 
