@@ -2,6 +2,7 @@
 permalink: /about/
 title: "MyDiary"
 layout: single
+sidebar_main: true
 ---
 
 ## 간단한 일기 공간으로 활용해야징😁
