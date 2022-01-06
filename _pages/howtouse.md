@@ -9,14 +9,13 @@ sidebar_main: truㄷ
 ## How to Use👊
 MyDiary -> _pages/about.md 를 통해서 수정
 
-Category -> Shit / WEB / Opsy / Dopsy / 그 외의 언어들
-  - Shit: 개같은 코딩
-  - WEB: 생활코딩 공부한 내용
-  - Opsy: 백준 풀기
-  - Dopsy: 프로그래머스 풀기
-  - 그 외의 언어들 공부 기록하고 싶은 것
+Category -> OpsyDopsy / HTML/CSS/JavaScript / Backjoon / Programmers 
+  - OpsyDopsy: 개같은 코딩
+  - HTML/CSS/JavaScript: 생활코딩(categories:[codding everybody]) / 
+  - Backjoon: 백준 풀기
+  - Programmers: 프로그래머스 풀기
  
-Tags -> Shit / WEB / OpsyDopsy(문풀) / 그 외의 언어들
+Tags -> OpsyDopsy / WEB / Backjoon / Programmers / 그 외의 언어들
 
 https://kr.piliapp.com/emoji/list/
 -> 이모티콘
