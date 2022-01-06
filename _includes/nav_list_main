@@ -39,6 +39,14 @@
                     {% endif %}
                 {% endfor %}
             </ul>
+        <span class="nav__sub-title">OpsyDopsy</span>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "opsydopsy" %}
+                        <li><a href="/categories/opsydopsy" class="">하하핫 ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
       </li>
   </ul>
 </nav>
