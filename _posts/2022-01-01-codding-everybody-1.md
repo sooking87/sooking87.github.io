@@ -1,7 +1,7 @@
 ---
 title: coffee story
-categories: [codding everybody]
-tags: [codding everybody, WEB]
+categories: [생활 코딩]
+tags: [생활 코딩]
 toc: true
 toc_sticky: true
  
