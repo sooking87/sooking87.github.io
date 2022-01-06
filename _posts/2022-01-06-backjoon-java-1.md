@@ -1,7 +1,7 @@
 ---
 title: "[백준 1000번] A+B"
-categories: [backjoon java]
-tags: [OpsyDopsy, java]
+categories: [Backjoon Java]
+tags: [Backjoon, Java]
 toc: true
 toc_sticky: true
 
