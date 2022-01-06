@@ -43,7 +43,7 @@
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "opsydopsy" %}
-                        <li><a href="/categories/opsydopsy" class="">하하핫 ({{category[1].size}})</a></li>
+                        <li><a href="/categories/opsydopsy" class="">하하핫😂 ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
