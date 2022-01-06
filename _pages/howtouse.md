@@ -3,6 +3,7 @@ layout: single
 title: "How to Use"
 permalink: /howtouse/
 author_profile: true
+sidebar_main: truㄷ
 ---
 
 ## How to Use👊
