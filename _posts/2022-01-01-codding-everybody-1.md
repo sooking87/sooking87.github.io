@@ -1,6 +1,6 @@
 ---
 title: coffee story
-categories: [생활 코딩]
+categories: [생활 코딩, WEB]
 tags: [생활 코딩]
 toc: true
 toc_sticky: true
