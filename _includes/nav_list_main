@@ -18,24 +18,24 @@
                 <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/cpp 주소의 글로 링크 연결-->
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 {% for category in site.categories %}
-                    {% if category[0] == "codding_everybody" %}
-                        <li><a href="/categories/codding_everydoby" class="">생활 코딩 ({{category[1].size}})</a></li>
+                    {% if category[0] == "codding everybody" %}
+                        <li><a href="/categories/codding-everydoby" class="">생활 코딩 ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
         <span class="nav__sub-title">Backjoon</span>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "backjoon_java" %}
-                        <li><a href="/categories/backjoon_java" class="">Java ({{category[1].size}})</a></li>
+                    {% if category[0] == "backjoon java" %}
+                        <li><a href="/categories/backjoon-java" class="">Java ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
         <span class="nav__sub-title">Programmers</span>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "programmers_java" %}
-                        <li><a href="/categories/programmers_java" class="">Java ({{category[1].size}})</a></li>
+                    {% if category[0] == "programmers java" %}
+                        <li><a href="/categories/programmers-java" class="">Java ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
