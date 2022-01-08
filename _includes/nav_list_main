@@ -25,8 +25,8 @@
             </ul>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "인생은 나 혼자,,ㅎ" %}
-                        <li><a href="/categories/self-web" class="">인생은 나 혼자,, ({{category[1].size}})</a></li>
+                    {% if category[0] == "MyWay" %}
+                        <li><a href="/categories/myway" class="">인생은 나 혼자,, ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
