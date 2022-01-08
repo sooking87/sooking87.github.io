@@ -23,6 +23,13 @@
                     {% endif %}
                 {% endfor %}
             </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "인생은 나 혼자,,ㅎ" %}
+                        <li><a href="/categories/self-web" class="">인생은 나 혼자,, ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
         <span class="nav__sub-title">Backjoon</span>
             <ul>
                 {% for category in site.categories %}
