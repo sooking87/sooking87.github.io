@@ -2,6 +2,8 @@
 title: "[생활 코딩] 콘솔, 자료형, 변수와 대입 연산자, 제어할 태그 선택하기"
 categories: ['생활 코딩']
 tags: [생활 코딩, WEB]
+toc: true
+toc_sticky: true
 ---
 
 ## 콘솔
