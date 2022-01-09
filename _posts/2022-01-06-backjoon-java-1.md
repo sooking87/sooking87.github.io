@@ -1,5 +1,5 @@
 ---
-title: "[백준 1000번] A+B"
+title: "[백준 1000번] A + B"
 categories: [Backjoon Java]
 tags: [Backjoon, Java]
 toc: true
