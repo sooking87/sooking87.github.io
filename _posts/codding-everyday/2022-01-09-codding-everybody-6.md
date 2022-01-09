@@ -3,6 +3,7 @@ title: "[생활 코딩] 프로그램, 프로그래밍, 프로그래머 ~ 함수�
 categories: [생활 코딩]
 tags: [생활 코딩, tags]
 toc: true
+toc_sticky: true
 ---
 ## 조건문, 반복문을 통한 리팩토링
 #### 조건문과 리팩토링
