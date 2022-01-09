@@ -1,5 +1,5 @@
 ---
-title: "[백준 11022] A + B - 8"
+title: "[백준 11022번] A + B - 8"
 categories: [Backjoon Java]
 tags: [Backjoon, Java]
 toc: true
