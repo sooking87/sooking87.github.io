@@ -18,6 +18,7 @@ toc: true
 <img width="626" alt="codding-everybody-2" src="https://user-images.githubusercontent.com/96654391/148689724-0f3ec486-ec82-4b3d-9fcc-9a9bf54f8646.png">
 
 위 사진을 통해서 **document.querySelectorAll('a')**라는 속성은 a태그를 다 찾아준다. 이를 활용하여 태그들을 리스트로 만든 후, 콘솔창에 0번째 인덱스, 1번째 인덱스를 출력(console.log(alist[0]), console.log(alist[1]))해보면 위와 같은 출력값임을 알 수 있다. 그럼 이를 활용해서 무엇을 할 수 있을까?
+
 <img width="632" alt="codding-everybody-3" src="https://user-images.githubusercontent.com/96654391/148689741-a2865a63-bdff-48c9-bf4e-66b1fb72c9cb.png">
 
 콘솔창을 이용해서 모두 적용되는 것이 확인이 되었으면 소스 코드에 복붙하는 형식으로 진행하였다.
