@@ -1,7 +1,7 @@
 ---
 title: "[생활 코딩] 프로그램, 프로그래밍, 프로그래머 ~ 함수의 활용"
 categories: [생활 코딩]
-tags: [생활 코딩, tags]
+tags: [생활 코딩, WEB]
 toc: true
 toc_sticky: true
 ---
