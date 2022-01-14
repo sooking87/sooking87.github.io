@@ -2,8 +2,6 @@
 main:
   - title: "Home"
     url: /howtouse/
-  - title: "MyDiary"
-    url: /about/
   - title: "Category"
     url: /categories/
   - title: "Tags"
