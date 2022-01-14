@@ -1,5 +1,5 @@
 ---
-title: "HTML/CSS/JavaScript"
+title: "생활 코딩"
 layout: archive
 permalink: categories/codding-everybody
 author_profile: true
