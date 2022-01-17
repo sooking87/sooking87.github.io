@@ -13,7 +13,7 @@ toc_sticky: true
 자바스크립트의 심화버전으로 도형 및 도형과 관련된 애니메이션, 상호작용 등을 좀더 쉽게 할 수 있도록 만들어 놓은 것이다.
 <br>
 예를 들면 이런 것들이 있다.
-<img width="640" alt="p5_1" src="https://user-images.githubusercontent.com/96654391/149708855-aa015225-364b-4d9b-8075-5fd356232ad1.png">
+<img width="640" margin-left="50px" alt="p5_1" src="https://user-images.githubusercontent.com/96654391/149708855-aa015225-364b-4d9b-8075-5fd356232ad1.png">
 <img width="640" alt="p5_4" src="https://user-images.githubusercontent.com/96654391/149708886-da771862-8bce-4444-979d-8721b8305d53.png">
 <img width="640" alt="p5_6" src="https://user-images.githubusercontent.com/96654391/149708890-adb3088e-e123-4e4e-9c59-11f88cea525e.png">
 
