@@ -19,14 +19,14 @@
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 {% for category in site.categories %}
                     {% if category[0] == "생활 코딩" %}
-                        <li><a href="/categories/codding-everybody" class="">생활 코딩 ({{category[1].size}})</a></li>
+                        <li><a href="/categories/codding-everybody" class="">✏생활 코딩 ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "Project-1" %}
-                        <li><a href="/categories/project_1" class="">⌨Project 1⌨ ({{category[1].size}})</a></li>
+                        <li><a href="/categories/project_1" class="">🖥Project 1 ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
@@ -34,7 +34,7 @@
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "Backjoon Java" %}
-                        <li><a href="/categories/backjoon-java" class="">Java ({{category[1].size}})</a></li>
+                        <li><a href="/categories/backjoon-java" class="">🔗Java ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
@@ -42,7 +42,7 @@
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "Programmers Java" %}
-                        <li><a href="/categories/programmers-java" class="">Java ({{category[1].size}})</a></li>
+                        <li><a href="/categories/programmers-java" class="">🔗Java ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
@@ -50,7 +50,7 @@
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "OpsyDopsy" %}
-                        <li><a href="/categories/opsydopsy" class="">하하핫😂 ({{category[1].size}})</a></li>
+                        <li><a href="/categories/opsydopsy" class="">😂하하핫 ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
