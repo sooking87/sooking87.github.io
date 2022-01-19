@@ -1,5 +1,5 @@
 ---
-title: "⌨Project 1⌨"
+title: "🖥Project 1"
 layout: archive
 permalink: categories/project_1
 author_profile: true
