@@ -2,6 +2,7 @@
 title: "[백준 1427번] 소트인사이드"
 categories: [Backjoon Java]
 tags: [Backjoon, Java]
+excerpt: "[백준 1427번] 소트인사이드"
 toc: true
 toc_sticky: true
 ---
