@@ -2,6 +2,7 @@
 title: "[백준 1546번] 평균"
 categories: [Backjoon Java]
 tags: [Backjoon, Java]
+excerpt: "[백준 1546번] 평균"
 toc: true
 toc_sticky: true
 ---
