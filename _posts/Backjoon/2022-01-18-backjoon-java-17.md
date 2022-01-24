@@ -2,6 +2,7 @@
 title: "[백준 2577번] 숫자의 개수"
 categories: [Backjoon Java]
 tags: [Backjoon, Java]
+excerpt: "[백준 2577번] 숫자의 개수"
 toc: true
 toc_sticky: true
 ---
