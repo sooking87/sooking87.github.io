@@ -2,6 +2,7 @@
 title: "[백준 1000번] A + B"
 categories: [Backjoon Java]
 tags: [Backjoon, Java]
+excerpt: "[백준 1000번] A + B"
 toc: true
 toc_sticky: true
 
