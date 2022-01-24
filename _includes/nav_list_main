@@ -26,7 +26,14 @@
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "Project-1" %}
-                        <li><a href="/categories/project_1" class="">🖥Project 1 ({{category[1].size}})</a></li>
+                        <li><a href="/categories/project_1" class="">💡Project 1 ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Project-2" %}
+                        <li><a href="/categories/project_2" class="">💡Project 2 ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
