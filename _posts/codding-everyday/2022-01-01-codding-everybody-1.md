@@ -2,6 +2,7 @@
 title: "[생활 코딩] 실습 coffee story"
 categories: [생활 코딩, WEB]
 tags: [생활 코딩]
+excerpt: "넘 투박한 나의 첫 웹 페이지,,"
 toc: true
 toc_sticky: true
 
