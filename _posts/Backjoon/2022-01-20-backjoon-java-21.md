@@ -2,6 +2,7 @@
 title: "[백준 2908번] 상수"
 categories: [Backjoon Java]
 tags: [Backjoon, Java]
+excerpt: "[백준 2908번] 상수"
 toc: true
 toc_sticky: true
 ---
