@@ -2,6 +2,7 @@
 title: "[생활 코딩] node.js수업목적 ~ 파일을 이용해 본문 구현"
 categories: [생활 코딩]
 tags: [생활 코딩, WEB]
+excerpt: "왕웅! 사용자와의 상호작용을 위한 node.js"
 toc: true
 toc_sticky: true
 ---
