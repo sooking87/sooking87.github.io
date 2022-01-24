@@ -2,6 +2,7 @@
 title: "[백준 11022번] A + B - 8"
 categories: [Backjoon Java]
 tags: [Backjoon, Java]
+excerpt: "[백준 11022번] A + B - 8"
 toc: true
 toc_sticky: true
 ---
