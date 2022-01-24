@@ -2,6 +2,7 @@
 title: "[생활 코딩] 객체 예고 ~ 라이브러리와 프레임워크"
 categories: [생활 코딩]
 tags: [생활 코딩, WEB]
+excerpt: "반복은 줄이고 줄여야 된다."
 toc: true
 toc_sticky: true
 ---
