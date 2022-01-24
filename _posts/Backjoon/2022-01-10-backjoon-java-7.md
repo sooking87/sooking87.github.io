@@ -2,6 +2,7 @@
 title: "[백준 15596번] 정수 N개의 합"
 categories: [Backjoon Java]
 tags: [Backjoon, Java]
+excerpt: "[백준 15596번] 정수 N개의 합"
 toc: true
 toc_sticky: true
 ---
