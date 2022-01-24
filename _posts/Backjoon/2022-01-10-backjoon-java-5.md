@@ -2,6 +2,7 @@
 title: "[백준 11006번] 남욱이의 닭장"
 categories: [Backjoon Java]
 tags: [Backjoon, Java]
+excerpt: "[백준 11006번] 남욱이의 닭장"
 toc: true
 toc_sticky: true
 ---
