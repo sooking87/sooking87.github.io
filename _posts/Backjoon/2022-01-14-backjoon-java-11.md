@@ -2,6 +2,7 @@
 title: "[백준 2522번] 별 찍기 - 12"
 categories: [Backjoon Java]
 tags: [Backjoon, Java]
+excerpt: "[백준 2522번] 별 찍기 - 12"
 toc: true
 toc_sticky: true
 ---
