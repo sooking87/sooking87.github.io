@@ -2,6 +2,7 @@
 title: "[생활 코딩] node.js"
 categories: [생활 코딩]
 tags: [생활 코딩, WEB]
+excerpt: "node.js의 필요성"
 toc: true
 toc_sticky: true
 ---
