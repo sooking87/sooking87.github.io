@@ -2,6 +2,7 @@
 title: "[프로그래머스] 부족한 금액 계산하기"
 categories: [Programmers Java]
 tags: [Programmers, Java]
+excerpt: "[프로그래머스] 부족한 금액 계산하기"
 toc: true
 toc_sticky: true
 ---
