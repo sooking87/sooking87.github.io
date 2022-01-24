@@ -2,6 +2,7 @@
 title: "[백준 2139번] 나는 너가 살아온 날을 알고 있다."
 categories: [Backjoon Java]
 tags: [Backjoon, Java]
+excerpt: "[백준 2139번] 나는 너가 살아온 날을 알고 있다."
 toc: true
 toc_sticky: true
 ---
