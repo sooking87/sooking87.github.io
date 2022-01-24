@@ -2,6 +2,7 @@
 title: "[백준 2292번] 벌집"
 categories: [Backjoon Java]
 tags: [Backjoon, Java]
+excerpt: "[백준 2292번] 벌집"
 toc: true
 toc_sticky: true
 ---
