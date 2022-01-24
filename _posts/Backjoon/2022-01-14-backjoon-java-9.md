@@ -2,6 +2,7 @@
 title: "[백준 2609번] 최대공약수와 최소공배수"
 categories: [Backjoon Java]
 tags: [Backjoon, Java]
+excerpt: "[백준 2609번] 최대공약수와 최소공배수"
 toc: true
 toc_sticky: true
 ---
