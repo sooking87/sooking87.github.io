@@ -2,6 +2,7 @@
 title: "[백준 2839번] 설탕 배달"
 categories: [Backjoon Java]
 tags: [Backjoon, Java]
+excerpt: "[백준 2839번] 설탕 배달"
 toc: true
 toc_sticky: true
 ---
