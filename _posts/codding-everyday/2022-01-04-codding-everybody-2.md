@@ -2,6 +2,7 @@
 title: "[생활 코딩] 미디어 쿼리를 이용한 반응형 디자인"
 categories: [생활 코딩]
 tags: [생활 코딩, WEB]
+excerpt: "미디어 쿼리를 최대한 활용해보자!"
 toc: true
 toc_sticky: true
 
