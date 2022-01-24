@@ -2,6 +2,7 @@
 title: "[백준 2884번] 알람 시계"
 categories: [Backjoon Java]
 tags: [Backjoon, Java]
+excerpt: "[백준 2884번] 알람 시계"
 toc: true
 toc_sticky: true
 ---
