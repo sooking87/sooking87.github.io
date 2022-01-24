@@ -2,6 +2,7 @@
 title: "[백준 1225번] 이상한 곱셈"
 categories: [Backjoon Java]
 tags: [Backjoon, Java]
+excerpt: "[백준 1225번] 이상한 곱셈"
 toc: true
 toc_sticky: true
 ---
