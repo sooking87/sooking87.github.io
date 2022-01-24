@@ -2,6 +2,7 @@
 title: "[백준 2810번] 컵홀더"
 categories: [Backjoon Java]
 tags: [Backjoon, Java]
+excerpt: "[백준 2810번] 컵홀더"
 toc: true
 toc_sticky: true
 ---
