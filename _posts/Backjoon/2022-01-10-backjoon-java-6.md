@@ -2,6 +2,7 @@
 title: "[백준 1978번] 소수 찾기"
 categories: [Backjoon Java]
 tags: [Backjoon, Java]
+excerpt: "[백준 1978번] 소수 찾기"
 toc: true
 toc_sticky: true
 ---
