@@ -2,7 +2,7 @@
 title: "[생활 코딩] Ajax"
 categories: [생활 코딩]
 tags: [생활 코딩, WEB]
-excerpt: "JS의 신세계!!!"
+excerpt: "움,,,,,,"
 toc: true
 toc_sticky: true
 ---
