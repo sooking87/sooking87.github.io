@@ -2,6 +2,7 @@
 title: "[백준 1016번] 제곱 ㄴㄴ수"
 categories: [Backjoon Java]
 tags: [Backjoon, Java]
+excerpt: "[백준 1016번] 제곱 ㄴㄴ수"
 toc: true
 toc_sticky: true
 ---
