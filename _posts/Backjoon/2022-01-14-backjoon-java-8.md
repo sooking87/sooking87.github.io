@@ -2,6 +2,7 @@
 title: "[백준 1110번] 더하기 사이클"
 categories: [Backjoon Java]
 tags: [Backjoon, Java]
+excerpt: "[백준 1110번] 더하기 사이클"
 toc: true
 toc_sticky: true
 ---
