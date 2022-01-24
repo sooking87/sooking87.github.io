@@ -2,6 +2,9 @@
 title: "[생활 코딩] Script 태그"
 categories: [생활 코딩]
 tags: [생활 코딩, WEB]
+excerpt: "JavaScript의 첫 시작!"
+toc: true
+toc_sticky: true
 ---
 
 <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="qBPKzPO" data-user="sooking87" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
