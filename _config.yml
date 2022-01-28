@@ -103,7 +103,7 @@ analytics:
 # Site Author
 author:
   name             : "Sohn SooKyoung"
-  avatar           : "/assets/image/face.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/image/profile.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "너만 좋다면, 그래 함 하자!"
   location         : "South Korea"
   email            :
