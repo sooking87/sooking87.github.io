@@ -19,7 +19,7 @@ toc_sticky: true
 
 2. HashSet을 이용해서 중복 제거하기
 
-`HashSet`은 자바 Collection 중 Set의 대표적인 클래스이다. 그렇기 때문에 HashSet은 중복된 원소를 허용하지 않으며 순서 역시 고려되지 않는다. 이 문제를 풀때 HashSet 클래스를 사용했는데 선언 하는 방법이 문자열인 경우 각괄호 안에 **String** 을 넣어주지만 int형으로 선언 할 경우, 각괄호에 **Integer** 을 넣어주었다... 왜그럴까? 각괄호 안에는 데이터 타임이 들어가는 것이 맞다. 그래서 선언 해주기 위해서는 **HashSet<데이터타입> 변수명 = new HashSet<데이터타입>();** 형식으로 한다. int형은 Integer이라고 하나보당,,,;; 또한 `HashSet` 에 요소를 넣어주기 위해서는 **.add(요소)** 를 넣어 주었다.
+`HashSet`은 자바 Collection 중 Set의 대표적인 클래스이다. 그렇기 때문에 HashSet은 중복된 원소를 허용하지 않으며 순서 역시 고려되지 않는다. 이 문제를 풀때 HashSet 클래스를 사용했는데 선언 하는 방법이 문자열인 경우 각괄호 안에 **String** 을 넣어주지만 int형으로 선언 할 경우, 각괄호에 **Integer** 을 넣어주었다... 왜그럴까? 각괄호 안에는 데이터 타임이 들어가는 것이 맞다. 그래서 선언 해주기 위해서는 **HashSet<데이터타입> 변수명 = new HashSet<데이터타입>();** 형식으로 한다. int같은 경우는 원시 자료형으로 이에 해당하는 Wrapper 클래스가 있다. ArrayList, HashSet, HashMap 등은 데이터 저장시 원시 자료형 대신 그에 해당하는 Wrapper 클래스를 사용하는 것이다. 그래서 HashSet을 사용하기 위해서는 int대신 Integer을 사용해주었던 것이다. int외의 다른 Wrapper 클래스는 원시 자료형에서 첫 글자만 대문자로 바꾸어주면 된다. 또한 `HashSet` 에 요소를 넣어주기 위해서는 **.add(요소)** 를 넣어 주었다.
 
 3. LinkedHashSet을 이용해서 중복 제거하기
 
