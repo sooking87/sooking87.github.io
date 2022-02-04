@@ -1,6 +1,6 @@
 ---
 title: "[백준 1764번] 듣보잡"
-excerpt: "[백준 1764번] 듣보##"
+excerpt: "[백준 1764번] 듣보잡"
 categories: [Backjoon Java]
 tags: [Backjoon, Java]
 toc: true
