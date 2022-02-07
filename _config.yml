@@ -292,7 +292,7 @@ defaults:
       mathjax: true
       sidebar_main: true
       show_date: true
-      future: true
+      future: BOOL
       
   # _pages
   - scope:
