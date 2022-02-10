@@ -1,6 +1,6 @@
 ---
-title: "[백준 15813] 너의 이름은 몇 점이니?"
-excerpt: "[백준 15813] 너의 이름은 몇 점이니?"
+title: "[백준 15813번] 너의 이름은 몇 점이니?"
+excerpt: "[백준 15813번] 너의 이름은 몇 점이니?"
 categories: [Backjoon Java]
 tags: [Backjoon, Java]
 toc: true
