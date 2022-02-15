@@ -21,4 +21,4 @@ toc_sticky: true
 - `HashMap<type, type>` hm : hm에 들어갈 두 값의 데이터형을 넣어준다. 그 후 `put()` 메서드를 이용하여서 요소를 추가한다. 첫 번째에 들어가는 값을 key라고 하고 두 번째에 들어가는 값을 요소라고 한다 여기서 key값만 구하기 위해서는 `keySet()` 메서드를 이용한다. keySet() 메서드에는 키 값들이 배열 형태로 출력된다. 그리고 요소를 출력하고 싶다면 `get(key)` 메서드를 이용해서 구한다. 
 
 - `Long.parseLong` vs `Long.valueOf`
-Long.parseLong은 new Long() 형으로 객체를 반환하고, Long.parseLong은 long 기본 자료형으로 반환한다. 그럼에서 서로 계산이 되는 이유는 오토 언박싱때문이다. 
+Long.parseLong은 new Long() 형으로 객체를 반환하고, Long.parseLong은 long 기본 자료형으로 반환한다. 그럼에서 서로 계산이 되는 이유는 오토 언박싱 때문이다. 
