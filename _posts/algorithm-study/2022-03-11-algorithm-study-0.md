@@ -1,7 +1,7 @@
 ---
 title: "[JAVA] empty"
 categories: [Algorithm Study]
-tags: [Algorithm Study, Java, Algotihm]
+tags: [Algorithm Study, Java, Algorithm]
 excerpt: "[JAVA] empty"
 toc: true
 toc_sticky: true
