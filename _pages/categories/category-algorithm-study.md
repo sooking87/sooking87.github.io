@@ -1,3 +1,4 @@
+---
 title: "알고리즘 개념 정리"
 layout: archive
 permalink: categories/algorithm-study
