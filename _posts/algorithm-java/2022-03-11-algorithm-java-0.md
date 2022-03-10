@@ -1,6 +1,6 @@
 ---
 title: "[JAVA/백준 000번] 제목"
-categories: [Algorithm Java]
+categories: [Algorithm Java, Backjoon Java]
 tags: [Algorithm Study, Java, Algorithm, Backjoon]
 excerpt: "[JAVA/백준 000번] 제목"
 toc: true
