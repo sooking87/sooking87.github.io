@@ -36,7 +36,7 @@
             </ul>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "Java Progamming" %}
+                    {% if category[0] == "Java Programming" %}
                         <li><a href="/categories/java-programming" class="">🔥명품 자바 ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
