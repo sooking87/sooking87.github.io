@@ -21,6 +21,8 @@ Tags -> OpsyDopsy / WEB / Backjoon / Programmers / 그 외의 언어들
 <https://kr.piliapp.com/emoji/list/>
 -> 이모티콘
 <br>
+<https://inpa.tistory.com/entry/MarkDown-%F0%9F%93%9A-Emoji-%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0?category=896668> -> 마크다운에서 이모티콘 사용하기 <br>
+
 
 ## VSCode 언어별 사용법
 - C언어 : launch.json파일과 tasks.json 파일을 해당 폴더에 저장해 준 후, ctrl + alt + n을 누르면 알아서 컴파일, 실행 다됨 -> 다시 해보니, launch.json과 tasks.json 파일 조작 없이도 그냥 ctrl + alt + n만 누르면 실행 됨
