@@ -7,11 +7,11 @@ toc: true
 toc_sticky: true
 ---
 
-:pushpin: 앞 장은 Do it Java를 통해서 숙지하였으므로 미숙하다고 생각되는 부분부터 진행하였습니다.
+📌 앞 장은 Do it Java를 통해서 숙지하였으므로 미숙하다고 생각되는 부분부터 진행하였습니다.
 
 ## ✨ 메소드에서 배열 리턴
 
-### :book: 개념
+### 📖 개념
 
 ```java
 int[] makeArray() {
@@ -22,7 +22,7 @@ int[] makeArray() {
 
 메소드에서 어떤 배열이든지 리턴하면, 배열의 공간 전체가 아니라 **배열에 대한 레퍼런스만 리턴** 된다. 배열에 대한 레퍼런스만 받기 때문에 리턴 타입을 선언할 때 배열의 크기를 쓰지 않아도 된다.
 
-### :bulb: 활용
+### 💡 활용
 
 ```java
 package chap3;
@@ -50,26 +50,26 @@ public class ReturnArray {
 결국 배열을 리턴하는 메소드는 리턴 타입만 배열로 리턴은 변수처럼 하면 되는 것을 알 수 있다. 그 이유는 배열에 대한 레퍼런스만 리턴을 하기 때문이다.
 <br>
 
-## :sparkles: main() 메소드
+## ✨ main() 메소드
 
-### :book: main() 메소드의 특징
+### 📖 main() 메소드의 특징
 
-#### :balloon: public 속성
+#### 🎈 public 속성
 
 다른 클래스에서 메소드 접근이 가능하다. 자바 프로그램이 실행을 시작할 때 JVM에 의해 호출되어야 하므로 public 속성으로 선언되어야 한다.
 
-#### :balloon: static 속성
+#### 🎈 static 속성
 
 자신을 포함하는 클래스의 객체가 생성되기 전에 JVM에 의해 호출되므로 static 속성으로 선언되어야 한다.
 
-#### :balloon: void 타입
+#### 🎈 void 타입
 
 아무 것도 리턴되지 않기 때문에 main() 메소드를 끝내기 위해서 _return;_ 문을 사용하면 안된다.
 
-#### :balloon: 문자열 배열이 매개변수로 전달
+#### 🎈 문자열 배열이 매개변수로 전달
 
 - main() 메서드도 역시 메서드이므로 매개변수 args에 값 전달이 가능하다.
-- :book: 전달 방법 :
+- 📖 전달 방법 :
 
   - vscode :
     1. 터미널을 켠다.(꼭 해당 디렉토리로 이동해야된다 ❗)
@@ -80,7 +80,7 @@ public class ReturnArray {
     3. Arguments 클릭
     4. program arguments에 args에 전달할 값을 입력한다.
 
-- :bulb: 활용
+- 💡 활용
 
 명령행 인자의 개수는 **args.length** 를 이용하여 알 수 있다. 나는 VSCode를 사용하고 있으므로 `java Calc.java 2 2.0 20.5 88.1`를 입력해 주었다.
 
@@ -105,9 +105,9 @@ public class Calc {
 
 <br>
 
-## :sparkles: 자바의 예외 처리
+## ✨ 자바의 예외 처리
 
-### :book: 예외란?
+### 📖 예외란?
 
 - 컴파일러 에러 : 문법이 맞지 않는 경우 사전에 알아서 컴파일러에서 걸러진다.
 
@@ -127,11 +127,11 @@ public class Calc {
 
 자바라는 언어는 애초에 플랫폼으로부터 독립적으로 설계어 자바 코드는 운영체제나 CPU 등 플랫폼에 상관없이 JVM만 있으면 어떤 컴퓨터에서든 동일하게 실행된다. **자바 플랫폼**이 독립적으로 실행이 가능하게 하는 것은 JVM과 바이트 코드 덕분이다. .java파일은 javac를 통해서 .class 파일이 생성되고(바이트 코드) 이 파일이 java(JVM)을 통해서 인터프리터 형식으로 실행된다.
 
-### :book: 예외 처리, try-catch-finally 문
+### 📖 예외 처리, try-catch-finally 문
 
 - 예외 처리 : 프로그램이 실행되는 도중 발생할 수 있는 예외에 대한 대응을 말한다.
 
-#### :balloon: 예외 처리 사용
+#### 🎈 예외 처리 사용
 
 ```java
 try {
@@ -159,7 +159,7 @@ catch문에서 예외 처리할 타입을 작성해야되는데, 처리하고자
 |     NumberFormatException      | 문자열이 나타내는 숫자와 일치하지 않는 타입의 숫자로 변환 시 발생 |
 |     InputMismatchException     |  입력받고자 하는 데이터 타입과 다른 타입이 입력되었을 경우 발생   |
 
-#### :bulb: 활용
+#### 💡 활용
 
 ```java
 package chap3;
@@ -191,7 +191,7 @@ java.lang.ArrayIndexOutOfBoundsException: Index 6 out of bounds for length 5
 5
 ```
 
-- :book: 다중 catch 사용법
+- 📖 다중 catch 사용법
 
 ```java
 //입력된 수 범위에서 100의 소인수 개수 세기
