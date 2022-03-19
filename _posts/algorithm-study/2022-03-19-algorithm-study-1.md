@@ -66,7 +66,8 @@ public class LinkedList<E> {
     ```java
     head.next == null;
     ```
-- 노드 2개 : 🎧 -> data | refer -> data | null -노드가 2개인 연결 리스트 판단하는 방법
+- 노드 2개 : 🎧 -> data | refer -> data | null 
+    - 노드가 2개인 연결 리스트 판단하는 방법
   ```java
   head.next.next == null;
   ```
