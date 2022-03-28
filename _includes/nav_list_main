@@ -11,11 +11,18 @@
             📂 <span>전체 </span> <span>{{sum}}</span> <span>개</span> 
       </li>
       <li>
-                {% for category in site.categories %}
-                    {% if category[0] == "Project" %}
-                        <a href="/categories/project" class=""><span class="nav__sub-title">PROJECT ({{category[1].size}})</span></a>
-                    {% endif %}
-                {% endfor %}
+          {% for category in site.categories %}
+              {% if category[0] == "Project" %}
+                  <a href="/categories/project" class=""><span class="nav__sub-title">PROJECT ({{category[1].size}})</span></a>
+              {% endif %}
+          {% endfor %}
+      <li>
+      <li>
+          {% for category in site.categories %}
+              {% if category[0] == "Preparation" %}
+                  <a href="/categories/preparation" class=""><span class="nav__sub-title">PREPARATION ({{category[1].size}})</span></a>
+              {% endif %}
+          {% endfor %}
       <li>
         <!--span 태그로 카테고리들을 크게 분류 ex) C/C++/C#-->
          <span class="nav__sub-title">STUDY</span>
