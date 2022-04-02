@@ -171,3 +171,174 @@ public void dump() {
     }
 }
 ```
+
+## ➕연결 리스트로 stack 구현
+
+### 📖 인터페이스
+
+```java
+interface DStack {
+    boolean isEmpty();
+    boolean isFull();
+    void push(Object data);
+    void pop();
+    void peek();
+    void clear();
+}
+```
+
+### 📍 생성자
+
+- 노드
+
+  ```java
+  class Node {
+      Object data;
+      Node next;
+
+      public Node() {
+          this.data = null;
+          this.next = null;
+      }
+
+      public Node(Object data) {
+          this.data = data;
+          this.next = null;
+      }
+
+      public Object getData() {
+          return this.data;
+      }
+  }
+  ```
+
+- 스택
+
+  ```java
+  public class ListStack implements DStack {
+  Node head;
+  Node top;
+  int stackSize; // 배열의 개수
+
+  public ListStack(int size) {
+      this.head = null;
+      this.top = null;
+      stackSize = size;
+  }
+  ```
+
+  - head : 머리 노드
+  - top : 마지막 노드
+  - stackSize : 스택의 노드 개수
+
+### 📍 isEmpty()
+
+```java
+public boolean isEmpty() {
+    return null == top;
+}
+```
+
+### 📍 isFull()
+
+```java
+public boolean isFull() {
+    if (isEmpty()) {
+        return false;
+    } else {
+        int nodeCount = 0;
+        Node ptr = top;
+        while (ptr.next != null) {
+            ++nodeCount;
+            ptr = ptr.next;
+        }
+        return this.stackSize - 1 == nodeCount;
+    }
+}
+```
+
+빈 스택이 아니라면 노드 개수를 센다. <br>
+❓ 현재 노드의 개수를 세서 stackSize == max로 조건문을 쓸 수는 없을까?
+
+### 📍 push()
+
+```java
+public void push(Object data) {
+    Node node = new Node();
+    if (isFull()) {
+        System.out.println("Stack is Full");
+        return;
+    } else if (isEmpty()) {
+        this.head = node;
+        this.top = this.head;
+    } else {
+        Node ptr = top;
+        while (ptr.next != null) {
+            ptr = ptr.next;
+        }
+        ptr.next = node;
+    }
+}
+```
+
+빈 스택이었다면 head와 top을 모두 수정해주어야 한다. 하지만 빈 스택이 아니라면 마지막 노드에 링크를 연결한다. <br>
+❓ top이 마지막 노드라면 `top.next = node;` 로 해주면 안되나?
+
+### 📍 pop()
+
+```java
+public void pop() {
+    if (isEmpty()) {
+        System.out.println("Stack is Empty");
+        return;
+    }
+    // 스택에 노드가 한 개 남았을 경우
+    else if (top.next == null) {
+        top = null;
+        head = null;
+    } else {
+        Node ptr = top.next;
+        Node pre = top;
+        while (ptr.next != null) {
+            pre = ptr;
+            ptr = ptr.next;
+        }
+        pre.next = null;
+    }
+}
+```
+
+❓ head = null ,,,?
+❗ 굳이 while문을 돌리면서 마지막 노드까지 가는 이유는 마지막 노드의 전 노드를 알기 위해서다. 그래야 마지막 노드의 전 노드를 null과 연결시키지
+
+### 📍 peek()
+
+```java
+public void peek() {
+    if (isEmpty()) {
+        System.out.println("Stack is Empty");
+        return;
+    } else {
+        Node ptr = top;
+        while (ptr.next != null) {
+            ptr = ptr.next;
+        }
+        System.out.println(ptr.getData());
+    }
+}
+```
+
+❓ 마지막 노드가 top이라면 굳이? 그냥 peek.data로 하면 되는 거 아닌가? 그리고 왜 getData가 필요하지?
+
+### 📍 clear()
+
+```java
+public void clear() {
+    if (isEmpty()) {
+        System.out.println("Stack is Empty");
+        return;
+    }
+    head = null;
+    top = null;
+}
+```
