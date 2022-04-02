@@ -116,3 +116,6 @@ public class backjoon_10845 {
   - poll : queue의 첫 번째 값을 반환, 제거
   - remove : queue의 첫 번째 값을 제거
   - clear : 초기화
+- isEmpty()
+- size()
+- peek()
