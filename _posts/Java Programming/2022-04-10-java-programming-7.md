@@ -13,29 +13,7 @@ toc_sticky: true
 
 모든 GUI(AWT, Swing)은 _Componet_ 클래스를 반드시 상속받으며, 스윙 컴포넌트의 클래스 명은 모두 J로 시작한다. AWT 컴포넌트는 Button, Label 등과 같이 Component를 직접 상속받는 것들과 Panel, Frame 등과 같이 Container를 상속받는 것이 있다. JApplet, JFrame, JDialog를 제외한 모든 스윙 컴포넌트들은 JComponent를 상속받는다.
 <br>
-
-- Component Class
-  - Container Class
-    - Windows Class
-      - Frame Class
-      - Dialog Class
-    - Panel Class
-    - ScrollPane Class
-  - Button Class
-  - Canvas Class
-  - Checkbox Class
-  - Choice Class
-  - Label Class
-  - List Class
-  - Scollbar Class
-  - TextComponent Class
-    - TextArea
-    - TextField
-- MenuComponent Class
-  - MenuItem Class
-    - CheckboxMenuItemt Class
-    - Menu Class
-  - Menubar Class
+![계층구조](https://user-images.githubusercontent.com/96654391/162611194-6a094bfe-4afb-4cdb-9236-1c43c3edf841.png)
 
 ### 📍 컨테이너와 컴포넌트
 
@@ -54,6 +32,9 @@ toc_sticky: true
 
 최상위 컨테이너 :
 다른 컨테이너에 포함되지 않고도 화면에 출력되며 독립적으로 존재 가능한 컨테이너
+
+<img src="https://user-images.githubusercontent.com/96654391/162611251-a7efe6b9-4c5f-436f-bbda-c8fadd863904.png" width=300 height=340>
+<img src="https://user-images.githubusercontent.com/96654391/162611253-e6b8d92c-9717-4b54-a347-b29e54f15ec6.png" width = 300>
 
 - 스스로 화면에 자신을 출력하는 컨테이너 => JFrame, JDialog, JApplet
   <br>
@@ -171,4 +152,4 @@ Container.setLayout(new BorderLayout);
 
 _void setSize(int width, int height)_ <br>
 _void setLovation(int x, int y)_ <br>
-_void setBounds(int x, int y, int width, int height)_ <br> 
+_void setBounds(int x, int y, int width, int height)_ <br>
