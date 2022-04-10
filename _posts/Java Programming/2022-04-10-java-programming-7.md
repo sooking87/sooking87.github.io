@@ -33,7 +33,7 @@ toc_sticky: true
 최상위 컨테이너 :
 다른 컨테이너에 포함되지 않고도 화면에 출력되며 독립적으로 존재 가능한 컨테이너
 
-<img src="https://user-images.githubusercontent.com/96654391/162611251-a7efe6b9-4c5f-436f-bbda-c8fadd863904.png" width=300 height=340>
+<img src="https://user-images.githubusercontent.com/96654391/162611251-a7efe6b9-4c5f-436f-bbda-c8fadd863904.png" width=350>
 <img src="https://user-images.githubusercontent.com/96654391/162611253-e6b8d92c-9717-4b54-a347-b29e54f15ec6.png" width = 300>
 
 - 스스로 화면에 자신을 출력하는 컨테이너 => JFrame, JDialog, JApplet
