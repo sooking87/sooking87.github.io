@@ -171,4 +171,4 @@ Container.setLayout(new BorderLayout);
 
 _void setSize(int width, int height)_ <br>
 _void setLovation(int x, int y)_ <br>
-_void setBounds(int x, int y, int width, int height)_ <br>
+_void setBounds(int x, int y, int width, int height)_ <br> 
