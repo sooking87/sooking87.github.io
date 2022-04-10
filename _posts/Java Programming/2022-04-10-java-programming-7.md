@@ -146,10 +146,20 @@ Container.setLayout(new BorderLayout);
 - 컨테이너의 배치관리자 제거 <br>
   `container.setLayout(null);`
 
-- 📌 컴포넌트의 절대 위치와 절대 크기 설정 <br>
+- 컴포넌트의 절대 위치와 절대 크기 설정 <br>
 
 배치관리자를 제거하게 되면 모든 컴포넌트들의 값이 0이 되기 때문에 절대 위치와 절대 크기의 설정이 필요하다. <br>
 
 _void setSize(int width, int height)_ <br>
 _void setLovation(int x, int y)_ <br>
 _void setBounds(int x, int y, int width, int height)_ <br>
+
+### 📍 CBD
+
+_Component Based Develop_ 또는 _Class Based Develop_ 의 의미로, 컴포넌트를 기반으로 개발되는 프로그램을 말한다.
+이 개념이 AWT를 통해서 명확히 알 수 있었다.
+AWT에서 구현하고 있는 **_클래스_** 들을 사용하여서 **_컴포넌트_** 를 만들고, 컴포넌트들이 모여서 **_컨테이너_**를 만들고 컨테이너들이 모여서 하나의 **_최상위 컨테이너_**를 만드는 것을 알 수 있습니다.
+
+### 📍 ECA Rule
+
+Event-Condition-Action Rule의 의미로 **_Event_** 가 발생하면 거기서 발생하는 메시지를 통해서 메소드 이름, 변수 종류, 변수 타입을 분석하여 **_실행할 코드를 선택(Condition)_** 하여 이에 맞는 메소드를 **_구동(Action)_** 시켜주는 것을 말합니다. ECA Rule의 목적은 Method Invocation 입니다.
