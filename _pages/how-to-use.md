@@ -10,11 +10,21 @@ sidebar_main: true
 
 Category -> PREPARATION / STUDY / WEB / ALGORITHM / BACKJOON / PROGRAMMERS / OpsyDopsy
   - PREPARATION : 프로젝트 준비하면서 찾아본 자료(categories: [프젝 제목] / tags: [분야, 언어]
-  - STUDY(WEB 제외 프로그래밍 언어 공부): ***Do it Java*** (categories: [Do it Java] / tags: [Java]) / ***Algorithm*** (categories: [Algorithm Study] / tags: [Algorithm Study, Java, Algorithm]) / ***혼공머*** (categories: [Ai Study] / tags: [Ai Study, Python]) / ***명품 자바*** (categories: [Java Programming] / tags: [Java Programming, Java])
-  - WEB(WEB관련 언어 공부): ***생활 코딩*** (categories:[생활 코딩] / tags: [생활 코딩, WEB]) / ***React*** (categories: [React] / tags: [React, WEB])
-  - ALGORITHM: 알고리즘 관련 문제 풀이 업로드 
-  - Backjoon: ***Java*** (categories:[Backjoon Java] / tags: [Backjoon, Java]) / ***JavaScript*** (categories: [Backjoon JavaScript] / tags: [Backjoon, JavaScript])
-  - Programmers: ***Java*** (categories:[Programmers Java] / tags: [Programmers, Java]) / 
+  - STUDY(WEB 제외 프로그래밍 언어 공부)
+      - ***Do it Java*** (categories: [Do it Java] / tags: [Java]) 
+      - ***Algorithm*** (categories: [Algorithm Study] / tags: [Algorithm Study, Java, Algorithm]) 
+      - ***혼공머*** (categories: [Ai Study] / tags: [Ai Study, Python]) 
+      - ***명품 자바*** (categories: [Java Programming] / tags: [Java Programming, Java])
+  - WEB(WEB관련 언어 공부)
+      - ***생활 코딩*** (categories:[생활 코딩] / tags: [생활 코딩, WEB]) 
+      - ***React*** (categories: [React] / tags: [React, WEB])
+  - ALGORITHM(알고리즘 관련 문제 풀이 업로드)
+      - ***Java*** (categories: [Algorithm Java, Backjoon Java] / tags: [Algorithm Study, Java, Algorithm, Backjoon])
+  - Backjoon
+      - ***Java*** (categories:[Backjoon Java] / tags: [Backjoon, Java])
+      - ***JavaScript*** (categories: [Backjoon JavaScript] / tags: [Backjoon, JavaScript])
+  - Programmers
+      - ***Java*** (categories:[Programmers Java] / tags: [Programmers, Java]) / 
   - OpsyDopsy: ***개같은 코딩*** (categories: [OpsyDopsy])
  
 Tags -> OpsyDopsy / WEB / Backjoon / Programmers / 그 외의 언어들
