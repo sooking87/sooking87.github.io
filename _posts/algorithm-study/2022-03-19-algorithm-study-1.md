@@ -107,6 +107,11 @@ public E search(E obj, Comparator<? super E> c) {
 
 #### 📍 addFirst 메소드
 
+📌add 메소드는 꼭 주의해야되는 순서가 있다. <br>
+1. newNode의 데이터필드 삽입
+2. newNode의 다음 노드 링크를 링크 필드에 연결
+3. 추가했을 때, 그 전 노드의 링크 필드를 추가 노드에 연결
+
 ```java
 // addFirst 메소드
 public void addFirst(E obj) {
@@ -145,6 +150,11 @@ public void addLast(E obj) {
 addFirst 메소드와 원리는 비슷하다. addFirst 메소드 같은 경우는 굳이 마지막의 노드를 찾을 필요 없이 그냥 첫 번째 노드의 참조값을 뽑아서 추가할 값의 다음 주소값으로 넣어주면 된다. 하지만 addLast의 값은 마지막 노드를 찾아야 되므로 else문을 수행하면서 마지막 노드 다음에 Node<E> 생성자를 추가해준다.
 
 #### 📍 removeFirst 메소드
+
+📌remove 메소드는 꼭 주의해야되는 순서가 있다. <br>
+1. Node를 삭제하고 싶어 -> 얘를 removeNode라고 하자
+2. removeNode의 선행 노드 찾기
+3. removeNode의 전 노드와 다음 노드를 연결 <br>
 
 removeFirst 메소드의 경우에는 노드가 0개일때를 제외하고 실행해야 된다.
 
