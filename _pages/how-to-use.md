@@ -36,8 +36,89 @@ Tags -> OpsyDopsy / WEB / Backjoon / Programmers / 그 외의 언어들
 <hr>
 
 ## VSCode 언어별 사용법
-- C언어 : launch.json파일과 tasks.json 파일을 해당 폴더에 저장해 준 후, ctrl + alt + n을 누르면 알아서 컴파일, 실행 다됨 -> 다시 해보니, launch.json과 tasks.json 파일 조작 없이도 그냥 ctrl + alt + n만 누르면 실행 됨
+
 - Java : ctrl + shift + p -> create java project를 누르면 어디 폴더에 넣을 것인지를 선택한 후, 패키지 이름을 설정하면 됨. 그 후, 파일의 제목은 클래스 이름이 되고, 그 후는 이클립스랑 유사
 - Java Script : <https://velog.io/@eundada064/%EB%B0%B1%EC%A4%80-JavaScript-VSCode-%ED%99%98%EA%B2%BD-%EC%84%B8%ED%8C%85>
 - html/css : 우측 하단에 go live를 누르면 서버를 통해서 웹을 열 수 있고, ctrl + b를 누르면 비스코드에서 바로 개인 경로를 통해서 웹을 열 수 있다. 
 - 아마 대부분의 언어가 ctrl + alt + n을 누르면 다른 json파일 조작 없이도 실행이 가능한 것 같다. 
+- C언어 : launch.json파일과 tasks.json 파일을 해당 폴더에 저장해 준 후, ctrl + alt + n을 누르면 알아서 컴파일, 실행 다됨 -> 다시 해보니, launch.json과 tasks.json 파일 조작 없이도 그냥 ctrl + alt + n만 누르면 실행 됨
+<br>
+
+나같은 경우는 MingGW가 다운받아져 있는 상황이라서 이 링크 참고
+<https://webnautes.tistory.com/1158>
+```c
+//task.json
+{
+    "version": "2.0.0",
+    "runner": "terminal",
+    "type": "shell",
+    "echoCommand": true,
+    "presentation": {
+        "reveal": "always"
+    },
+    "tasks": [ //C++ 컴파일 
+        { 
+            "label": "save and compile for C++", 
+            "command": "g++", 
+            "args": [ "${file}", "-o", "${fileDirname}/${fileBasenameNoExtension}" ], 
+            "group": "build", 
+            //컴파일시 에러를 편집기에 반영 
+            //참고: https://code.visualstudio.com/docs/editor/tasks#_defining-a-problem-matcher 
+            
+            "problemMatcher": { 
+                "fileLocation": [ 
+                    "relative", 
+                    "${workspaceRoot}" 
+                ], 
+                "pattern": { 
+                    // The regular expression. 
+                    //Example to match: helloWorld.c:5:3: warning: implicit declaration of function 'prinft' 
+                    
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning error):\\s+(.*)$", 
+                    "file": 1, 
+                    "line": 2, 
+                    "column": 3, 
+                    "severity": 4, 
+                    "message": 5 
+                } 
+            }
+        }, //C 컴파일 
+        { 
+            "label": "save and compile for C", 
+            "command": "gcc", 
+            "args": [ "${file}", "-o", "${fileDirname}/${fileBasenameNoExtension}" ], 
+            "group": "build", 
+            //컴파일시 에러를 편집기에 반영 
+            //참고: https://code.visualstudio.com/docs/editor/tasks#_defining-a-problem-matcher 
+            
+            "problemMatcher": { 
+                "fileLocation": [ 
+                    "relative", 
+                    "${workspaceRoot}" 
+                ], 
+                "pattern": { 
+                    // The regular expression. 
+                    //Example to match: helloWorld.c:5:3: warning: implicit declaration of function 'prinft' 
+                    
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning error):\\s+(.*)$", 
+                    "file": 1, 
+                    "line": 2, 
+                    "column": 3, 
+                    "severity": 4, 
+                    "message": 5 
+                } 
+            } 
+        }, 
+        // // 바이너리 실행(Windows)
+        { 
+            "label": "execute", 
+            "command": "cmd", 
+            "group": "test", 
+            "args": [ 
+                "/C", "${fileDirname}\\${fileBasenameNoExtension}" 
+            ] 
+        } 
+    ] 
+}
+```
+
