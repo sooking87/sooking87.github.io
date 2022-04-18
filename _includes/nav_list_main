@@ -8,7 +8,7 @@
   <ul class="nav__items" id="category_tag_menu">
       <!--전체 글 수-->
       <li>
-        🚀<span>전체 </span> <span>{{sum}}</span> <span>개</span> 
+        🚀 <span>전체 </span> <span>{{sum}}</span> <span>개</span> 
       </li>
       <li>
           {% for category in site.categories %}
