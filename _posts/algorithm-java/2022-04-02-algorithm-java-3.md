@@ -73,11 +73,11 @@ toc_sticky: true
 NO
 ```
 
-## 힌트
+## 📌 힌트
 
 1부터 n까지에 수에 대해 차례로 [push, push, push, push, pop, pop, push, push, pop, push, push, pop, pop, pop, pop, pop] 연산을 수행하면 수열 [4, 3, 6, 8, 7, 5, 2, 1]을 얻을 수 있다
 
-## 문제 풀이
+## 📌 문제 풀이
 
 ```java
 package STACK;
@@ -168,6 +168,6 @@ public class backjoon_1874 {
 }
 ```
 
-## 풀이
+## 📌 풀이
 
 pop되는 값이 입력받은 순서대로 되야되는 문제이다. +, -로 출력되는 값은 이해를 했지만, NO가 출력되는 규칙이 이해가 안됨.. 나중에 다시 볼 것 !
