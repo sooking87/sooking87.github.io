@@ -40,7 +40,7 @@ j번 째 요소부터 비교를 통해서 i번째 요소까지 비교를 한다.
 ```java
 // 맨 앞 원소부터 정렬하는 방법
 for (int i = 0; i < n - 1; i++) {
-    for (int j = i; j < n - 1; j++) {
+    for (int j = 0; j < n - i - 1; j++) {
         if (a[j] > a[j + 1]) {
             swap(a, j, j + 1);
         }
