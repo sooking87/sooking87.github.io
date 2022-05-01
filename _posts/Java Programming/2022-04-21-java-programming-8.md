@@ -202,5 +202,6 @@ public class AnonymousClassListener {
         new AnonymousClassListener();
     }
 }
-
 ```
+
+이벤트 리스너에 맞는 이벤트 객체와 이벤트 소스가 있다.
