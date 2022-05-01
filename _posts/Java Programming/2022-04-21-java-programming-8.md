@@ -67,3 +67,140 @@ toc_sticky: true
 1. 이벤트와 이벤트 리스너 선택
 2. 이벤트 리스너 클래스 작성 -> 독립된 클래스 or 내부 클래스 or 익명 클래스
 3. 이벤트 리스너 등록
+
+### 📍 독립된 클래스로 이벤트 리스너 작성
+
+```java
+//독립 클래스로 Action 이벤트 리스너 작성
+package Chap10;
+
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+
+public class IndepClassListener extends JFrame {
+    public IndepClassListener() {
+        // 컨테이너 설정
+        setTitle("Action Event Listener Exam");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Container c = getContentPane();
+        c.setLayout(new FlowLayout());
+
+        // 버튼 생성, 컨테이너에 붙히기
+        JButton btn = new JButton("Action");
+        btn.addActionListener(new MyActionListener()); // 버튼에 actionListener를 달기
+        c.add(btn);
+
+        setSize(350, 150);
+        setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new IndepClassListener();
+    }
+}
+
+// 독립된 클래스로 이벤트 리스너 작성
+class MyActionListener implements ActionListener {
+    public void actionPerformed(ActionEvent e) {
+        JButton b = (JButton) e.getSource(); // 이벤트 소스를 알아내기
+        if (b.getText().equals("Action")) { // 버튼의 문자열이 Action 인지를 비교
+            b.setText("액션"); // 버튼의 문자열을 "액션"으로 변경
+        } else {
+            b.setText("Action");
+        }
+    }
+}
+```
+
+### 📍 내부 클래스로 이벤트 리스너 작성
+
+```java
+package Chap10;
+
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+
+public class InnerClassListener extends JFrame {
+    public InnerClassListener() {
+        // 컨테이너 설정
+        setTitle("Action Event Listener Exam");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Container c = getContentPane();
+        c.setLayout(new FlowLayout());
+
+        // 버튼 생성, 컨테이너에 붙히기
+        JButton btn = new JButton("Action");
+        btn.addActionListener(new MyActionListener()); // 버튼에 actionListener를 달기
+        c.add(btn);
+
+        setSize(350, 150);
+        setVisible(true);
+    }
+
+    // 내부 클래스로 Action 리스너 작성
+    public class MyActionListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            JButton b = (JButton) e.getSource();
+            if (b.getText().equals("Action")) {
+                b.setText("액션");
+            } else {
+                b.setText("Action");
+            }
+
+            InnerClassListener.this.setTitle(b.getText()); // 프레임의 타이틀에 버튼 문자열을 출력한다.
+        }
+    }
+
+    public static void main(String[] args) {
+        new InnerClassListener();
+    }
+}
+```
+
+### 📍 익명 클래스로 이벤트 리스너 작성
+
+```java
+package Chap10;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class AnonymousClassListener {
+    JFrame jf;
+    Container c;
+    JButton btn;
+
+    public AnonymousClassListener() {
+        jf = new JFrame("Write Action Event Listener");
+        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        c = jf.getContentPane();
+        c.setLayout(new FlowLayout());
+        btn = new JButton("Action");
+        c.add(btn);
+
+        //익명 클래스 작성
+        btn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JButton b = (JButton) e.getSource();
+                if (b.getText().equals("Action"))
+                    b.setText("Ready");
+                else
+                    b.setText("Action");
+
+                jf.setTitle(b.getText());
+            }
+        });
+
+        jf.setSize(350, 150);
+        jf.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new AnonymousClassListener();
+    }
+}
+
+```
