@@ -205,3 +205,62 @@ public class AnonymousClassListener {
 ```
 
 이벤트 리스너에 맞는 이벤트 객체와 이벤트 소스가 있다.
+
+## 🔮 어댑터 클래스
+
+헐,,,,,,,,,대박 !! 리스너 인터페이스를 상속받아 이벤트 리스너를 구현할 때, 리스너 인터페이스의 메소드를 모두 구현해야되는 부담이 있다. -> 책말내말,,,,ㄹㅇ,,,, 여튼 이런 부담을 줄여주기 위해서 제공하는 클래스가 **_어댑터 클래스_** 이다.
+|리스너 인터페이스|대응하는 어댑터 클래스|
+|:--:|:--:|
+|ActionListener|없음|
+|ItemListener|없음|
+|KeyListener|KeyAdapter|
+|MouseListener|MouseAdapter|
+|MouseMotionListener|MouseMotionAdaptoer or MouseAdapter|
+|FocuseListener|FocusAdapter|
+|WindowListener|WindowAdapter|
+|AdjustmentListener|없음|
+|ComponentListener|ComponentAdapter|
+ContainerListener|ContainerAdapter|
+<br>
+
+💡 예시
+
+```java
+package Chap10;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class MouseAdapterEx extends JFrame {
+    private JLabel la = new JLabel("Hello");
+
+    public MouseAdapterEx() {
+        setTitle("Mouse Event Ex");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Container c = getContentPane();
+        c.addMouseListener(new MyMouseAdapter()); // 컨테이너팬에 Mouse 이벤트 리스너 달기
+
+        c.setLayout(null);
+        la.setSize(50, 20);
+        la.setLocation(30, 30);
+        c.add(la);
+
+        setSize(250, 250);
+        setVisible(true);
+    }
+
+    class MyMouseAdapter extends MouseAdapter {
+
+        public void mousePressed(MouseEvent e) {
+            int x = e.getX();
+            int y = e.getY();
+            la.setLocation(x, y);
+        }
+    }
+
+    public static void main(String[] args) {
+        new MouseAdapterEx();
+    }
+}
+```
