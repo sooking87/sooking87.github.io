@@ -277,6 +277,6 @@ public class UnrecursiveQuickSort {
 퀵 정렬이 왜 빠른가? <br>
 요소의 개수가 1이 될 때까지 쪼개면서 정렬을 하기 때문 <br>
 
-- 시간 복잡도 : O(n\*log n), 최대 O(n<sup>2</sup>)
+- 시간 복잡도 : O($n*log n$), 최대 O($n^2$)
 
 ## 🔮 정렬 정리
