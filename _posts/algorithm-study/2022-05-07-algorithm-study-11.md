@@ -153,6 +153,11 @@ if (pl < right)
 
 ### 📍 비재귀적 퀵 정렬
 
+재귀적 퀵 정렬에서 매개 변수로 전달했던 left와 right를 비재귀적 퀵 정렬에서는 lStack과 rStack에 하나씩 넣을 예정
+
+![KakaoTalk_20220508_011728164](https://user-images.githubusercontent.com/96654391/167262919-48ba84f0-82b1-4cc2-82e9-c1e8bbc88f62.jpg) <br>
+<small>사진이 구리지만,,,딱 원하는 사진을 못찾았으므로,,,😢</small>
+
 chap 04 stack에서의 코드 재사용 ⬇️
 
 ```java
