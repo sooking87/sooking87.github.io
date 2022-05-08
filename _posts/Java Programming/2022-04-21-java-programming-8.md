@@ -209,18 +209,20 @@ public class AnonymousClassListener {
 ## 🔮 어댑터 클래스
 
 헐,,,,,,,,,대박 !! 리스너 인터페이스를 상속받아 이벤트 리스너를 구현할 때, 리스너 인터페이스의 메소드를 모두 구현해야되는 부담이 있다. -> 책말내말,,,,ㄹㅇ,,,, 여튼 이런 부담을 줄여주기 위해서 제공하는 클래스가 **_어댑터 클래스_** 이다.
-|리스너 인터페이스|대응하는 어댑터 클래스|
-|:--:|:--:|
-|ActionListener|없음|
-|ItemListener|없음|
-|KeyListener|KeyAdapter|
-|MouseListener|MouseAdapter|
-|MouseMotionListener|MouseMotionAdaptoer or MouseAdapter|
-|FocuseListener|FocusAdapter|
-|WindowListener|WindowAdapter|
-|AdjustmentListener|없음|
-|ComponentListener|ComponentAdapter|
-ContainerListener|ContainerAdapter|
+
+|  리스너 인터페이스  |       대응하는 어댑터 클래스        |
+| :-----------------: | :---------------------------------: |
+|   ActionListener    |                없음                 |
+|    ItemListener     |                없음                 |
+|     KeyListener     |             KeyAdapter              |
+|    MouseListener    |            MouseAdapter             |
+| MouseMotionListener | MouseMotionAdaptoer or MouseAdapter |
+|   FocuseListener    |            FocusAdapter             |
+|   WindowListener    |            WindowAdapter            |
+| AdjustmentListener  |                없음                 |
+|  ComponentListener  |          ComponentAdapter           |
+|  ContainerListener  |          ContainerAdapter           |
+
 <br>
 
 💡 예시
