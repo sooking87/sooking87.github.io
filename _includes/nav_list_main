@@ -24,6 +24,14 @@
               {% endif %}
           {% endfor %}
       <li>
+      <span class="nav__sub-title">TEMP</span>
+        <ul>
+            {% for category in site.categories %}
+                {% if category[0] == "Android-Studio" %}
+                    <li><a href="/categories/android-studio" class="">🧾창안앱 ({{category[1].size}})</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
         <!--span 태그로 카테고리들을 크게 분류 ex) C/C++/C#-->
          <span class="nav__sub-title">STUDY</span>
             <ul>
