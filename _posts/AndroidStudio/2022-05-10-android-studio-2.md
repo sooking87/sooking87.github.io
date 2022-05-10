@@ -1,6 +1,6 @@
 ---
-title: "레이아웃 익히기"
-excerpt: "레이아웃 익히기"
+title: "Linear 레이아웃 / Relative 레이아웃"
+excerpt: "Linear 레이아웃 / Relative 레이아웃"
 categories: [Android Studio]
 tags: [Android Studio, Java]
 toc: true
