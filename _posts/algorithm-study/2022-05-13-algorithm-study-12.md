@@ -1,6 +1,6 @@
 ---
 title: "[C] 헤더 노드를 가진 연결 리스트 / 이중 연결 리스트"
-excerpt: "헤더 노드를 가진 연결 리스트 / 이중 연결 리스트"
+excerpt: "[C] 헤더 노드를 가진 연결 리스트 / 이중 연결 리스트"
 categories: [Algorithm Study]
 tags: [Algorithm Study, C, Algorithm]
 toc: true
