@@ -86,6 +86,13 @@
                     {% endif %}
                 {% endfor %}
             </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Interactive Web" %}
+                        <li><a href="/categories/interactive-web" class="">🔥Interactive Web ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
 
         <!--ALGORITHM-->
          <span class="nav__sub-title">ALGORITHM</span>
