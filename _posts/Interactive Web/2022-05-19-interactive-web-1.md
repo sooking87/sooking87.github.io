@@ -34,20 +34,20 @@ toc_sticky: true
 
 <br>
 
-```CSS
+```html
 <style>
-    .box_container {
-        display: flex;
-    }
-    .box {
-        width: 100px;
-        height: 100px;
-        border: 2px solid black;
-        background: rgba(255, 255, 0, 0.7);
-    }
-    .box:hover {
-        transform: scale(2) rotate(45deg);
-    }
+  .box_container {
+    display: flex;
+  }
+  .box {
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+    background: rgba(255, 255, 0, 0.7);
+  }
+  .box:hover {
+    transform: scale(2) rotate(45deg);
+  }
 </style>
 ```
 
