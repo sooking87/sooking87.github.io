@@ -1,6 +1,6 @@
 ---
-title: "[Section 1] Transform / Transition / Animation"
-excerpt: "[Section 1] Transform / Transition / Animation"
+title: "[Section 01] Transform / Transition / Animation"
+excerpt: "[Section 01] Transform / Transition / Animation"
 categories: [Interactive Web]
 tags: [Interactive Web, WEB]
 toc: true
