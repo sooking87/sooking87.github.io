@@ -254,7 +254,7 @@ transition 같은 경우는 전환 / 애니메이션
 
 이렇게 생김,,, 여튼 이거를 backgournd에 넣어 -> no-repeat에 -> 0 0 위치에서 시작 -> 크기를 auto 150px 만큼 잘라서 사용 <br>
 
-그리고 애니메이션을 만들어서 `background-position: -2550px 0;` 로 애니메이션이 infinite되도록 만들어줌 -> 근데 왜 -2550px인지는 모르겠다.
+그리고 애니메이션을 만들어서 `background-position: -2550px 0;` 로 애니메이션이 infinite되도록 만들어줌 -> 근데 왜 -2550px인지는 모르겠다. -> 사진을 잘보면 시작 부분부터 거꾸로 진행이 되어야 애니메이션처럼 진행됨
 
 <br> <br>
 
