@@ -282,3 +282,164 @@ public class MainActivity extends AppCompatActivity {
 <img src="https://user-images.githubusercontent.com/96654391/169580145-ac8165bc-84e1-4a18-bfc5-e06dacc7ac86.png" width="300">
 
 <img src="https://user-images.githubusercontent.com/96654391/169580150-5ef36a87-4e72-435b-ba76-57c42f483dba.png" width="300">
+
+## 웹뷰 과제 -> title에 로고 띄우기
+
+-> xml
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/edtUrl1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="URL을 입력하세요."
+            android:singleLine="true"></EditText>
+
+        <Button
+            android:id="@+id/btnGo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이동"></Button>
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이전"></Button>
+    </LinearLayout>
+
+    <WebView
+        android:id="@+id/webView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"></WebView>
+
+</LinearLayout>
+```
+
+-> Manifest.xml
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.cookandroid.project6_2">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/emo_im_laughing"
+        android:label="@string/app_name"
+        android:logo="@drawable/web"
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".MainActivity"
+            android:label="간단 웹브라우저"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
+```
+
+이미지를 res > drawable에 넣어주고 java 코드에서 2줄 추가 필요(`getSupportActionBar().setDisplayShowHomeEnabled(true);` /
+`getSupportActionBar().setIcon(R.drawable.web);`)
+-> 밑에 참고 <br>
+
+-> java
+
+```java
+package com.cookandroid.project6_2;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.Button;
+import android.widget.EditText;
+
+public class MainActivity extends AppCompatActivity {
+
+    EditText edtUrl;
+    Button btnGo, btnBack;
+    WebView web;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.web);
+
+
+        edtUrl = (EditText) findViewById(R.id.edtUrl1);
+        btnGo = (Button) findViewById(R.id.btnGo);
+        btnBack = (Button) findViewById(R.id.btnBack);
+        web = (WebView) findViewById(R.id.webView1);
+
+        // 클릭시 새창 안뜨게 해줌(현재 webView 부분에 화면이 뜸
+        web.setWebViewClient((new CookWebViewClient()));
+
+        // 세부 세팅 등록
+        WebSettings webSet = web.getSettings();
+        // 화면 확대 축소 허용 여부 버튼
+        webSet.setBuiltInZoomControls(true);
+        // 자바 스크립트 허용 여부
+        webSet.setJavaScriptEnabled(true);
+
+        btnGo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                web.loadUrl(edtUrl.getText().toString());
+            }
+        });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                web.goBack();
+            }
+        });
+    }
+
+    class CookWebViewClient extends WebViewClient {
+
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            return super.shouldOverrideUrlLoading(view, url);
+        }
+
+    }
+}
+```
+
+### 실행 화면
+
+<img src="https://user-images.githubusercontent.com/96654391/169992362-d9220922-954f-4516-ba14-2e98d741b7f3.png" width="300">
+
+<img src="https://user-images.githubusercontent.com/96654391/169992367-2b286f20-88dc-4497-890c-ad77ffdb9501.png" width="300">
+
+<img src="https://user-images.githubusercontent.com/96654391/169992377-f00b8ebb-5fec-4ed9-9ca3-629d95e04fed.png" width="300">
+
+<img src="https://user-images.githubusercontent.com/96654391/169992399-e2473eaf-3e7f-4bf2-ac42-59f8d1a044cb.png" width="300">
