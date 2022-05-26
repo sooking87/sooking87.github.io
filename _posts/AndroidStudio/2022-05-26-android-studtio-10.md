@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
 결과 <br>
 
-<img src="https://user-images.githubusercontent.com/96654391/170443497-63d12cd8-9386-4b5f-a1d3-fb34e6d620d6.png" width="300">
+<img src="https://user-images.githubusercontent.com/96654391/170443497-63d12cd8-9386-4b5f-a1d3-fb34e6d620d6.png" >
 
 <br>
 
@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
 
 대화 상자 출력창은 위와 동일 위 대화 상자에서 확인을 눌렀을 때, 다음과 같이 나옴 <br>
 
-<img src="https://user-images.githubusercontent.com/96654391/170444314-ec66554a-822e-4e52-8e14-faa1778e9b3f.png" width="300">
+<img src="https://user-images.githubusercontent.com/96654391/170444314-ec66554a-822e-4e52-8e14-faa1778e9b3f.png">
 
 ### 목록 대화 상자 예제
 
@@ -193,8 +193,8 @@ public class MainActivity extends AppCompatActivity {
 
 결과 <br>
 
-<img src="https://user-images.githubusercontent.com/96654391/170445914-571bd8c1-80c8-4bfe-a654-b4a307af82b7.png" widht="300">
-<img src="https://user-images.githubusercontent.com/96654391/170445919-479c4085-5e71-41b6-890c-b07e1d6088db.png" widht="300">
+<img src="https://user-images.githubusercontent.com/96654391/170445914-571bd8c1-80c8-4bfe-a654-b4a307af82b7.png">
+<img src="https://user-images.githubusercontent.com/96654391/170445919-479c4085-5e71-41b6-890c-b07e1d6088db.png" >
 
 ### dlg.setSingleChoiceItems
 
@@ -247,7 +247,7 @@ public class MainActivity extends AppCompatActivity {
 
 결과 <br>
 
-<img src="https://user-images.githubusercontent.com/96654391/170447539-cec473d3-c9d0-4500-a218-2928b3d04e61.png" widht="300">
+<img src="https://user-images.githubusercontent.com/96654391/170447539-cec473d3-c9d0-4500-a218-2928b3d04e61.png" >
 
 ### dlg.setMultiChoiceItems
 
@@ -301,7 +301,7 @@ public class MainActivity extends AppCompatActivity {
 
 결과 <br>
 
-<img src="https://user-images.githubusercontent.com/96654391/170448090-226e885f-d1d6-45ae-80d9-aff84e102c29.png" widht="300">
+<img src="https://user-images.githubusercontent.com/96654391/170448090-226e885f-d1d6-45ae-80d9-aff84e102c29.png" >
 
 ### 실습 7-3
 
@@ -508,12 +508,12 @@ public class MainActivity extends AppCompatActivity {
 결과
 <br>
 
-<img src="https://user-images.githubusercontent.com/96654391/170454464-16ccf1fb-b95d-4bbe-910f-71fce1e41449.png" width="300">
+<img src="https://user-images.githubusercontent.com/96654391/170454464-16ccf1fb-b95d-4bbe-910f-71fce1e41449.png" >
 
-<img src="https://user-images.githubusercontent.com/96654391/170454470-ecfd7d98-9b3e-43a8-ba0e-1abfe95228e6.png" width="300"> <br>
+<img src="https://user-images.githubusercontent.com/96654391/170454470-ecfd7d98-9b3e-43a8-ba0e-1abfe95228e6.png" > <br>
 
 대화 상자에서 확인버튼 클릭 <br>
-<img src="https://user-images.githubusercontent.com/96654391/170454490-7b514e09-02c2-44e7-a88b-a5616d7b32da.png" width="300"> <br>
+<img src="https://user-images.githubusercontent.com/96654391/170454490-7b514e09-02c2-44e7-a88b-a5616d7b32da.png" > <br>
 
 대화 상자에서 취소버튼 클릭 <br>
-<img src="https://user-images.githubusercontent.com/96654391/170454495-3807205e-8dff-490f-a220-cfea6e7e992d.png" width="300">
+<img src="https://user-images.githubusercontent.com/96654391/170454495-3807205e-8dff-490f-a220-cfea6e7e992d.png" >
