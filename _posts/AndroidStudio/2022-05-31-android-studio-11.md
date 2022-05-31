@@ -41,6 +41,8 @@ toc_sticky: true
 </LinearLayout>
 ```
 
+![download1](https://user-images.githubusercontent.com/96654391/171127368-33a881b4-1bcd-4928-a9df-250b23db7f6c.png)
+
 ## dialog1.xml
 
 ```xml
@@ -72,6 +74,11 @@ toc_sticky: true
 </LinearLayout>
 ```
 
+![download2](https://user-images.githubusercontent.com/96654391/171127377-ddefd5f9-4acb-409d-b2ff-d4af28fd5ae5.png)
+<br>
+
+위 사용자 입력 정보 및 이미지는 java 코드에서 붙혀넣을 수 있다.
+
 ## toast1.xml
 
 ```xml
@@ -101,6 +108,8 @@ toc_sticky: true
 
 </LinearLayout>
 ```
+
+![화면 캡처 2022-05-31 171527](https://user-images.githubusercontent.com/96654391/171127391-8508f59b-3cf8-4fcc-b121-f17f133e7978.png)
 
 ## MainActivity.java
 
@@ -195,12 +204,4 @@ public class MainActivity extends AppCompatActivity {
     }
 ```
 
-## 결과
-
-![download1](https://user-images.githubusercontent.com/96654391/171127368-33a881b4-1bcd-4928-a9df-250b23db7f6c.png)
-![download2](https://user-images.githubusercontent.com/96654391/171127377-ddefd5f9-4acb-409d-b2ff-d4af28fd5ae5.png)
-![download3](https://user-images.githubusercontent.com/96654391/171127384-ddf19e8d-b5f6-49d0-a4f6-d91ce100259a.png) <br>
-
-toast 창에서 취소버튼 클릭 <br>
-
-![화면 캡처 2022-05-31 171527](https://user-images.githubusercontent.com/96654391/171127391-8508f59b-3cf8-4fcc-b121-f17f133e7978.png)
+![download3](https://user-images.githubusercontent.com/96654391/171127384-ddf19e8d-b5f6-49d0-a4f6-d91ce100259a.png)
