@@ -1,6 +1,6 @@
 ---
-title: "[Term? Project] 라벨 내에서 이미지 밑에 라벨붙히기"
-excerpt: "[Term Project] 라벨 내에서 이미지 밑에 라벨붙히기"
+title: "[Term? Project] 라벨 내에서 이미지 밑에 라벨 붙히기"
+excerpt: "[Term Project] 라벨 내에서 이미지 밑에 라벨 붙히기"
 categories: [Java Programming]
 tags: [Java Programming, Java]
 toc: true
