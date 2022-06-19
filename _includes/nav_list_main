@@ -103,6 +103,13 @@
                     {% endif %}
                 {% endfor %}
             </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Algorithm C_C++" %}
+                        <li><a href="/categories/algorithm-c_c++" class="">🔗C/C++ ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
 
         <!--Backjoon-->
         <span class="nav__sub-title">Backjoon</span>
