@@ -40,9 +40,9 @@ toc_sticky: true
   - 카드를 겹치는 방법 <br>
     카드 컨테이너 클래스인 .card에서는 **_position: relative;_** 를 통해서 .card를 기준으로 배치가 되도록 하고, .card-side에서 부모 요소를 기준으로 배치시키기 위해서 **_position: absolute;_** 를 사용한다. 그렇게 된다면 앞장과 뒷장 모두 left: 0, top: 0에 위치하므로 카드가 겹치게 된다.
 
-    <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="jOZgOPz" data-user="sohnsookyoung" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-    <span>See the Pen <a href="https://codepen.io/sohnsookyoung/pen/jOZgOPz">
-    Untitled</a> by sohnsookyoung (<a href="https://codepen.io/sohnsookyoung">@sohnsookyoung</a>)
+    <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="oNEKYmr" data-user="sohnsookyoung" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+    <span>See the Pen <a href="https://codepen.io/sohnsookyoung/pen/oNEKYmr">
+    first</a> by sohnsookyoung (<a href="https://codepen.io/sohnsookyoung">@sohnsookyoung</a>)
     on <a href="https://codepen.io">CodePen</a>.</span>
     </p>
     <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
