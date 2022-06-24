@@ -106,6 +106,7 @@ public class KruskalAlgo {
         // 낮은 비용부터 크루스칼 알고리즘 진행
         for (int i = 0; i < E; i++) {
             System.out.println(i + "번째");
+            // 같은 부모인지 아닌지를 판별하는 조건문
             if (find(graph[i][0] - 1) != find(graph[i][1] - 1)) {
                 System.out.println(graph[i][0] + " " + graph[i][1]);
                 System.out.println("<선택된 간선>");
@@ -121,7 +122,7 @@ public class KruskalAlgo {
 
     }
 
-    // 같은 부모인지 아닌지 판별하는 메소드
+    // 유일한 부모인 경우 parent에 변경해주어야 한다.
     public static void union(int a, int b) {
         a = find(a);
         b = find(b);
