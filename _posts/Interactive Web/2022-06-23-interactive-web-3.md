@@ -57,7 +57,7 @@ toc_sticky: true
     second</a> by sohnsookyoung (<a href="https://codepen.io/sohnsookyoung">@sohnsookyoung</a>)
     on <a href="https://codepen.io">CodePen</a>.</span>
 
-  - 문처럼 열리고 닫히는 것 처럼 만들기
+  - 문처럼 열리고 닫히는 것 처럼 만들기 <br>
   **_transform-origin: left;_** 을 사용해서 회전 중심이 왼쪽이 되도록 하고, 앞쪽으로 열리는 것 처럼 하기 위해서 마우스를 올렸을 때 돌아가는 각도를 **_-180deg_** 로 한다.
 
     <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="dydxOLb" data-user="sohnsookyoung" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
