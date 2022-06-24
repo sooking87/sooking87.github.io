@@ -99,3 +99,5 @@ row가 디폴트, 꼬치를 행 방향으로 꽂으면 아이템이 꽂힌 방�
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+저 flex-grow와 flex-basis를 합치면 **_flex: 1;_** 로 사용할 수 있다.
