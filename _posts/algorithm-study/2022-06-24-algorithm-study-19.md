@@ -1,6 +1,6 @@
 ---
-title: "[JAVA] 크로스칼 알고리즘"
-excerpt: "크로스칼 알고리즘"
+title: "[JAVA] 크루스칼 알고리즘"
+excerpt: "크루스칼 알고리즘"
 categories: [Algorithm Study]
 tags: [Algorithm Study, Java, Algorithm]
 toc: true
