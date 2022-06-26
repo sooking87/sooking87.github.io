@@ -93,6 +93,13 @@
                     {% endif %}
                 {% endfor %}
             </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Figma" %}
+                        <li><a href="/categories/figma" class="">🔥Figma ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
 
         <!--ALGORITHM-->
          <span class="nav__sub-title">ALGORITHM</span>
