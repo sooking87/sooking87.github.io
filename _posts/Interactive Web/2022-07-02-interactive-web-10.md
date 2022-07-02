@@ -27,5 +27,6 @@ window객체의 **_pageYOffset_** 속성을 사용하여서 현재 스크롤을 
 </p>
 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
-- getBoundingClientRect() : ilbuni가 있는 위치를 가지고 있는 객체로, 스크롤을 내릴 때 어떤 동작을 하도록 하고 싶은 것이므로 위 코드에서는 top 속성을 사용하였다.
+- ilbuniElem.offsetTop : ilbuniElem 의 위치가 위에서부터 얼마나 떨어져 있는지 알 수 있다.
+- ilbuniElem.getBoundingClientRect() : ilbuni가 있는 위치를 가지고 있는 객체로, 스크롤을 내릴 때 어떤 동작을 하도록 하고 싶은 것이므로 위 코드에서는 top 속성을 사용하였다.
 - window.innerHeight : 윈도우 화면의 높이를 구할 수 있다.
