@@ -58,6 +58,7 @@ Tags -> OpsyDopsy / WEB / Backjoon / Programmers / 그 외의 언어들
 4. git commit -m "comment"
 5. git push origin master / git push origin branch
 6. git pull origin master
+7. pull -> push -> pull -> push ...
 
 <hr>
 
