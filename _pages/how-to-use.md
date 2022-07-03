@@ -37,6 +37,30 @@ Tags -> OpsyDopsy / WEB / Backjoon / Programmers / 그 외의 언어들
 
 <hr>
 
+## Git & Github
+
+### 📍 init
+
+1. repository 생성
+2. repository 폴더를 저장할 경로로 cmd 이동
+3. git init
+4. 파일 작성
+5. git add . / git add \<파일이름\>
+6. git commit -m "comment"
+7. git push origin master / git push origin branch
+8. git pull origin master
+
+### 📍 ! init
+
+1. git pull origin master
+2. 파일 작성
+3. git add . / git add \<파일이름\>
+4. git commit -m "comment"
+5. git push origin master / git push origin branch
+6. git pull origin master
+
+<hr>
+
 ## VSCode 언어별 사용법
 
 - Java : ctrl + shift + p -> create java project를 누르면 어디 폴더에 넣을 것인지를 선택한 후, 패키지 이름을 설정하면 됨. 그 후, 파일의 제목은 클래스 이름이 되고, 그 후는 이클립스랑 유사
