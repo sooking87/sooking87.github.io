@@ -6,4 +6,5 @@ main:
     url: /categories/
   - title: "Tags"
     url: /tags/
- 
+  - title: "Yearly"
+    url: /year-archive/
