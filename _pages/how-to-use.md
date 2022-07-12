@@ -43,7 +43,7 @@ Tags -> OpsyDopsy / WEB / Backjoon / Programmers / 그 외의 언어들
 
 1. repository 생성
 2. repository 폴더를 저장할 경로로 cmd 이동
-3. git init
+3. git init -> remote
 4. 파일 작성
 5. git add . / git add \<파일이름\>
 6. git commit -m "comment"
