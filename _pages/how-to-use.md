@@ -53,13 +53,13 @@ Tags -> OpsyDopsy / WEB / Backjoon / Programmers / 그 외의 언어들
 ### 📍 ! init
 
 1. clone 하고 싶은 폴더로 이동 -> git clone ~ -> 폴더 생김.
-1. git pull origin master
-1. 파일 작성
-1. git add . / git add \<파일이름\>
-1. git commit -m "comment"
-1. git push origin master / git push origin branch
-1. git pull origin master
-1. pull -> push -> pull -> push ...
+2. git pull origin master
+3. 파일 작성
+4. git add . / git add \<파일이름\>
+5. git commit -m "comment"
+6. git push origin master / git push origin branch
+7. git pull origin master
+8. pull -> push -> pull -> push ...
 
 <hr>
 
