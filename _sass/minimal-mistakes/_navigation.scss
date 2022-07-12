@@ -117,20 +117,28 @@
     }
   }
 
+.pagination_prev_next {
+  @include clearfix();
+  float: left;
+  width: 100%;
+
   /* next/previous buttons */
-  &--pager {
+   &--pager {
+    margin-top: 0em;
+    padding-top: 0em;
     display: block;
     padding: 1em 2em;
-    float: left;
-    width: 50%;
+    //float: left;
+    width: 100%;
     font-family: $sans-serif;
     font-size: $type-size-5;
     font-weight: bold;
     text-align: center;
     text-decoration: none;
     color: $muted-text-color;
-    border: 1px solid mix(#000, $border-color, 25%);
+    border: 1px solid mix(#fff, $border-color, 60%);
     border-radius: $border-radius;
+
 
     &:hover {
       @include yiq-contrasted($muted-text-color);
@@ -571,4 +579,3 @@
     padding-left: 3.25rem
   }
 }
-
