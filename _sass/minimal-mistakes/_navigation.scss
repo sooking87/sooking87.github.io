@@ -116,6 +116,7 @@
       }
     }
   }
+}
 
 .pagination_prev_next {
   @include clearfix();
@@ -139,6 +140,10 @@
     border: 1px solid mix(#fff, $border-color, 60%);
     border-radius: $border-radius;
 
+    .prev_next {
+      font-family: $cute;
+      color:#ffd861;
+    }
 
     &:hover {
       @include yiq-contrasted($muted-text-color);
