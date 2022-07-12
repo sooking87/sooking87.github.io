@@ -69,6 +69,13 @@
                     {% endif %}
                 {% endfor %}
             </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "C++ Programming" %}
+                        <li><a href="/categories/c++-programming" class="">🔥열혈 C++({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
 
         <!--WEB-->
         <span class="nav__sub-title">WEB</span>
@@ -131,6 +138,13 @@
                 {% for category in site.categories %}
                     {% if category[0] == "Backjoon JavaScript" %}
                         <li><a href="/categories/backjoon-javascript" class="">🔗JavaScript ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Backjoon C++" %}
+                        <li><a href="/categories/backjoon-c++" class="">🔗C++ ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
