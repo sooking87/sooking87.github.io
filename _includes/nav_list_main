@@ -76,6 +76,7 @@
                     {% endif %}
                 {% endfor %}
             </ul>
+            
 
         <!--WEB-->
         <span class="nav__sub-title">WEB</span>
@@ -104,6 +105,16 @@
                 {% for category in site.categories %}
                     {% if category[0] == "Figma" %}
                         <li><a href="/categories/figma" class="">🔥Figma ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+
+        <!--AI-->
+        <span class="nav__sub-title">AI</span>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "ML" %}
+                        <li><a href="/categories/ml" class="">🔥ML({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
