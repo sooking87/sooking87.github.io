@@ -57,13 +57,6 @@
             </ul>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "Ai Study" %}
-                        <li><a href="/categories/ai-study" class="">🔥혼공머 ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-            <ul>
-                {% for category in site.categories %}
                     {% if category[0] == "Java Programming" %}
                         <li><a href="/categories/java-programming" class="">🔥명품 자바 ({{category[1].size}})</a></li>
                     {% endif %}
@@ -111,6 +104,13 @@
 
         <!--AI-->
         <span class="nav__sub-title">AI</span>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Ai Study" %}
+                        <li><a href="/categories/ai-study" class="">🔥혼공머 ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "ML" %}

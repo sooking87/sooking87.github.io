@@ -18,7 +18,7 @@ toc_sticky: true
    - 이때 사용되는 훈련 데이터는 사용자가 분류한 감정 라벨이 포함되어 있어야 한다.
    - 이를 인공 신경망, 의사 결정 트리 등의 기계 학습 알고리즘을 사용하여 분류
 
-## 진행 과정
+## 감정 어휘 사전을 이용한 감정 상태 분류 => Eng ver.
 
 ### 1️⃣ 감정 사전 라이브러리 설치
 
@@ -54,8 +54,8 @@ Thanks,
 
 데이터를 가져왔고, 첫 번째 데이터를 출력한 텍스트이다.
 
-- sklearn.datasets ?
-- ❓fetch_20newsgroups는 뭘까?
+- sklearn.datasets ? : 데이터셋
+- ❓fetch_20newsgroups는 뭘까? : 사이킷런에서 제공하는 데이터셋 중 하나
 - ❓subset='train'은 무엇을 의미하는 걸까?
 
 ### 2️⃣ 감정 상태 분류 및 시각화
@@ -107,7 +107,7 @@ plt.xticks(np.arange(3), ['positive', 'neutral', 'negative'])
 
 를 통해서 막대 그래프의 막대 부분을 개수로 정의했고 xticks를 통해서 x 라벨이 들어갈 단어를 정의했다.
 
-## 기계학습을 이용한 감정 분석
+## 기계학습을 이용한 감정 분석 => Kor ver.
 
 여기서부터 다시 임포트부터 시작!
 
@@ -280,5 +280,94 @@ model.compile(optimizer='rmsprop',
               loss='binary_crossentropy',
              metrics=['acc'])
 model.summary()
+```
 
+학습
+
+```python
+from tensorflow import keras
+checkpoint_cb = keras.callbacks.ModelCheckpoint('best-lstm-model.h5', save_best_only=True)
+early_stopping_cb = keras.callbacks.EarlyStopping(patience=3,restore_best_weights=True)
+history = model.fit(X_train, y_train, epochs=10, batch_size=60, validation_split=0.2, callbacks=[checkpoint_cb, early_stopping_cb])
+
+>>>
+Epoch 1/10
+1939/1939 [==============================] - 344s 175ms/step - loss: 0.3980 - acc: 0.8203 - val_loss: 0.3533 - val_acc: 0.8424
+Epoch 2/10
+1939/1939 [==============================] - 333s 172ms/step - loss: 0.3319 - acc: 0.8563 - val_loss: 0.3310 - val_acc: 0.8557
+Epoch 3/10
+1939/1939 [==============================] - 329s 170ms/step - loss: 0.3067 - acc: 0.8697 - val_loss: 0.3250 - val_acc: 0.8612
+Epoch 4/10
+1939/1939 [==============================] - 330s 170ms/step - loss: 0.2889 - acc: 0.8788 - val_loss: 0.3157 - val_acc: 0.8641
+Epoch 5/10
+1939/1939 [==============================] - 327s 169ms/step - loss: 0.2745 - acc: 0.8871 - val_loss: 0.3138 - val_acc: 0.8644
+Epoch 6/10
+1939/1939 [==============================] - 327s 168ms/step - loss: 0.2628 - acc: 0.8926 - val_loss: 0.3229 - val_acc: 0.8638
+Epoch 7/10
+1939/1939 [==============================] - 327s 169ms/step - loss: 0.2519 - acc: 0.8980 - val_loss: 0.3162 - val_acc: 0.8688
+Epoch 8/10
+1939/1939 [==============================] - 330s 170ms/step - loss: 0.2413 - acc: 0.9024 - val_loss: 0.3161 - val_acc: 0.8671
+```
+
+평가
+
+```python
+model.evaluate(X_test, y_test)
+
+>>>
+1537/1537 [==============================] - 38s 25ms/step - loss: 0.3218 - acc: 0.8609
+[0.32183122634887695, 0.860874354839325]
+```
+
+### 8️⃣ 시각화
+
+```python
+hist_dict = history.history
+loss = hist_dict['loss']
+val_loss = hist_dict['val_loss']
+acc = hist_dict['acc']
+val_acc = hist_dict['val_acc']
+
+plt.plot(loss, 'b--', label='training loss')
+plt.plot(val_loss, 'r:', label='validation loss')
+plt.legend()
+plt.grid()
+
+plt.figure()
+plt.plot(acc, 'b--', label='training accuracy')
+plt.plot(val_acc, 'r:', label='validation accuracy')
+plt.legend()
+plt.grid()
+```
+
+![download1](https://user-images.githubusercontent.com/96654391/179434342-1cbd4455-7779-4e74-937c-636f7ad3a80f.png)
+
+![download2](https://user-images.githubusercontent.com/96654391/179434346-648dc13d-b11a-4f18-8386-d153a650b4cb.png)
+
+### 🌗 감정 예측
+
+```python
+def sentiment_predict(new_sentence):
+  new_token = [word for word in mecab.morphs(new_sentence) if not word in stopwords]
+  new_sequences = tokenizer.texts_to_sequences([new_token])
+  new_pad = pad_sequences(new_sequences, maxlen = max_len)
+  score = float(model.predict(new_pad))
+
+  if score > 0.5:
+    print("{} -> 긍정 ({:.2f}%)".format(new_sentence, score * 100))
+  else:
+    print("{} -> 부정 ({:.2f}%)".format(new_sentence, (1-score) * 100))
+
+sentiment_predict("정말 재미있고 흥미진진 했어요.")
+sentiment_predict("어떻게 이렇게 지루하고 재미없죠?")
+sentiment_predict("배우 연기력이 대박입니다. ")
+sentiment_predict("분위기가 어두워요")
+sentiment_predict("스토리가 복잡해요 ")
+
+>>>
+정말 재미있고 흥미진진 했어요. -> 긍정 (98.87%)
+어떻게 이렇게 지루하고 재미없죠? -> 부정 (99.74%)
+배우 연기력이 대박입니다.  -> 긍정 (96.64%)
+분위기가 어두워요 -> 부정 (81.39%)
+스토리가 복잡해요  -> 긍정 (85.32%)
 ```
