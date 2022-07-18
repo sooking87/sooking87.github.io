@@ -144,28 +144,32 @@ test_data = pd.read_table(test_file)
 
 ### 2️⃣ 중복 및 결측치 처리
 
-- 데이터 중복 제거
+- 데이터 중복 및 null 제거
 
-  - 중복 및 null 값 제거
+  ```python
+  print(train_data['document'].nunique())
+  print(train_data['label'].nunique())
 
-    ```python
-    print(train_data['document'].nunique())
-    print(train_data['label'].nunique())
+  train_data.drop_duplicates(subset=['document'], inplace=True) # 중복 제거
 
-    train_data.drop_duplicates(subset=['document'], inplace=True) # 중복 제거
+  print(train_data.isnull().sum())
+  train_data = train_data.dropna(how='any')
 
-    print(train_data.isnull().sum())
-    train_data = train_data.dropna(how='any')
+  >>>
+  146182
+  2
 
-    >>>
-    146182
-    2
+  id          0
+  document    1
+  label       0
+  dtype: int64
+  ```
 
-    id          0
-    document    1
-    label       0
-    dtype: int64
-    ```
+  - unique(): 데이터에 고유값들이 뭐가 있는지 알고 싶을 때
+  - nunique(): 데이터에 고유값들의 수를 출력해주는 함수
+  - value_counts(): 값별로 데이터의 수를 출력해주는 함수
+  - drop_duplicates(): 중복된 열의 값을 제거
+  - dropna(): any -> 1개라도 Nan이 존재시 drop, all -> 모두 NaN값이 존재시 drop
 
 ### 3️⃣ 데이터 정제
 
@@ -200,6 +204,24 @@ print(X_train[:10])
 [['아', '더', '빙', '진짜', '짜증', '나', '네요', '목소리'], ['흠', '포스터', '보고', '초딩', '영화', '줄', '오버', '연기', '조차', '가볍', '지', '않', '구나'], ['너무', '재', '밓었다그래서보는것을추천한다'], ['교도소', '이야기', '구먼', '솔직히', '재미', '없', '다', '평점', '조정'], ['사이몬페그', '익살', '스런', '연기', '돋보였', '던', '영화', '스파이더맨', '에서', '늙', '어', '보이', '기', '만', '했', '던', '커스틴', '던스트', '너무나', '이뻐', '보였', '다'], ['막', '걸음마', '뗀', '세', '부터', '초등', '학교', '학년', '생', '인', '살용', '영화', 'ㅋㅋㅋ', '별반', '개', '아까움'], ['원작', '긴장감', '을', '제대로', '살려', '내', '지', '못했', '다'], ['별', '반개', '아깝', '다', '욕', '나온다', '이응경', '길용우', '연기', '생활', '몇', '년', '인지', '정말', '발', '로', '해도', '그것', '보단', '낫', '겟', '다', '납치', '감금', '만', '반복', '반복', '드라마', '가족', '없', '다', '연기', '못', '하', '사람', '만', '모엿', '네'], ['액션', '없', '는데', '재미', '있', '몇', '안', '되', '영화'], ['왜', '케', '평점', '낮', '건데', '꽤', '볼', '만', '한데', '헐리우드', '식', '화려', '함', '만', '너무', '길들여져', '있', '나']]
 ```
 
+#### `from konlpy.tag import *`
+
+-> KoNLPy 한국어 처리 패키지: 대한민국 헌법 말뭉치인 kolaw와 국회법안 말뭉치인 kobill을 제공한다.
+
+**형태소 분석**
+
+- Hannanum
+- Kkma
+- Komoran
+- Mecab: 메카브
+- Open Korean Text
+
+**클래스 내 공통 메서드**
+
+- nouns: 명사 추출
+- morphs: 명사 + 형태소 추출
+- pos: 품사 부착
+
 X_test도 마찬가지로 수행!
 
 ```python
@@ -218,11 +240,11 @@ words_freq = 0
 rare_freq = 0
 
 for key, value in tokenizer.word_counts.items():
-words_freq = words_freq + value
+  words_freq = words_freq + value
 
-if value < threshold:
-rare_cnt += 1
-rare_freq = rare_freq + value
+  if value < threshold:
+    rare_cnt += 1
+    rare_freq = rare_freq + value
 
 print("전체 단어 수 : ", words_cnt)
 print("빈도가 {} 이하인 회귀 단어 수 : {}".format(threshold - 1, rare_cnt))
@@ -235,6 +257,9 @@ print("회귀 단어 등장 빈도 비율: {}".format((rare_freq / words_freq) *
 회귀 단어 비율: 56.70123733632323
 회귀 단어 등장 빈도 비율: 1.7606762208782198
 ```
+
+- word_index: 각 단어에 인덱스가 어떻게 부여되었는지 딕셔너리 형태로 리턴(인덱스 기준: 빈도수가 많을수록 작은 인덱스 부여)
+- word_counts: 각 단어가 몇 개였는지 카운트된 결과를 리턴(key: 단어, value: 개수)
 
 ### 6️⃣ 패딩
 
@@ -265,6 +290,8 @@ X_train = pad_sequences(X_train, maxlen = max_len)
 X_test = pad_sequences(X_test, maxlen = max_len)
 ```
 
+- pad_sequences: 케라스에서 패딩을 위한 메소드
+
 ### 7️⃣ 모델 구축 및 학습
 
 ```python
@@ -286,8 +313,9 @@ model.summary()
 
 ```python
 from tensorflow import keras
+
 checkpoint_cb = keras.callbacks.ModelCheckpoint('best-lstm-model.h5', save_best_only=True)
-early_stopping_cb = keras.callbacks.EarlyStopping(patience=3,restore_best_weights=True)
+early_stopping_cb = keras.callbacks.EarlyStopping(patience=3, restore_best_weights=True)
 history = model.fit(X_train, y_train, epochs=10, batch_size=60, validation_split=0.2, callbacks=[checkpoint_cb, early_stopping_cb])
 
 >>>
@@ -371,3 +399,10 @@ sentiment_predict("스토리가 복잡해요 ")
 분위기가 어두워요 -> 부정 (81.39%)
 스토리가 복잡해요  -> 긍정 (85.32%)
 ```
+
+- texts_to_sequences(): 각 단어에 해당하는 인덱스를 바탕으로 텍스트를 시퀀스로 변환
+  ex.
+  ```python
+  {'my': 1, 'love': 2, 'dog': 3, 'i': 4, 'you': 5, 'cat': 6, 'do': 7, 'think': 8, 'is': 9, 'amazing': 10}
+  [[4, 2, 1, 3], [4, 2, 1, 6], [5, 2, 1, 3], [7, 5, 8, 1, 3, 9, 10]]
+  ```
