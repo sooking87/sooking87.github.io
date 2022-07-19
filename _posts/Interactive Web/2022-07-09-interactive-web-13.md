@@ -259,3 +259,70 @@ stageElem.style.transform =
 개신기함 ㅇㅇ
 
 ## 💎 character
+
+### 🔆 일단 Character 생성자 만들기
+
+Character.js의 경우는 생성자이기 때문에 파일의 첫 글자를 대문자로 넣은 것이다.
+이 생성자를 통해서 `new Character();` 을 통해서 계속 일분이를 넣어줄 예정인 것 같다.
+
+```js
+// Character.js
+function Character() {
+  this.mainElem = document.createElement("div");
+  this.mainElem.classList.add("character");
+  this.mainElem.innerHTML =
+    "" +
+    '<div class="character-face-con character-head">' +
+    '<div class="character-face character-head-face face-front"></div>' +
+    '<div class="character-face character-head-face face-back"></div>' +
+    "</div>" +
+    '<div class="character-face-con character-torso">' +
+    '<div class="character-face character-torso-face face-front"></div>' +
+    '<div class="character-face character-torso-face face-back"></div>' +
+    "</div>" +
+    '<div class="character-face-con character-arm character-arm-right">' +
+    '<div class="character-face character-arm-face face-front"></div>' +
+    '<div class="character-face character-arm-face face-back"></div>' +
+    "</div>" +
+    '<div class="character-face-con character-arm character-arm-left">' +
+    '<div class="character-face character-arm-face face-front"></div>' +
+    '<div class="character-face character-arm-face face-back"></div>' +
+    "</div>" +
+    '<div class="character-face-con character-leg character-leg-right">' +
+    '<div class="character-face character-leg-face face-front"></div>' +
+    '<div class="character-face character-leg-face face-back"></div>' +
+    "</div>" +
+    '<div class="character-face-con character-leg character-leg-left">' +
+    '<div class="character-face character-leg-face face-front"></div>' +
+    '<div class="character-face character-leg-face face-back"></div>' +
+    "</div>";
+
+  document.querySelector(".stage").appendChild(this.mainElem);
+}
+```
+
+HTML을 js로 넣는 과정 Elem을 하나 만들고, 거기에 넣을 css를 넣어주고, innerHTML을 통해서 만들어준다. 그리고 그 만들어준 Elem을 어디에 넣어야되는지 확인해보고 appendChild를 통해서 넣어준다.
+
+### 🔆 클릭했을 때 해당 위치에 캐릭터 생성하기
+
+```js
+// wall3d.js
+stageElem.addEventListener("click", function (e) {
+  new Character({
+    xPos: (e.clientX / window.innerWidth) * 100,
+  });
+  // console.log(e.clientX / this.windowWidth) * 100;
+});
+```
+
+해당 위치에 비율을 계산해서 Character 생성자로 전달
+
+```js
+// Character.js
+this.mainElem.style.left = info.xPos + "%";
+```
+
+### 🔆 스크롤 했을 때 앞으로 가고 뒤로 가고
+
+그러기 위해서는 우선
+스크롤을 할 때 팔다리 움직이고 스크롤 안하면 팔다리 멈추게 하는 것 부터 해본다.
