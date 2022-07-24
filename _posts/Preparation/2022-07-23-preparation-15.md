@@ -17,8 +17,10 @@ toc_sticky: true
 
 ## Sentiment Analysis of all Billboard Hot 100 Songs Over Time (1958–2019)의 진행 과정
 
-1. LyricsGenius의 API를 바탕으로 가사를 가져와
-2. textBlob.sentiment.polarity를 이용해서 감정을 찾아내
+1. LyricsGenius의 API를 바탕으로 가사를 가져온다
+2. textBlob.sentiment.polarity를 이용해서 감정을 찾아낸다
+3. 이를 바탕을 keywords를 찾는다
+   ...
 
 ## TextBlob.sentiment.polarity
 
