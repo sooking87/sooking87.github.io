@@ -2,7 +2,7 @@
 title: "[NLP] 데이터셋 가져오기"
 excerpt: "[NLP] 데이터셋 가져오기"
 categories: [Preparation]
-tags: [Preparation, WEB, HTML/CSS/Javascript]
+tags: [Preparation, Python]
 toc: true
 toc_sticky: true
 ---
@@ -12,7 +12,7 @@ toc_sticky: true
 
 - Programming for Cultural Heritage - Demo: Working with Genius.com API
   <https://www.youtube.com/watch?v=CokKFmDnDtw>
-  -> 가사를 불러오는데 사용되는 API
+  -> 가사를 불러오는데 사용되는 API <br>
   해당 깃헙: <https://github.com/johnwmillr/LyricsGenius>
 
 ## Sentiment Analysis of all Billboard Hot 100 Songs Over Time (1958–2019)의 진행 과정

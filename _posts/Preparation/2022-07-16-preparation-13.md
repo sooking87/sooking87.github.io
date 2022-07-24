@@ -2,7 +2,7 @@
 title: "[NLP] 감정 분석 Sentiment Analysis"
 excerpt: "[NLP] 감정 분석 Sentiment Analysis"
 categories: [Preparation]
-tags: [Preparation, WEB, HTML/CSS/Javascript]
+tags: [Preparation, Python]
 toc: true
 toc_sticky: true
 ---

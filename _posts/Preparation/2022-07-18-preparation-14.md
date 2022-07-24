@@ -2,7 +2,7 @@
 title: "[NLP] 텍스트 전처리 과정(Eng ver)"
 excerpt: "[NLP] 텍스트 전처리 과정(Eng ver)"
 categories: [Preparation]
-tags: [Preparation, WEB, HTML/CSS/Javascript]
+tags: [Preparation, Python]
 toc: true
 toc_sticky: true
 ---
