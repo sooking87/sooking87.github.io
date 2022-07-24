@@ -40,3 +40,12 @@ VADER의 경우는 neg, neu, pos로 구분되고 얼마나 pos, neg, neu인지�
 The output from VADER comes in a Python dictionary in which we have four keys and their corresponding values. => four keys: ‘neg’, ‘neu’, ‘pos’, and ‘compound’ which stands for Negative, Neutral, and Positive respectively.
 
 최종적으로 TextBlob과 vader을 비교해보니까 TextBlob가 좀더 부정적인 경향으로 감정을 분석한다는 것을 알게 됨.
+
+## 데이터셋 찾기
+
+처음에 결정했던 빌보드 데이터셋(노래, 가수,,만 나와있던 파일)을 기준으로 API를 사용해도 괜찮을 것 같다는 생각이 들었다.
+<br><br>
+
+근데! song을 기준으로 32만개정도 있었는데 중복을 없애니까 2만5천개정도만,,남음,,,이게 맞아????????????????????? <br>
+
+여튼 일단 2만개라도 해보자
