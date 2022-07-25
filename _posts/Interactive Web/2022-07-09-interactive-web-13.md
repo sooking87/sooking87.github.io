@@ -327,4 +327,215 @@ this.mainElem.style.left = info.xPos + "%";
 그러기 위해서는 우선
 스크롤을 할 때 팔다리 움직이고 스크롤 안하면 팔다리 멈추게 하는 것 부터 해본다.
 
-<19까지 마무리> 20부터 들으면 됨
+```js
+// Character.js
+...
+
+  // 스크롤 중인지 아닌지
+  this.scrollState = false;
+
+...
+Character.prototype = {
+  constructor: Character,
+  init: function () {
+    const self = this;
+    window.addEventListener("scroll", function () {
+      this.clearTimeout(self.scrollState);
+
+      if (!self.scrollState) {
+        self.mainElem.classList.add("running");
+      }
+
+      self.scrollState = setTimeout(function () {
+        self.scrollState = false;
+        self.mainElem.classList.remove("running");
+      }, 500);
+    });
+  },
+};
+```
+
+객체 생성 -> scrollState = false 인 상태, 동시에 if 문 통과(running 클래스 생성) -> 스크롤 중(scrollState = True) -> clearTimeout 적용 동시에 밑에 setTimeout 부분은 실행 X(정확히 왜,,,,?) -> 스크롤 정지(scrollState = false) -> setTimeout 실행
+
+### 🔆 스크롤 내리면 뒷모습, 올리면 앞모습
+
+codePen에 파일 두개를 넣는 방법을 몰라서 너무 아쉽지만! 그냥 코드로 작성해본다면 필요한 요소는 우선 스크롤 위치와 이전 스크롤 위치가 필요하다.
+
+```js
+...
+
+  // 바로 이전 스크롤 위치
+  this.lastScrollTop = 0;
+
+...
+
+Character.prototype = {
+  constructor: Character,
+  init: function () {
+    const self = this;
+    window.addEventListener("scroll", function () {
+      this.clearTimeout(self.scrollState);
+
+      if (!self.scrollState) {
+        self.mainElem.classList.add("running");
+      }
+
+      self.scrollState = setTimeout(function () {
+        self.scrollState = false;
+        self.mainElem.classList.remove("running");
+      }, 500);
+
+      // 이전 스크롤 위치와 현재 스크롤 위치를 비교
+      if (self.lastScrollTop > pageYOffset) {
+        // 스크롤 올림
+        self.mainElem.setAttribute("data-direction", "backward");
+      } else {
+        // 스크롤 내림
+        self.mainElem.setAttribute("data-direction", "forward");
+      }
+      // pageYOfset: 스크롤 위치 가져오기
+      // lastScrollTop: 바로 이전 스크롤 위치
+      self.lastScrollTop = pageYOffset;
+    });
+  },
+}
+```
+
+- pageYOffset: 스크롤 위치 가져오기
+- lastScrollTop: 바로 이전 스크롤 위치
+- 캐릭터 객체에 setAttribute를 통해서 css 속성 적용
+
+### 🔆 좌우로 이동하기
+
+먼저 방향키를 통해서 움직일 수 있도록 하기 위해서 keydown, keyup 이벤트를 작성한다.
+
+```js
+window.addEventListener("keydown", function (e) {
+  // 37: 왼쪽, 39: 오른쪽
+  if (e.keyCode === 37) {
+    self.mainElem.setAttribute("data-direction", "left");
+    self.mainElem.classList.add("running");
+  } else if (e.keyCode === 39) {
+    self.mainElem.setAttribute("data-direction", "right");
+    self.mainElem.classList.add("running");
+  }
+});
+
+window.addEventListener("keyup", function (e) {
+  self.mainElem.classList.remove("running");
+});
+```
+
+그런 다음에 방향키 방향대로 움직일 수 있도록 한다. => HOW? <br>
+<br>
+
+보면은 1초에 10번 즉, 1초에 10프레임정도가 출력이 되는데, 일반적으로 영상처럼 보이기 위해서는 20~30프레임 정도가 필요하다고 한다. 그래서 이를 위해서는 **_requestAnimationFrame_** 을 사용하면 된다.
+
+```js
+  run: function (self) {
+    if (self.direction === "left") {
+      self.xPos -= self.speed;
+    } else if (self.direction === "right") {
+      self.xPos += self.speed;
+    }
+
+    if (self.xPos < 2) {
+      self.xPos = 2;
+    } else if (self.xPos > 88) {
+      self.xPos = 88;
+    }
+    self.mainElem.style.left = self.xPos + "%";
+    requestAnimationFrame(function () {
+      self.run(self);
+    });
+```
+
+프로토타입에 run이라는 메소드 추가
+zzzzzzzzzzㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ개어렵눜ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ하
+여튼 포인트는 runningState를 사용해서 움직였다가 안움직였다가 requestAnimationFrame을 했다가 cancelAnimationFrame을 했다가 ㅇㅇ
+
+```js
+
+...
+
+  // 좌우 이동 중인지 아닌지
+  this.runnintState = false;
+  this.rafId;
+
+...
+
+window.addEventListener("keydown", function (e) {
+      if (self.runningState) return;
+      // 37: 왼쪽, 39: 오른쪽
+      if (e.keyCode === 37) {
+        self.direction = "left";
+        self.mainElem.setAttribute("data-direction", "left");
+        self.mainElem.classList.add("running");
+        self.run(self);
+        self.runningState = true;
+      } else if (e.keyCode === 39) {
+        self.direction = "right";
+        self.mainElem.setAttribute("data-direction", "right");
+        self.mainElem.classList.add("running");
+        self.xPos += self.speed;
+        self.run(self);
+        self.runningState = true;
+      }
+    });
+    window.addEventListener("keyup", function (e) {
+      self.mainElem.classList.remove("running");
+      this.cancelAnimationFrame(self.rafId);
+      self.runningState = false;
+    });
+  },
+  run: function (self) {
+    if (self.direction === "left") {
+      self.xPos -= self.speed;
+    } else if (self.direction === "right") {
+      self.xPos += self.speed;
+    }
+
+    if (self.xPos < 2) {
+      self.xPos = 2;
+    } else if (self.xPos > 88) {
+      self.xPos = 88;
+    }
+    self.mainElem.style.left = self.xPos + "%";
+    self.rafId = requestAnimationFrame(function () {
+      self.run(self);
+    });
+  },
+```
+
+### 🔆 속도 차이 만들기
+
+character 객체로 전달되는 info에 speed 라는 속성 추가
+
+```js
+// wall3d.jd
+stageElem.addEventListener("click", function (e) {
+  new Character({
+    xPos: (e.clientX / window.innerWidth) * 100,
+    speed: Math.random(),
+  });
+  // console.log(e.clientX / this.windowWidth) * 100;
+});
+```
+
+## 💎 테마 바꾸기
+
+= 이벤트 위임
+
+```js
+
+...
+
+const selectCharacterElem = document.querySelector(".select-character");
+
+...
+
+  selectCharacterElem.addEventListener("click", function (e) {
+    const value = e.target.getAttribute("data-char");
+    document.body.setAttribute("data-char", value);
+  });
+```
