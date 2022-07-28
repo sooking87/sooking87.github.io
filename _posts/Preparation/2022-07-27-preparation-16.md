@@ -41,3 +41,14 @@ toc_sticky: true
 자세한 내용은 깃헙에서!
 <br>
 <https://github.com/sm-CODE-IT/Mini_Waterglass/tree/main>
+
+## 글씨체 수정
+
+나눔 명조체, 나눔 손글씨체로 함.
+<br>
+
+```css
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Nanum+Pen+Script&display=swap");
+```
+
+## Light/Dark Mode
