@@ -58,3 +58,8 @@ toc_sticky: true
 - <https://medium.com/hackernoon/5-ways-to-animate-a-reactjs-app-in-2019-56eb9af6e3bf> -> 리액트에서 애니메이션 및 transform, transition을 적용시킬 수 있는 방법
 - <https://dbramwell.github.io/react-animate-on-scroll/#animateIn> => 다양한 styled-components의 애니메이션이 소개되어 있는 곳: 나중에 프젝할 때 사용할 수 있을 듯
   - 해당 깃헙: <https://github.com/dbramwell/react-animate-on-scroll>
+- <https://www.framer.com/motion/> => 헐 미친 리액트 애니메이션 관련 모듈,,,
+
+## 🌟 적용해보기
+
+<https://www.framer.com/motion/>
