@@ -52,3 +52,9 @@ toc_sticky: true
 ```
 
 ## Light/Dark Mode
+
+- <https://velog.io/@elinapark/Styled-Components> => styled-components 모듈을 사용하는 방법이 잘 나와있음!
+- <https://xtring-dev.tistory.com/entry/Styling-Styled-Components-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B3%A0-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-%F0%9F%92%85> => 리액트에서 styled-component를 사용하는 이유와 사용법이 상세히 나와있음
+- <https://medium.com/hackernoon/5-ways-to-animate-a-reactjs-app-in-2019-56eb9af6e3bf> -> 리액트에서 애니메이션 및 transform, transition을 적용시킬 수 있는 방법
+- <https://dbramwell.github.io/react-animate-on-scroll/#animateIn> => 다양한 styled-components의 애니메이션이 소개되어 있는 곳: 나중에 프젝할 때 사용할 수 있을 듯
+  - 해당 깃헙: <https://github.com/dbramwell/react-animate-on-scroll>
