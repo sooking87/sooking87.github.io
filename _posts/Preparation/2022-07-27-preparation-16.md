@@ -63,3 +63,10 @@ toc_sticky: true
 ## 🌟 적용해보기
 
 <https://www.framer.com/motion/>
+
+## DiaryItem -> 캘린더에 넣기
+
+- <https://u-it.tistory.com/entry/FullCalendar-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EC%98%B5%EC%85%98-%EC%86%8D%EC%84%B1-%EB%8F%99%EC%A0%81%EC%A0%91%EA%B7%BC-MonthList-%EB%8F%99%EC%9D%BC%EC%A0%81%EC%9A%A9-%EC%83%89%EC%83%81-%EB%B3%80%EA%B2%BD>
+- <https://vmar76.medium.com/how-to-create-an-event-in-the-fullcalendar-library-eaac8679e90> : json으로 addEvent
+- <https://stackoverflow.com/questions/23872898/set-events-in-fullcalendar-from-array> : 배열로 동적 추가
+- <https://codepen.io/pen?&editors=001> : 관련 코드팬 자료 근데 얘는 jQuery 사용,,,,
