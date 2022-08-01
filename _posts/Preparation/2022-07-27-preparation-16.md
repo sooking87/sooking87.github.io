@@ -62,7 +62,8 @@ toc_sticky: true
 
 ## 🌟 적용해보기
 
-<https://www.framer.com/motion/>
+<https://www.framer.com/motion/> <br>
+<https://velog.io/@deli-ght/%EC%8A%A4%EB%8D%B0%EB%B8%8C-%EA%B0%9C%EB%B0%9C-%EC%9D%BC%EC%A7%80-4> -> tsx 너 뭔데?!(Dark/Light ver)
 
 ## DiaryItem -> 캘린더에 넣기
 
@@ -70,3 +71,6 @@ toc_sticky: true
 - <https://vmar76.medium.com/how-to-create-an-event-in-the-fullcalendar-library-eaac8679e90> : json으로 addEvent
 - <https://stackoverflow.com/questions/23872898/set-events-in-fullcalendar-from-array> : 배열로 동적 추가
 - <https://codepen.io/pen?&editors=001> : 관련 코드팬 자료 근데 얘는 jQuery 사용,,,,
+  <br> <br>
+
+- <https://velog.io/@devyang97/FullCalendar-v5-Date-Clicking-Selecting> -> 여차저차 하면 되지 않을까,,?
