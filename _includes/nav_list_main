@@ -11,20 +11,20 @@
         🚀 <span>전체 </span> <span>{{sum}}</span> <span>개</span> 
       </li>
       
+      <!--프로젝트 결과물-->
+      <li>
+        {% for category in site.categories %}
+            {% if category[0] == "Project" %}
+                <a href="/categories/project" class=""><span class="nav__sub-title">PROJECT ({{category[1].size}})</span></a>
+            {% endif %}
+        {% endfor %}
+    <li>
+      
       <!--프로젝트 준비-->
       <li>
           {% for category in site.categories %}
               {% if category[0] == "Preparation" %}
                   <a href="/categories/preparation" class=""><span class="nav__sub-title">PREPARATION ({{category[1].size}})</span></a>
-              {% endif %}
-          {% endfor %}
-      <li>
-      
-      <!--프로젝트 결과물-->
-      <li>
-          {% for category in site.categories %}
-              {% if category[0] == "Project" %}
-                  <a href="/categories/project" class=""><span class="nav__sub-title">PROJECT ({{category[1].size}})</span></a>
               {% endif %}
           {% endfor %}
       <li>
