@@ -62,6 +62,54 @@ Tags -> OpsyDopsy / WEB / Backjoon / Programmers / 그 외의 언어들
 8. git pull origin master
 9. pull -> push -> pull -> push ...
 
+## Colab & Github
+
+### 📍 init
+
+1. repository 생성 + README.md도 같이
+2. Repository 접근을 위한 Access Token 생성하기(MyPage > Settings > (맨아래)Developer settings > Personal access tokens > Generate new token)
+3. Google drive mout하기
+
+   ```py
+   from google.colab import drive
+   drive.mount('/content/drive')
+   ```
+
+4. 연동 시키고 싶은 폴더 생성하기(코랩에서)
+5. Colab에서 코드를 이용하여 원하는 위치로 이동하기. -> drive/MyDrive에 들어가서 만들어놓은 폴더로 이동(경로 복사)
+6. !git clone https://(username):(access token)@github.com/(username)/(repository name).git
+7. cd 를 통해서 만들어긴 레파지토리 폴더 파일로 들어간다.
+8. Git 관련 정보
+
+   ```py
+   !git config --global user.email '(user email)'
+   !git config --global user.name '(user name)'
+   ```
+
+### 📍 ! init
+
+1. Google Drive 접근
+
+   ```py
+   from google.colab import drive
+   drive.mount('/content/drive')
+   ```
+
+2. Commit을 원하는 폴더로 이동
+
+   ```py
+   cd /content/drive/MyDrive/Commit_Test_Folder/Test_Repo
+   ```
+
+3. 본인임을 확인
+
+   ```py
+   !git config --global user.email '(user email)'
+   !git config --global user.name '(user name)'
+   ```
+
+4. git add . / git add \<파일이름\>
+
 <hr>
 
 ## VSCode 언어별 사용법
