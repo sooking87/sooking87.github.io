@@ -71,7 +71,7 @@ we can define something called a tf-idf score. This stands for term frequency-in
 - d: document
 - D: a set of documents <br>
 
-> tf(t, d) = count(t) in document d
+> tf(t, d) = count(t) in document d <br>
 > idf(t, d, D) = -log(P(t | D))
 
 ### Sentiment analysis models
