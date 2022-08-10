@@ -86,3 +86,26 @@ These embeddings are sometimes trained jointly with the model, but usually addit
 - **_LSTMs and other recurrent neural networks_** : they can be used to repeatedly predict the sentiment as each token in a piece of text is ingested.
 - **_Recursive neural networks_** : these models take a tree-based representation of an input text and create a vectorized representation for each node in the tree.
 - **_Multi-task learning_**
+
+## Project Report Twitter Emotion Analysis
+
+<https://www.cse.ust.hk/~rossiter/independent_studies_projects/twitter_emotion_analysis/twitter_emotion_analysis.pdf> <br>
+
+We use the **Multinomial Naive Bayes** as learning algorithm with the Laplace smoothing representing the classic way of doing text classification.
+
+- **Naive Bayes** : Naive Bayes classifiers are highly scalable, requiring a number of parameters linear in the number of variables (features/predictors) in a learning problem.
+- **The Multi­variate Bernoulli Model** : Also called binomial model, useful if our feature vectors are binary (e.g 0s and 1s). An application can be text classification with bag of words model where the 0s 1s are "word does not occur in the document" and "word
+  occurs in the document" respectively.
+- **The Multinomial Model**: Typically used for discrete counts. In text classification, we extend the Bernoulli model further by counting the number of times a word $w_i$ appears over the number of words rather than saying 0 or 1 if word occurs or not.
+- **the Gaussian Model** : We assume that features follow a normal distribution. Instead of discrete counts, we have continuous features.
+
+<br>
+
+<https://scikit-learn.org/stable/modules/naive_bayes.html> -> Naive Bayes에 대한 설명과 이를 활용한 다양한 모델에 대한 설명
+<br>
+
+<https://m.blog.naver.com/laonple/220867768192> -> 한국어 ver + 자세한 예시
+
+1. Firstly, we divide the data set into two parts, the training set and the test set + validation set
+2. We use the **Multinomial Naive Bayes**
+3. We can now train the naive bayes classifier with the training set, validate it using the hold out part of data taken from the training set, the validation set, repeat this 10 times and average the results to get the final accuracy which is about 0.77.
