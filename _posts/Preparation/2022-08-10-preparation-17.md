@@ -7,40 +7,82 @@ toc: true
 toc_sticky: true
 ---
 
+## VADER
+
+compound 점수가 0.1 이상이면 긍정 감성, 그 이하면 부정 감성으로 판단하나 상황에 따라 이 임계값을 적절히 조정해 예측 성능을 조절할 수 있다.
+
 ## 모델 구상
 
 - <https://pseudo-lab.github.io/Tutorial-Book/chapters/NLP/Ch1-Introduction.html>
+- <https://velog.io/@7ryean/%EC%9E%90%EC%97%B0%EC%96%B4%EC%B2%98%EB%A6%AC-%EA%B0%90%EC%A0%95%EB%B6%84%EC%84%9D> : 자연어 처리 / 감정 분석
+- <https://analyticsindiamag.com/nlp-models-bert-state-of-the-art-glue-baseline-language/> : Top 8 Baselines For NLP Models
+- <https://towardsdatascience.com/sentiment-analysis-in-10-minutes-with-bert-and-hugging-face-294e8a04b671> :
+  Sentiment Analysis in 10 Minutes with BERT and TensorFlow
 
-- <https://velog.io/@7ryean/%EC%9E%90%EC%97%B0%EC%96%B4%EC%B2%98%EB%A6%AC-%EA%B0%90%EC%A0%95%EB%B6%84%EC%84%9D> <br>
+## BERT
 
-## 감정 분석 모델
+<https://www.techtarget.com/searchenterpriseai/definition/BERT-language-model> <br>
 
-텍스트 데이터의 종류 <br> <br>
+BERT is different because it is designed to read in both directions at once. This capability, enabled by the introduction of Transformers, is known as bidirectionality. <br>
 
-(1) 객관적인 정보 : 뉴스, 백과 사전 같은 텍스트 <br>
+근데 얘는 감정 분석이 아니라 뭔가,, 텍스트 분석에 특화되어 있는 거 같음!
 
-(2) 주관적인 평가나 감정 : 리뷰, 소설 같은 텍스트 <br>
+## Deep Learning Models for Sentiment Analysis
 
-### 나이브 베이즈
+<https://underthehood.meltwater.com/blog/2019/08/22/deep-learning-models-for-sentiment-analysis/>
 
-감정의 발생 확률은 주어진 텍스트 데이터 내 해당 감정을 표현하는 문서의 비율로 추정하는 방법이다.
+### Bayesian Sentiment
 
-![download1](https://user-images.githubusercontent.com/96654391/183777735-3166ae0d-e437-4a17-bc3f-50af5c12e9a3.png)
+![download1](https://user-images.githubusercontent.com/96654391/183996849-1fd261bb-485e-4161-b830-53eab1767945.png)
 
-### 평균 임베딩 벡터
+특정 단어 개수 / 전체 나온 개수 형식으로 진행되는 방식 => Bag of Words 모델을 사용하겠지? => 단점: 문맥 파악 불가, 희소 행렬이 생성됨.
 
-텍스트가 주어졌을 때 각 단어의 임베딩 벡터를 평균을 내서 텍스트를 하나의 벡터로 표현하는 방법이다.
+### Sentence-level Training and Classification
 
-### CNN
+we are now training and classifying at sentence level. <br>
 
-단어 임베딩 벡터에 필터를 적용하여 CNN 기반으로 감정 분류이다
+근데 여기서 Bayseian Sentiment를 발전시켜서 문장 단위로 훈련할 수 있게끔 모델을 만들었다고 한다.
 
-### RNN
+### Improvement: New Deep Learning Models
 
-LSTM, GRU를 활용하여 RNN 기반으로 분류 및 예측하는 방법이다.
+그리고 CNN, RNN, LSTM의 새로운 딥러닝 기술들 중에서 CNN을 바탕으로 해결책을 짰다고 했다. CNNs are mostly used for Computer Vision but they have been shown to perform really well for NLP as well.
 
-### BERT
+<br>
 
-## Sentiment Analysis in 10 Minutes with BERT and TensorFlow
+It consists of an embedding (input) layer, followed by a single convolution layer, then max-pooling and softmax layers
 
-<https://towardsdatascience.com/sentiment-analysis-in-10-minutes-with-bert-and-hugging-face-294e8a04b671> <br>
+![download2](https://user-images.githubusercontent.com/96654391/183999560-a8f44b9a-ab36-4607-89ae-de83ee9ae1e7.png)
+
+그리고 그 다음 글에는 해당 층마다 어떤 역할을 하는지 적혀있었다.
+
+## entiment Analysis: A Definitive Guide
+
+<https://monkeylearn.com/sentiment-analysis/>
+
+## Using Machine Learning for Sentiment Analysis: a Deep Dive
+
+<https://www.datarobot.com/blog/using-machine-learning-for-sentiment-analysis-a-deep-dive/>
+
+### Sentiment analysis, a baseline method
+
+we can define something called a tf-idf score. This stands for term frequency-inverse document frequency, which gives a measure of the relative importance of each word in a set of documents. In simple terms, it computes the relative count of each word in a document reweighted by its prevalence over all documents in a set. <br>
+
+- t: term
+- d: document
+- D: a set of documents <br>
+
+> tf(t, d) = count(t) in document d
+> idf(t, d, D) = -log(P(t | D))
+
+### Sentiment analysis models
+
+Other good model choices include SVMs, Random Forests, and Naive Bayes. These models can be further improved by training on not only individual tokens, but also bigrams or tri-grams. Of course, the process of creating and training on n-grams increases the complexity of the model
+
+### More advanced models
+
+These embeddings are sometimes trained jointly with the model, but usually additional accuracy can be attained by using pre-trained embeddings such as Word2Vec, GloVe, BERT, or FastText. a deep learning model is constructed using these embeddings as the first layer inputs:
+
+- **_Convolutional neural networks_** : those convolutions in the embedded feature space of **the words in a sentence**
+- **_LSTMs and other recurrent neural networks_** : they can be used to repeatedly predict the sentiment as each token in a piece of text is ingested.
+- **_Recursive neural networks_** : these models take a tree-based representation of an input text and create a vectorized representation for each node in the tree.
+- **_Multi-task learning_**
