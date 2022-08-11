@@ -109,3 +109,9 @@ We use the **Multinomial Naive Bayes** as learning algorithm with the Laplace sm
 1. Firstly, we divide the data set into two parts, the training set and the test set + validation set
 2. We use the **Multinomial Naive Bayes**
 3. We can now train the naive bayes classifier with the training set, validate it using the hold out part of data taken from the training set, the validation set, repeat this 10 times and average the results to get the final accuracy which is about 0.77.
+
+### Bayes example
+
+- <https://www.analyticsvidhya.com/blog/2021/07/performing-sentiment-analysis-with-naive-bayes-classifier/>
+- <https://web.stanford.edu/~jurafsky/slp3/4.pdf> : Bayes 관련 설명 pdf
+- <https://www.youtube.com/watch?v=hp2ipC5pW4I> : youtube
