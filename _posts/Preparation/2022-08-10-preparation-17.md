@@ -113,7 +113,6 @@ We use the **Multinomial Naive Bayes** as learning algorithm with the Laplace sm
 ### Bayes example
 
 - <https://www.analyticsvidhya.com/blog/2021/07/performing-sentiment-analysis-with-naive-bayes-classifier/>
-- <https://web.stanford.edu/~jurafsky/slp3/4.pdf> : Bayes 관련 설명 pdf
 - <https://www.youtube.com/watch?v=hp2ipC5pW4I> : youtube
 - <https://towardsdatascience.com/sentiment-analysis-introduction-to-naive-bayes-algorithm-96831d77ac91> : 구체적이 방법이 순서와 코드가 같이 잘 나와있다.
 - <https://web.stanford.edu/~jurafsky/slp3/4.pdf> : 코드는 안나와있지만 구체적인 원리, 모델링 과정에 필요한 것들에 대한 설명이 나와있다.
@@ -121,3 +120,7 @@ We use the **Multinomial Naive Bayes** as learning algorithm with the Laplace sm
   <br>
 
   ![download3](https://user-images.githubusercontent.com/96654391/184104649-2df10a37-35b3-4038-87cb-2949e1f9cbe7.png)
+
+## BOW VS TFIDF
+
+<https://www.analyticsvidhya.com/blog/2021/07/bag-of-words-vs-tfidf-vectorization-a-hands-on-tutorial/>
