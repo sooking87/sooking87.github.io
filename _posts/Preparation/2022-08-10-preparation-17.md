@@ -124,3 +124,12 @@ We use the **Multinomial Naive Bayes** as learning algorithm with the Laplace sm
 ## BOW VS TFIDF
 
 <https://www.analyticsvidhya.com/blog/2021/07/bag-of-words-vs-tfidf-vectorization-a-hands-on-tutorial/>
+
+## Word2Vec
+
+- <https://wikidocs.net/50739> : how to use
+  size = 워드 벡터의 특징 값. 즉, 임베딩 된 벡터의 차원. <br>
+  window = 컨텍스트 윈도우 크기 <br>
+  min_count = 단어 최소 빈도 수 제한 (빈도가 적은 단어들은 학습하지 않는다.) <br>
+  workers = 학습을 위한 프로세스 수 <br>
+  sg = 0은 CBOW, 1은 Skip-gram. <br>
