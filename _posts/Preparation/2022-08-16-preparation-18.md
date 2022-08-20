@@ -146,6 +146,7 @@ export default EditorContainer;
 ## 모바일 사이즈
 
 - <https://codesandbox.io/s/k2x7l5jy27> : 버거 버튼?
+- <https://www.framer.com/docs/examples/> : 버커 버튼 에니메이션 -> framer-motion(varient)
 
 ## Home 페이지 화면 디자인 구상
 
