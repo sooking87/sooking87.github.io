@@ -24,7 +24,7 @@ toc_sticky: true
 
 EditDiary > EditContainer 인 경우 이렇게 코드 쓰면 실행은 됨,
 
-```js
+```jsx
 import React, { Component } from "react";
 import { render } from "react-dom";
 import { EditorState } from "draft-js";
@@ -83,7 +83,7 @@ class EditorContainer extends Component {
     );
   };
 
-  render() {
+  //render() {
     const { editorState } = this.state;
     return (
       <div className="EditorContainer">
