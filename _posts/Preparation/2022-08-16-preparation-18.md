@@ -26,6 +26,21 @@ EditDiary > EditContainer 인 경우 이렇게 코드 쓰면 실행은 됨,
 
 근데 문제는 컴포넌트를 나눠서 하면서 동시에 EditDiary에서 html로 바뀐 str을 받고 싶은 것,, 그럴려면 어떻게 해야되나,,,,,,,
 
+### onEdit 시 기존 텍스트 나오게 하기
+
+- <https://github.com/facebook/draft-js/issues/284> : sol 1
+- <https://github.com/HubSpot/draft-extend>
+- <https://bestofreactjs.com/repo/jpuri-react-draft-wysiwyg-react-rich-text-editing>
+  문제점 1: 기존의 draft.js의 Editor와 wysiwyg의 Editor와는 차이가 있다. 누군가가 draft.js를 사용해서 만든 텍스트 창에 툴바를 넣어서 만든거기 때문이다.
+  문제점 2: getImmutable이라고 수정할 수 없게끔 만들었기 때문이다.
+  해결책 : getImmutable을 true로 해주면 된다. 그러면 어떻게 true로 바꿀 수 있을까?
+  - <https://newdevzone.com/posts/how-to-displayed-local-content-react-draft-wysiwyg>
+  - <https://stackoverflow.com/questions/36499858/draft-js-persist-editorcontent-to-database> : 자세히 읽어보기 -> 왜 항상 간단한 방법으로 끝이 날갛ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ하하하하ㅏ하하하하하하하핳하하하ㅏ
+
+### put image
+
+- <https://so99ynoodles.com/ko/blog/make-wysiwyg-editor-with-draft-js>
+
 ## React Hook From
 
 <https://codesandbox.io/s/5h1q5>
@@ -44,3 +59,92 @@ EditDiary > EditContainer 인 경우 이렇게 코드 쓰면 실행은 됨,
 ![download1](https://user-images.githubusercontent.com/96654391/185762515-d5ef009f-8a7b-4a9c-879e-5041c8e65655.png) <br>
 
 ![download2](https://user-images.githubusercontent.com/96654391/185762517-29391446-91bf-4d3a-a80b-945cd1a0d778.png)
+
+## 서버 연결 tlqkf
+
+- <https://qnrjs42.blog/react/react-cors>
+- <https://doinge-coding.tistory.com/entry/Nginx-React-Springboot-%EC%97%B0%EB%8F%99>
+
+### 프록시 서버 설정
+
+1.  Chrome 메뉴 > 설정 > 고급 설정 표시 > 프록시 설정 변경… > LAN 설정으로 이동하여 '사용자 LAN에 프록시 서버 사용'을 선택 취소합니다.
+    설정 -> 시스템 -> 프록시 설정
+    프록시 default:
+    자동으로 설정 검색: 켬
+    설정 스크립트 사용: 끔
+    프록시 서버 사용: 끔
+2.  DNS Client
+    검색 -> run -> 클릭 -> DNS Client -> 새로 고침
+
+```js
+<MyHeader
+          btn1Type="short"
+          btn1Text="Edit"
+          btn1Func={() => navigate(`/editDiary/${data.date}`)}
+          btn2Type="short red"
+          btn2Text="Delete"
+          btn2Func={handleRemove}
+        ></MyHeader>
+        <section
+          className={[
+            isTopZero ? "background_scroll_down" : "background_scroll_up",
+          ].join(" ")}
+        >
+          <div className="main_wrapper">
+            <div className="left_side"></div>
+            <div className="edit_content">
+              {/* title */}
+              <div className="input_title_wrapper">
+                <div className="h1">{data.title}</div>
+              </div>
+              <Line weight={1} eachClassName="div_line"></Line>
+              <div className="diary_info">
+                {/* date */}
+                <div className="date_wrapper">
+                  <img src={calendarSrc} className="icon" />
+                  <p className="body2">Date : </p>
+                  <div className="info_short_ver body3">
+                    <span className="body3">{year}</span>
+                    <span className="body3">년 </span>
+                    <span className="body3">{month}</span>
+                    <span className="body3">월 </span>
+                    <span className="body3">{day}</span>
+                    <span className="body3">일 </span>
+                  </div>
+                </div>
+                {/* who */}
+                <div className="who_wrapper">
+                  <img src={personSrc} className="icon" />
+                  <p className="body2">Who : </p>
+                  <span className="body3">{data.who}</span>
+                </div>
+                {/* weather */}
+                <div className="weather_wrapper">
+                  <img src={weatherSrc} className="icon" />
+                  <p className="body2">Weather : </p>
+                  <div className="weather_icons_wrapper">
+                    <div className="descript_wrapper">
+                      <p className="body2">{curWeatherData.weather_descript}</p>
+                    </div>
+                    <div className="img_wrapper">
+                      <img src={curWeatherData.weather_img} alt="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <Line weight={1} eachClassName="div_do ted_line"></Line>
+              <div className="editor_wrapper">
+                {/* eidtor */}
+                <div className="editor">
+                  {/* Add Content */}
+                  <div
+                    className="content_wrapper"
+                    dangerouslySetInnerHTML={{ __html: contentHTML }}
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div className="right_side"></div>
+          </div>
+        </section>
+```
