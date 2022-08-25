@@ -75,3 +75,13 @@ EditDiary > EditContainer 인 경우 이렇게 코드 쓰면 실행은 됨,
     프록시 서버 사용: 끔
 2.  DNS Client
     검색 -> run -> 클릭 -> DNS Client -> 새로 고침
+
+## 이미지 Layout
+
+### Sigle
+
+- <https://medium.com/workbench/floating-parallax-images-with-react-and-framer-motion-2f3703a8a070>
+
+### Multi
+
+- <https://blog.maximeheckel.com/posts/advanced-animation-patterns-with-framer-motion/> -<https://blog.logrocket.com/exploring-motion-one-framer-motion/>
