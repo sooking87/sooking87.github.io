@@ -17,7 +17,7 @@ toc_sticky: true
 - <https://codesandbox.io/s/0p6zjoy7x0?file=/index.js:0-1788> : 원하는 형식대로 Draft.js 사용한 코드 샌박 발견!
 - <https://blog.logrocket.com/building-rich-text-editors-in-react-using-draft-js-and-react-draft-wysiwyg/> : Draft.js에서 사용된 Rich Text에 대한 자세한 설명
 - <https://bigbite.net/2017/12/13/building-editor-draft-js-react/> : get HTML from Draft.js
-- <https://github.com/sstur/draft-js-utils> : HTML을 불러오기 위해서 draft-convert가 버젼상 사용이 안되므로 해당 링크게 export-html, import-html 모듈을 사용
+- <https://github.com/sstur/draft-js-utils> : HTML을 불러오기 위해서 draft-convert가 버젼상 사용이 안되므로 해당 링크게 export-html, import-html 모듈을 사용 -<https://ckeditor.com/> : 다른 에디터 발견
 
 <br>
 <br>
@@ -40,6 +40,24 @@ EditDiary > EditContainer 인 경우 이렇게 코드 쓰면 실행은 됨,
 ### put image
 
 - <https://so99ynoodles.com/ko/blog/make-wysiwyg-editor-with-draft-js>
+- <https://daveteu.medium.com/draftjs-insert-paste-images-into-your-content-820159025258>
+- <https://www.youtube.com/watch?v=t12a6z090AU> : 후ㅏ후ㅏ후하ㅜ하ㅜㅏ 똑같은 모듈 사용한 유튭 발견
+
+  - 기존 wysiwyg의 툴바의 경우 url은 지원해준다.
+  - <https://apidocs.imgur.com/> : imgur API를 사용해서 이미지를 폴더에서 추가할 예정
+
+    ```txt
+    Client ID:
+    7b8ce4dcd1a2d4e
+    Client secret:
+    31691655c78a262fbb81c8048a0fd8aaaae2f997
+    ```
+
+    - <https://console.cloud.google.com/projectselector2/apis/dashboard?pli=1&supportedpurview=project>
+    - <https://www.youtube.com/watch?v=uJnf0mKswVA>
+
+- <https://customercare.igloosoftware.com/support/knowledgebase/all_articles/articles/inserting_an_image_into_the_wysiwyg_editor> : Insert Image API
+- <https://codesandbox.io/s/iyeg2?file=/components/employment_details.js> : 코드 샌박, ㅈㄴ 복잡, 최후의 수단
 
 ## React Hook From
 
@@ -64,6 +82,7 @@ EditDiary > EditContainer 인 경우 이렇게 코드 쓰면 실행은 됨,
 
 - <https://qnrjs42.blog/react/react-cors>
 - <https://doinge-coding.tistory.com/entry/Nginx-React-Springboot-%EC%97%B0%EB%8F%99>
+- <https://www.freecodecamp.org/news/how-to-make-create-react-app-work-with-a-node-backend-api-7c5c48acb1b0> : 자세히 나와있음
 
 ### 프록시 서버 설정
 
