@@ -18,6 +18,7 @@ compound 점수가 0.1 이상이면 긍정 감성, 그 이하면 부정 감성�
 - <https://analyticsindiamag.com/nlp-models-bert-state-of-the-art-glue-baseline-language/> : Top 8 Baselines For NLP Models
 - <https://towardsdatascience.com/sentiment-analysis-in-10-minutes-with-bert-and-hugging-face-294e8a04b671> :
   Sentiment Analysis in 10 Minutes with BERT and TensorFlow
+  - <https://www.topcoder.com/thrive/articles/getting-started-with-textblob-for-sentiment-analysis> : 코드와 같이 자세히 나와있음
 
 ## BERT
 
@@ -125,6 +126,9 @@ We use the **Multinomial Naive Bayes** as learning algorithm with the Laplace sm
 ## BOW VS TFIDF
 
 <https://www.analyticsvidhya.com/blog/2021/07/bag-of-words-vs-tfidf-vectorization-a-hands-on-tutorial/>
+<br>
+
+- <https://www.mygreatlearning.com/blog/bag-of-words/> : Bow
 
 ## Word2Vec
 
@@ -134,3 +138,7 @@ We use the **Multinomial Naive Bayes** as learning algorithm with the Laplace sm
   min_count = 단어 최소 빈도 수 제한 (빈도가 적은 단어들은 학습하지 않는다.) <br>
   workers = 학습을 위한 프로세스 수 <br>
   sg = 0은 CBOW, 1은 Skip-gram. <br>
+
+## An easy tutorial about Sentiment Analysis with Deep Learning and Keras
+
+<https://towardsdatascience.com/an-easy-tutorial-about-sentiment-analysis-with-deep-learning-and-keras-2bf52b9cba91>
