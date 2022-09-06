@@ -22,6 +22,7 @@ As opposed to directional models, which read the text input sequentially (left-t
 When training language models, there is a challenge of defining a prediction goal. 빈칸에 들어가는 단어를 예측하는데 어려움이 있다. 왜? directional approach 자체의 한계점이다. 이를 극복하기 위해서 BERT는 2가지 전략을 사용한다.
 
 1. Masked LM (MLM)
+
    Before feeding word sequences into BERT, 15% of the words in each sequence are replaced with a [MASK] token. The model then attempts to predict the original value of the masked words, based on the context provided by the other, non-masked, words in the sequence.
 
    ![download1](https://user-images.githubusercontent.com/96654391/188531248-8bf6007f-0289-434d-a94f-79556ef41e40.png)
