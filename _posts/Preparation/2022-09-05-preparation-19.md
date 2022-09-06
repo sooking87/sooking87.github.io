@@ -77,3 +77,7 @@ The tokenizers should also match the core model that we would like to use as the
 ## Transformer와 Tensorflow를 가지고 fine-tunning 해보기
 
 <https://velog.io/@jaehyeong/Fine-tuning-Bert-using-Transformers-and-TensorFlow>
+
+### from_pretrained() ?
+
+Transformers를 통해 저장된 모델은 기본적으로 pretrained model, tokenizer, vocab, config 파일 등을 포함하고 있으며, from_pretrained() 메소드를 통해 로드할 수 있다.
