@@ -126,7 +126,7 @@
                 {% endfor %}
             </ul>
 
-        <!--ALGORITHM-->
+        <!--ALGORITHM 문제 풀이-->
          <span class="nav__sub-title">ALGORITHM</span>
             <ul>
                 {% for category in site.categories %}
