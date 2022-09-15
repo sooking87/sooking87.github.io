@@ -160,3 +160,80 @@ printRef
 printRef2
 1, 2, 3, 4, 5,
 ```
+
+근데 이 예시의 문제점은 만드시 배열의 크기가 같아야 한다는 점이다. 배열의 크기가 다를 경우 매개변수로 전달이 되지 않기 때문이다. 다양한 크기에 맞게 알맞게 출력하는 함수를 만들기 위해서는 print()를 함수 템플릿으로 선언하고, 배열의 크기를 템플릿 매개변수로 전달하면 된다.
+
+### 함수 템플릿
+
+함수의 기능은 덧셈, 리턴값이 int형인 함수
+
+```cpp
+int Adder(int n1, int n2)
+{
+	return n1 + n2;
+}
+```
+
+이러한 함수의 템플릿은 다음과 같다.
+
+```cpp
+template <typename T>
+T Adder(T n1, T n2)
+{
+	return n1 + n2;
+}
+```
+
+이 함수의 기능은 덧셈이고, 매개변수와 리턴값의 데이터형은 결정되어 있지 않다. <br>
+
+결과적으로는 이런 느낌?
+
+```cpp
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+template <typename T>
+T Adder(T n1, T n2)
+{
+    cout << "템플릿 함수 호출" << endl;
+    return n1 + n2;
+}
+
+// 템플릿 함수와 비교를 위한 int형 함수
+int Adder_int(int n1, int n2)
+{
+    cout << "int 형 함수 호출" << endl;
+    return n1 + n2;
+}
+
+int main()
+{
+    cout << Adder<int>(1, 2) << endl;
+    cout << Adder<double>(1.1, 2.2) << endl;
+    cout << Adder_int(1.1, 2.2) << endl;
+
+    return 0;
+}
+
+>>>
+템플릿 함수 호출
+3
+템플릿 함수 호출
+3.3
+int 형 함수 호출
+3
+```
+
+### 다양한 크기를 출력할 수 있는 함수
+
+print()를 함수 템플릿으로 선언하고, 배열 크기를 템플릿 매개변수로 전달하면 된다.
+
+```cpp
+#include <iostream>
+#include <array>
+
+template <size_t N>
+void print(const std::array<int, N>& arr);
+```
