@@ -20,7 +20,7 @@
 
 .archive__item {
   position: relative;
-  margin: 1em; //add
+  margin: 0.5em; //add
 
   a {
     position: relative;
@@ -75,7 +75,7 @@
 
 .archive__item-excerpt {
   margin-top: 0.5em; // 0
-  font-size: $type-size-8;
+  font-size: $type-size-10; //fix
 
   & + p {
     text-indent: 0;
