@@ -90,19 +90,28 @@
       top: 2em;
       float: right;
 
-      .toc {
-        .toc__menu {
-          overflow-y: auto;
-          max-height: calc(100vh - 7em);
-        }
-      }
+      // .toc {
+      //   .toc__menu {
+      //     overflow-y: auto;
+      //     max-height: calc(100vh - 7em);
+      //   }
+      // }
     }
   }
+
 
   @include breakpoint($x-large) {
     width: $right-sidebar-width;
     margin-right: -1 * $right-sidebar-width;
   }
+}
+
+// add
+.sidebar__top {
+  position: fixed;
+  bottom: 1.5em;
+  right: 2em;
+  z-index: 10;
 }
 
 .splash .sidebar__right {
