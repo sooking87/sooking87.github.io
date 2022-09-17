@@ -226,7 +226,7 @@ int 형 함수 호출
 3
 ```
 
-### 다양한 크기를 출력할 수 있는 함수
+### 다양한 크기를 출력할 수 있는 함수 / begin(), end()
 
 print()를 함수 템플릿으로 선언하고, 배열 크기를 템플릿 매개변수로 전달하면 된다.
 
@@ -235,5 +235,91 @@ print()를 함수 템플릿으로 선언하고, 배열 크기를 템플릿 매�
 #include <array>
 
 template <size_t N>
-void print(const std::array<int, N>& arr);
+void print(const std::array<int, N> &arr)
+{
+    for (auto ele : arr)
+    {
+        std::cout << ele << " ";
+    }
+    std::cout << std::endl;
+}
+
+int main()
+{
+    std::array<int, 4> arr1 = {1, 2, 3, 4};
+    std::array<int, 10> arr2 = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'l'};
+
+    print(arr1);
+    print(arr2);
+}
+
+>>>
+1 2 3 4
+97 98 99 100 101 102 103 104 105 108
+```
+
+❓template 키워드의 기능이 뭘까?
+<br>
+
+여튼 위 코드를 보면 반복문을 통해서 값들을 출력을 하는데 이렇게 하다가 배열의 크기보다 인덱스의 크기가 같거나 크다면 에러를 발생시킨다. <br>
+
+atd::array는 begin(), end() 라는 이름의 멤버 함수를 제공하여, 이들 함수는 가장 첫 번째 원소와 가장 마지막 원소의 위치(정확하게는 마지막 원소 다음 위치)를 반환한다. 즉, begin에서 시작해서 증가 연산자 ++ 을 사용해서 begin의 위치를 하나씩 뒤로 미루다가 end와 begin의 값이 같아지면 그 반복문을 종료시키는 형식으로 진행하면 된다. <br>
+
+이 반복자는 std::array, std::vector, std::map, std::set, std::list처럼 반복 가능한 모든 STL 컨테이너에 대해 사용가능.
+
+```cpp
+#include <iostream>
+#include <array>
+
+template <size_t N>
+void print(std::array<int, N> &arr)
+{
+    for (auto it = arr.begin(); it != arr.end(); it++)
+    {
+        auto element = (*it);
+        std::cout << "it: " << it << " ";
+        std::cout << "*it: " << element << std::endl;
+    }
+    std::cout << std::endl;
+}
+
+int main()
+{
+    std::array<int, 5> arr = {1, 2, 3, 4, 5};
+    print(arr);
+}
+
+>>>
+it: 0x61ff0c *it: 1
+it: 0x61ff10 *it: 2
+it: 0x61ff14 *it: 3
+it: 0x61ff18 *it: 4
+it: 0x61ff1c *it: 5
+```
+
+참조자로 줬는데 왜 그 값은 주소로 나오지? => begin, end는 해당 값에 대한 주소를 가지고 있다. 그래서 it = arr.begin() 이었으므로 it는 추소로 출력이 된것이고, 증가 연산자도 사용할 수 있었던 것이다. <br>
+
+array에서 []연산자와 at() 함수 외에 std::array에서 원소 접근을 위해 사용할 수 있는 멤버 함수
+
+- front() : 배열의 첫 번째 원소에 대한 참조를 반환
+- back() : 배열의 마지막 원소에 대한 참조를 반환
+- data() : 배열 객체 내부에서 데이터 메모리 버퍼를 가리키는 포인터를 반환.
+
+```cpp
+#include <iostream>
+#include <array>
+
+int main()
+{
+    std::array<int, 5> arr = {1, 2, 3, 4, 5};
+
+    std::cout << arr.front() << std::endl;
+    std::cout << arr.back() << std::endl;
+    std::cout << (arr.data() + 1) << " = " << (*(arr.data() + 1)) << std::endl;
+}
+
+>>>
+1
+5
+0x61ff00 = 2
 ```
