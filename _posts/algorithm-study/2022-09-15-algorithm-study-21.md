@@ -323,3 +323,158 @@ int main()
 5
 0x61ff00 = 2
 ```
+
+## std::vector
+
+std::array의 경우는 크기가 고정되어있어야 하고, 메모리 할당 방법을 변경할 수 없다. 하지만 대부분의 실제 응용 프로그램에서는 데이터는 동적이며 고정 크기가 아니다. 따라서 std::array를 사용하는 것이 항상 좋은 것은 아니며, 가변 크기의 데이터를 처리할 수 있는 컨테이너가 필요하기도 하다.
+
+### std::vector - 가변 크기 배열
+
+```cpp
+#include <iostream>
+#include <vector>
+
+int main()
+{
+    // 크기가 0인 벡터 선언
+    std::vector<int> vec1;
+
+    // 지정한 초깃값으로 이루어진 크기가 5인 벡터 선언
+    std::vector<int> vec2 = {1, 2, 3, 4, 5};
+
+    // 크기가 10인 벡터 선언
+    std::vector<int> vec3(10);
+
+    // 크기가 10이고, 모든 원소가 5로 초기화된 벡터 선언
+    std::vector<int> vec4(10, 5);
+}
+```
+
+벡터의 크기를 명시적으로 지정하지 않거나 또는 초깃값을 지정하여 크기를 유추할 수 있게 코드를 작성하지 않을 경우, 컴파일러 구현 방법에 따른 용량을 갖는 벡터를 생성하게 된다.
+
+### push_back() && insert()
+
+백터의 새로운 원소를 추가하려면 push_back() 또는 insert() 함수를 사용한다.
+
+- push_back() 함수는 벡터의 맨 마지막에 새로운 원소를 추가하는 함수
+- insert() 함수는 삽입할 위치를 나타내는 반복자를 첫 번째 인자로 받음으로써 원하는 위치에 원소를 추가할 수 있다. <br>
+
+용량이 부족하다면 벡터 용량의 두배로 늘린다. push_back() 함수의 평균 시간 복잡도는 O(1)에 가깝다. 즉, push_back()은 매우 빠르게 동작한다. <br>
+
+insert() 함수의 경우는 지정한 반복자 위치 다음의 모든 원소를 이동시키는 연산이 필요하다. 원소들을 이동하는 연산 때문에 insert() 함수는 O(n)의 시간이 걸립니다.
+<br>
+
+push_back() 함수와 insert() 함수의 활용 예시
+
+```cpp
+#include <iostream>  // std::cout
+#include <vector>    // std::vector
+#include <algorithm> // std::find
+
+void print(std::vector<int> v)
+{
+    for (auto ele : v)
+    {
+        std::cout << ele << " ";
+    }
+    std::cout << std::endl;
+}
+
+int main()
+{
+    std::vector<int> vec1 = {1, 2, 3, 4, 5};
+    std::cout << "vec1 초기값: ";
+    print(vec1);
+
+    vec1.insert(vec1.begin(), 0);
+    std::cout << "vec1 제일 앞에 0추가: ";
+    print(vec1);
+
+    vec1.insert(++vec1.begin(), 10);
+    std::cout << "vec1 인덱스 1에 10추가: ";
+    print(vec1);
+
+    std::vector<int> vec2;
+    vec2.push_back(1);
+    std::cout << "vec2 빈 벡터에 1추가: ";
+    print(vec2);
+
+    vec2.push_back(2);
+    std::cout << "vec2 맨 뒤에 2추가: ";
+    print(vec2);
+
+    vec2.insert(vec2.begin(), 3);
+    std::cout << "vec2 맨 앞에 3추가: ";
+    print(vec2);
+
+    vec2.insert(find(vec2.begin(), vec2.end(), 1), 4); // 1앞에 4를 추가
+    std::cout << "vec2 1앞에 4를 추가: ";
+    print(vec2);
+}
+
+>>>
+vec1 초기값: 1 2 3 4 5
+vec1 제일 앞에 0추가: 0 1 2 3 4 5
+vec1 인덱스 1에 10추가: 0 10 1 2 3 4 5
+vec2 빈 벡터에 1추가: 1
+vec2 맨 뒤에 2추가: 1 2
+vec2 맨 앞에 3추가: 3 1 2
+vec2 1앞에 4를 추가: 3 4 1 2
+```
+
+- begin() 함수를 통해서 첫 번째에 값을 넣을 수 있다. 즉, 첫 번째 인자의 형식은 주소이다. <br>
+
+  ```cpp
+  vec1.insert(vec1.begin(), 0);
+  ```
+
+- 주소이므로 증감 연산자를 통해서 두 번째 인덱스에 값을 넣을 수 있다. <br>
+
+  ```cpp
+  vec1.insert(++vec1.begin(), 10);
+  ```
+
+- find(start, end, value) 로, algorithm 라이브러리에 포함되어 있으며 start부터 end - 1까지 중에서 value를 검색한다. => 첫 번째에 위치하는 value의 값을 찾으면 벡터의 이터레이터를 리턴한다. <br>
+
+  ```cpp
+  vec2.insert(find(vec2.begin(), vec2.end(), 1), 4); // 1앞에 4를 추가
+  ```
+
+### emplace_back() && emplace()
+
+근데 여기서 push\\\_back() 함수와 insert() 함수의 단점 중 하나는 이들 함수가 추가할 원소를 먼저 임시로 생성한 후, 벡터 버퍼 내부 위치로 복사 또는 이동을 수행한다는 점이다. 이러한 단점을 보안하기 위해서 \*\*\_emplace*back()**\* 또는 **\_emplace()*\*\* 함수가 구현되어 있다. 따라서 삽입의 경우는 emplace_back()이나 emplace()를 이용하여 구현하는 것이 좋다. <br>
+
+emplace() 함수의 첫 번째 인수는 객체가 생성될 위치를 지정하는 반복자이다. 반복자로 지정한 원소 앞에 객체가 삽입될 것이다. emplace_back() 함수의 경우는 push_back()과 마찬가지고 맨 뒤에 값을 추가하는 함수이다.
+
+```cpp
+#include <iostream>
+#include <vector>
+
+void print(std::vector<int> v)
+{
+    for (auto ele : v)
+    {
+        std::cout << ele << " ";
+    }
+    std::cout << std::endl;
+}
+
+int main()
+{
+    std::vector<int> vec = {1, 2, 3, 4, 5};
+    print(vec);
+
+    vec.emplace_back(10);
+    print(vec);
+
+    vec.emplace(++vec.begin(), 20);
+    print(vec);
+}
+
+>>>
+1 2 3 4 5
+1 2 3 4 5 10
+1 20 2 3 4 5 10
+```
+
+### pop_back() && erase()
