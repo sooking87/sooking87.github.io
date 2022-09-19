@@ -442,7 +442,7 @@ vec2 1앞에 4를 추가: 3 4 1 2
 
 ### emplace_back() && emplace()
 
-근데 여기서 push\\\_back() 함수와 insert() 함수의 단점 중 하나는 이들 함수가 추가할 원소를 먼저 임시로 생성한 후, 벡터 버퍼 내부 위치로 복사 또는 이동을 수행한다는 점이다. 이러한 단점을 보안하기 위해서 \*\*\_emplace*back()**\* 또는 **\_emplace()*\*\* 함수가 구현되어 있다. 따라서 삽입의 경우는 emplace_back()이나 emplace()를 이용하여 구현하는 것이 좋다. <br>
+근데 여기서 push\*back() 함수와 insert() 함수의 단점 중 하나는 이들 함수가 추가할 원소를 먼저 임시로 생성한 후, 벡터 버퍼 내부 위치로 복사 또는 이동을 수행한다는 점이다. 이러한 단점을 보안하기 위해서 \*\*\_emplace*back()**\* 또는 **\_emplace()*\*\* 함수가 구현되어 있다. 따라서 삽입의 경우는 emplace_back()이나 emplace()를 이용하여 구현하는 것이 좋다. <br>
 
 emplace() 함수의 첫 번째 인수는 객체가 생성될 위치를 지정하는 반복자이다. 반복자로 지정한 원소 앞에 객체가 삽입될 것이다. emplace_back() 함수의 경우는 push_back()과 마찬가지고 맨 뒤에 값을 추가하는 함수이다.
 
@@ -478,3 +478,169 @@ int main()
 ```
 
 ### pop_back() && erase()
+
+pop_back() 함수는 백터에서 맨 마지막 원소를 제거하며, 그 결과 벡터 크기는 1만큼 줄어든다. erase() 함수는 두가지 형태로 오버로딩되어 있다. 한가지 형태는 반복자 하나를 인자로 받아 해당 위치 원소를 제거하고 다른 형태는 범위의 시작과 끝을 나타내는 반복자를 받아 시작부터 끝 바로 앞 원소까지 제거한다. <br>
+
+- pop_back() : 남아있는 위치를 조정할 필요가 없으므로 매우 빠르게 동작 -> O(1)
+- erase() : 특정 위치 원소를 삭제한 후, 뒤쪽의 원소들을 모두 앞으로 이동 -> O(n)
+
+```cpp
+#include <iostream>
+#include <vector>
+
+void print(std::vector<int> v)
+{
+    for (auto ele : v)
+    {
+        std::cout << ele << " ";
+    }
+    std::cout << std::endl;
+}
+
+int main()
+{
+    std::vector<int> vec = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+    // 맨 마지막 원소 하나를 제거합니다.
+    vec.pop_back();
+    std::cout << "pop_back(): ";
+    print(vec);
+
+    // 맨 처음 원소를 제거
+    vec.erase(vec.begin());
+    std::cout << "erase(): ";
+    print(vec);
+
+    vec.erase(vec.begin() + 2, vec.begin() + 4);
+    std::cout << "2번째 인덱스부터 3번째 인덱스 까지 삭제: ";
+    print(vec);
+}
+
+>>>
+pop_back(): 0 1 2 3 4 5 6 7 8
+erase(): 1 2 3 4 5 6 7 8
+2번째 인덱스부터 3번째 인덱스 까지 삭제: 1 2 5 6 7 8
+```
+
+<br>
+
+그 외의 함수 <br>
+
+- clear(): 모든 원소를 제거하여 완전히 비어있는 벡터로 만듬
+- reserve(capacity): 벡터에서 사용할 용량을 지정매개변수로 지정한 값이 현재 용량보다 크면 메모리를 매개변수 크기만큼 재할당
+- shrink_to_fit(): 여부느이 메모리 공간을 해제하는 용도로 사용. 이 함수를 호출하면 벡터의 용량이 벡터 크기와 같게 설정된다.
+
+### std::vector 할당자
+
+사용자 정의 할당자를 사용하려면 정해진 인터페이스를 따라야 한다. 벡터는 메모리 접근과 관련된 대부분의 동작에서 할당자 함수를 사용하므로 할당자는 allocate(), deallocate(), construct(), destroy()등의 함수를 제공한다. 이런 기능을 통해서 std::array()의 단점을 해결할 수 있다. 할당자는 메모리 할당과 해제, 여타 동작에서 데이터를 손상시키지 않도록 주의해야 된다. <br>
+
+일반적인 힙 메모리 대신 자체적인 메모리 풀 또는 이와 유사한 자원을 사용하거나 자동 메모리 관리가 필요한 응용 프로그램을 만들어야 하는 경웅에 사용자 정의 할당자를 사용한 유용하다.
+
+### ❓할당자, 이터레이터, 사용자 정의 할당자?
+
+1. 이터레이터 = 반복자 <br>
+
+   c++에서는 반복자를 제공하는데, 이를 사용하면 컨테이너에 저장된 원소를 순회하고 접근하여 효과적으로 자료를 접근할 수 있다. vector 컨테이너에 접근하기 위해서는 iterator(반복자) 개념이 필요하다. iterator는 컨테이너 원소에 접근할 수 있는 포인터와 같은 객체라고 볼 수 있다. 벡터 컨테이너에 접근하기 위해서는 \* 연산자를 사용해서 접근한다.
+
+   ```cpp
+   #include <iostream>
+   #include <vector>
+
+   int main()
+   {
+       // vector 반복자 iter 선언
+       std::vector<int>::iterator iter;
+
+       // iter 초기화
+       std::vector<int> v = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+       iter = v.begin();
+
+       // 임의 접근
+       std::cout << iter[1] << std::endl;
+
+       // 연산 사용
+       iter += 5; // 첫 번째 원소 이후로 5칸 뒤의 원소
+       std::cout << *iter << std::endl;
+
+       // vector 순방향
+       for (std::vector<int>::iterator it = v.begin(); it != v.end(); it++)
+       {
+           std::cout << "&it: " << &it << std::endl;
+           std::cout << "*it: " << *it << std::endl;
+       }
+
+       for (std::vector<int>::size_type i = 0; i < v.size(); i++)
+       {
+           std::cout << "vec의 " << i + 1 << " 번째 원소 :: " << v[i] << std::endl;
+       }
+       std::cout << std::endl;
+
+       for (int i = 0; i < v.size(); i++)
+       {
+           std::cout << "vec의 " << i + 1 << " 번째 원소 :: " << v[i] << std::endl;
+       }
+   }
+
+   >>>
+    2
+    6
+    &it: 0x61fedc
+    *it: 1
+    &it: 0x61fedc
+    *it: 2
+    &it: 0x61fedc
+    *it: 3
+    &it: 0x61fedc
+    *it: 4
+    &it: 0x61fedc
+    *it: 5
+    &it: 0x61fedc
+    *it: 6
+    &it: 0x61fedc
+    *it: 7
+    &it: 0x61fedc
+    *it: 8
+    &it: 0x61fedc
+    *it: 9
+    &it: 0x61fedc
+    *it: 10
+    vec의 1 번째 원소 :: 1
+    vec의 2 번째 원소 :: 2
+    vec의 3 번째 원소 :: 3
+    vec의 4 번째 원소 :: 4
+    vec의 5 번째 원소 :: 5
+    vec의 6 번째 원소 :: 6
+    vec의 7 번째 원소 :: 7
+    vec의 8 번째 원소 :: 8
+    vec의 9 번째 원소 :: 9
+    vec의 10 번째 원소 :: 10
+
+    vec의 1 번째 원소 :: 1
+    vec의 2 번째 원소 :: 2
+    vec의 3 번째 원소 :: 3
+    vec의 4 번째 원소 :: 4
+    vec의 5 번째 원소 :: 5
+    vec의 6 번째 원소 :: 6
+    vec의 7 번째 원소 :: 7
+    vec의 8 번째 원소 :: 8
+    vec의 9 번째 원소 :: 9
+    vec의 10 번째 원소 :: 10
+   ```
+
+   \* 연산자를 이용해서 it이 가리키는 원소를 볼 수 있다. 이터레이터는 실제 포인터가 아니고, \* 연산자를 오버로딩해서 마치 포인터처럼 동작하게 만든 것이다. 위의 예시 코드를 보면 결국 인덱스를 통해서 벡터에 접근을 할 수 있다. 하지만 그렇게 하는 것은 옳지 않다. 벡터의 경우는 원소 접근하는 방식이 iterator을 사용하여 접근하는 방식인데, 이를 사용하지 않고, 배열처럼 정수형 변수 i로 접근하는 것은 권장하지 않은 방식이다.
+
+2. 할당자
+
+## std::forward_list
+
+지금까지 살펴본 배열과 백터 같은 연속된 자료 구조에서는 데이터 중간에 자료를 추가하거나 삭제하는 작업이 매우 비효율적이다. 그래서 연결 리스트와 같은 자료 구조가 등장한다. <br>
+
+기본적인 연결 리스트를 구성하려면 포인터를 하나 가지고 있어야 하고, new와 delete 연산자를 이용하여 메모리를 할당하고 해제할 수 있어야 한다. C++에서는 기본적인 연결 리스트에 대한 **래퍼 클래스** 인 std::forward_list 클래스를 제공한다.
+
+### ❓wrapper 클래스
+
+### std::forward_list에서 원소 삽입과 삭제
+
+- 삽입: push_front(), insert_after()
+  - push_front()의 경우느 연결 리스트 맨 앞에 새로운 원소를 삽입
+  - insert_after()의 경우는 새로운 원소를 삽입한 후 해당 위치 앞에 있는 원소의 next포인터를 수정해야 하기 때문이다. <br>
