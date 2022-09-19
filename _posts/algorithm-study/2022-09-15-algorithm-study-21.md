@@ -642,5 +642,145 @@ erase(): 1 2 3 4 5 6 7 8
 ### std::forward_list에서 원소 삽입과 삭제
 
 - 삽입: push_front(), insert_after()
-  - push_front()의 경우느 연결 리스트 맨 앞에 새로운 원소를 삽입
+
+  - push_front()의 경우는 연결 리스트 맨 앞에 새로운 원소를 삽입
   - insert_after()의 경우는 새로운 원소를 삽입한 후 해당 위치 앞에 있는 원소의 next포인터를 수정해야 하기 때문이다. <br>
+
+  ```cpp
+  #include <iostream>
+  #include <forward_list>
+  void print(std::forward_list<int> fwd_list)
+  {
+      for (auto ele : fwd_list)
+      {
+          std::cout << ele << " ";
+      }
+      std::cout << std::endl;
+  }
+  int main()
+  {
+      std::forward_list<int> fwd_list = {1, 2, 3};
+      // 맨 앞에 0 추가
+      fwd_list.push_front(0);
+      std::cout << "맨 앞에 0 추가: ";
+      print(fwd_list);
+      auto it = fwd_list.begin();
+      // 맨 처음 원소 뒤에 5 추가
+      fwd_list.insert_after(it, 5);
+      std::cout << "맨 처음 원소 뒤에 5 추가: ";
+      print(fwd_list);
+      // 맨 처음 원소 뒤에 6 추가
+      fwd_list.insert_after(it, 6);
+      std::cout << "맨 처음 원소 뒤에 6 추가: ";
+      print(fwd_list);
+  }
+
+  >>>
+  맨 앞에 0 추가: 0 1 2 3
+  맨 처음 원소 뒤에 5 추가: 0 5 1 2 3
+  맨 처음 원소 뒤에 6 추가: 0 6 5 1 2 3
+  ```
+
+  - ❓auto 키워드?
+
+- 삽입: emplace_front(), emplace_after()
+  이 두 함수의 경우는 insert_after()과 push_front()와 달리 추가적인 복사 또는 이동을 하지 않기 때문에 더 효율적입니다.
+
+  ```cpp
+  #include <iostream>
+  #include <forward_list>
+
+  void print(std::forward_list<int> fwd_list)
+  {
+      for (auto ele : fwd_list)
+      {
+          std::cout << ele << " ";
+      }
+      std::cout << std::endl;
+  }
+
+  int main()
+  {
+      std::forward_list<int> fwd_list = {1, 2, 3};
+      // 맨 앞에 0 추가
+      fwd_list.emplace_front(0);
+      std::cout << "맨 앞에 0 추가: ";
+      print(fwd_list);
+
+      auto it = fwd_list.begin();
+
+      // 맨 처음 원소 뒤에 5 추가
+      fwd_list.emplace_after(it, 5);
+      std::cout << "맨 처음 원소 뒤에 5 추가: ";
+      print(fwd_list);
+      // 맨 처음 원소 뒤에 6 추가
+      fwd_list.emplace_after(it, 6);
+      std::cout << "맨 처음 원소 뒤에 6 추가: ";
+      print(fwd_list);
+  }
+
+  >>>
+  맨 앞에 0 추가: 0 1 2 3
+  맨 처음 원소 뒤에 5 추가: 0 5 1 2 3
+  맨 처음 원소 뒤에 6 추가: 0 6 5 1 2 3
+  ```
+
+- 삭제: pop_front(), erase_after()
+
+  - pop_front() 함수는 리스트의 맨 처음 원소를 제거
+  - erase_after()은 두가지 형태로 제공되는데 하나는 특정 원소를 가리키는 반복자를 인자로 받아서 바로 다음 위치의 원소를 삭제하는 형태와 일련의 원소를 제거할 때에도 erase_after() 함수를 사용할 수 있으며, 이 경우에는 삭제할 범위의 시작 원소 앞을 가리키는 반복자와 삭제할 범위 끝 원소를 가리키는 반복자를 인자로 받는다.
+
+  ```cpp
+  #include <iostream>
+  #include <forward_list>
+
+  void print(std::forward_list<int> fwd_list)
+  {
+      for (auto ele : fwd_list)
+      {
+          std::cout << ele << " ";
+      }
+      std::cout << std::endl;
+  }
+
+  int main()
+  {
+      std::forward_list<int> fwd_list = {1, 2, 3, 4, 5};
+
+      fwd_list.pop_front();
+      std::cout << "첫 번째 원소 삭제: ";
+      print(fwd_list);
+
+      auto it = fwd_list.begin();
+
+      fwd_list.erase_after(it);
+      std::cout << "it 다음 위치 삭제(1번째 인덱스 삭제): ";
+      print(fwd_list);
+
+      fwd_list.erase_after(it, fwd_list.end());
+      std::cout << "it 다음부터 끝까지 삭제: ";
+      print(fwd_list);
+  }
+
+  >>>
+  첫 번째 원소 삭제: 2 3 4 5
+  it 다음 위치 삭제(1번째 인덱스 삭제): 2 4 5
+  it 다음부터 끝까지 삭제: 2
+  ```
+
+### std::forward_list의 기타 멤버 함수
+
+- remove(): 삭제할 원소 값 하나를 매개변수로 받는다. 이 함수는 저장된 데이터 타입에 정의된 등호 연산자를 사용하여 전달된 값과 일치하는 모든 원소를 찾아 삭제. 오직 등호에 근거하여 삭제하는 함수
+- remove_if(): 원소 값을 검사하여 삭제하는데 remove()보다는 조금 더 유연하게 조건부 삭제까지 수행 가능.
+
+## 반복자
+
+반복자는 포인터와 비슷하지만 STL 컨테이너에 대해 공통의 인터페이스를 제공합니다. 반복자를 이용한 연산은 어떤 컨테이너에서 정의된 반복자인지에 따라 결정되는데 <br>
+
+- 벡터와 배열에서 사용되는 반복자: 기능 면에서 가장 유연. 연속된 자료구조를 사용하기 때문에 특정 위치의 원소에 곧바로 접근 가능
+- 연결 리스트: 역방향으로 이동하는 기능을 제공하지 않으며, 이전 노드로 이동하려면 맨 처음 노드부터 시작해서 찾아야 한다. 연산으로는 증가 연산만 가능하며 이러한 반복자를 순방향 반복자라고 한다.
+
+### 반복자의 타입에 따라 사용할 수 있는 함수
+
+- advance(): 반복자와 거리 값을 인자로 받고, 반복자를 거리 값만큼 증가시킨다.
+- next(), prev(): 반복자와 거리 값을 인자로 받고, 해당 반복자에서 지정한 거리만큼 떨어진 위치의 반복자를 반환한다.
