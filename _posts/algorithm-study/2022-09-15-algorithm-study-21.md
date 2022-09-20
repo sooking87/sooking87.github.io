@@ -639,6 +639,31 @@ erase(): 1 2 3 4 5 6 7 8
 
 ### ❓wrapper 클래스
 
+wrapper란 필요한 데이터를 받거나 쓰기 위해 데ㅣ터 형태를 세팅해 제공하는 서비스이다.
+
+```cpp
+#include <iostream>
+
+class int_wrapper
+{
+private:
+    int *myPtr;
+
+public:
+    int_wrapper(int value = 0) : myPtr(new int(value))
+    {
+    }
+    ~int_wrapper()
+    {
+        delete myPtr;
+    }
+};
+```
+
+위 클래스는 int에 대한 포인터를 래핑한다. <br>
+
+자바에서는 int를 Integer로, char을 Character 표현한 경우에서 Integer와 Character을 래퍼 클래스, int를 원시 타입이라고 불렀다.
+
 ### std::forward_list에서 원소 삽입과 삭제
 
 - 삽입: push_front(), insert_after()
