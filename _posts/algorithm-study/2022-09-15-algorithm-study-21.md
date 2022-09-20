@@ -662,7 +662,11 @@ public:
 
 위 클래스는 int에 대한 포인터를 래핑한다. <br>
 
-자바에서는 int를 Integer로, char을 Character 표현한 경우에서 Integer와 Character을 래퍼 클래스, int를 원시 타입이라고 불렀다.
+자바에서는 int를 Integer로, char을 Character 표현한 경우에서 Integer와 Character을 래퍼 클래스, int를 원시 타입이라고 불렀다. <br>
+
+wrapper 클래스를 사용하는 이유는 모든 데이터 타입 역시 객체로 만들기 위해서 기본 자료형에 대해 객체로서 인식되도록 포장을 하여 wrapper 클래스를 만드는 것이다. <br>
+
+` C++에서는 기본적인 연결 리스트에 대한 **래퍼 클래스** 인 std::forward_list 클래스를 제공한다.` 그래서 이 말의 뜻을 다시 보면 원래 연결 리스트라는 개념이 있었는데 이를 객체로 만들기 위해서 forward_list 클래스를 만들었다는 말이다.
 
 ### std::forward_list에서 원소 삽입과 삭제
 
@@ -707,6 +711,8 @@ public:
   ```
 
   - ❓auto 키워드?
+
+    auto 키워드는 초기화시에 초기화 값에 맞춰 자동으로 자료형을 판단하는 기능을 가진다. 주의할 점은 선언만하고 초기화를 하지 않으면 사용이 불가하다.
 
 - 삽입: emplace_front(), emplace_after()
   이 두 함수의 경우는 insert_after()과 push_front()와 달리 추가적인 복사 또는 이동을 하지 않기 때문에 더 효율적입니다.
@@ -795,8 +801,42 @@ public:
 
 ### std::forward_list의 기타 멤버 함수
 
-- remove(): 삭제할 원소 값 하나를 매개변수로 받는다. 이 함수는 저장된 데이터 타입에 정의된 등호 연산자를 사용하여 전달된 값과 일치하는 모든 원소를 찾아 삭제. 오직 등호에 근거하여 삭제하는 함수
+- remove(): 삭제할 원소 값 하나를 매개변수로 받는다. 이 함수는 저장된 데이터 타입에 정의된 등호 연산자를 사용하여 전달된 값과 일치하는 **모든 원소를 찾아 삭제**. 오직 등호에 근거하여 삭제하는 함수
 - remove_if(): 원소 값을 검사하여 삭제하는데 remove()보다는 조금 더 유연하게 조건부 삭제까지 수행 가능.
+
+```cpp
+#include <iostream>
+#include <forward_list>
+
+bool del_less_five(const int value)
+{
+    return (value < 5);
+}
+void print(std::forward_list<int> myList)
+{
+    for (int ele : myList)
+    {
+        std::cout << ele << " ";
+    }
+    std::cout << std::endl;
+}
+int main()
+{
+    std::forward_list<int> fwd_list = {1, 2, 3, 4, 5, 6, 7, 8, 9, 7, 7, 1, 1, 2, 5};
+
+    fwd_list.remove(7);
+    std::cout << "7 제거: ";
+    print(fwd_list);
+
+    fwd_list.remove_if(del_less_five);
+    std::cout << "remove_if(): ";
+    print(fwd_list);
+}
+
+>>>
+7 제거: 1 2 3 4 5 6 8 9 1 1 2 5
+remove_if(): 5 6 8 9 5
+```
 
 ## 반복자
 
