@@ -48,7 +48,7 @@
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "Sensor Programming" %}
-                        <li><a href="/categories/sensor-programming" class="">🧾C++프로그래밍 ({{category[1].size}})</a></li>
+                        <li><a href="/categories/sensor-programming" class="">🧾센서 프로그래밍 ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
