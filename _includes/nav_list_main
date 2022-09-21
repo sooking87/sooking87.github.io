@@ -45,6 +45,13 @@
                     {% endif %}
                 {% endfor %}
             </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Sensor Programming" %}
+                        <li><a href="/categories/sensor-programming" class="">🧾C++프로그래밍 ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
 
         <!--STUDY-->
          <span class="nav__sub-title">STUDY</span>
