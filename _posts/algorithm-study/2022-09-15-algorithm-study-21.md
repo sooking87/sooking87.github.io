@@ -849,3 +849,84 @@ remove_if(): 5 6 8 9 5
 
 - advance(): 반복자와 거리 값을 인자로 받고, 반복자를 거리 값만큼 증가시킨다.
 - next(), prev(): 반복자와 거리 값을 인자로 받고, 해당 반복자에서 지정한 거리만큼 떨어진 위치의 반복자를 반환한다.
+
+## std::list
+
+std::forward_list는 아주 기본적인 형태로 구현된 연결 리스트이다. std::forward_list는 다른 유용한 기능 주에서도 리스트 끔에 원소 추가, 역방향 이동, 리스트 크기 반환 등의 기능은 제공하지 않습니ㅏ. 이는 메모리를 적게 쓰고 빠른 성능을 유지하기 위함입니다. 그리고 std::forward_list의 반복자는 매우 적은 기능만을 지원한다. <br>
+
+이러한 단점을 보안하기 위해서 C++에서는 std::list의 기능을 제공한다. list는 양쪽 방향으로 연결된 리스트, 즉, **이중 연결 리스트** 구조로 되어있다.
+
+### std::list 멤버 함수
+
+- ::iterator
+
+  - begin(): 맨 앞의 원소를 가리키는 iterator 리턴
+  - end(): 맨 뒤의 다음 원소를 가리키는 iterator 리턴
+  - rbegin(): 맨 뒤의 원소를 가리키는 iterator 리턴(뒤에서부터 순차적으로 접근할 때 사용)
+  - rend(): 맨 앞 이전 원소를 가리키는 iterator 리턴
+
+- 삽입
+  - push_back(element): list 맨 뒤에 element 추가
+  - push_front(element): list 맨 앞에 element 추가
+  - insert(iterator, element): list의 iterator가 가리키는 위치 앞에 element 추가
+  - emplace()
+  - emplace_back(element): 맨 뒤에 element를 추가
+- 삭제
+  - pop_front(): list 맨 앞의 우너소 제거
+  - pop_back(): list 맨 뒤에 원소 삭제
+  - erase(iterator): iterator에 해당하는 원소 삭제
+  - remove()
+  - remove_if()
+
+```cpp
+#include <iostream>
+#include <list>
+
+// 원래 이중연결 리스트 노드 구조
+struct doubly_linked_list_node
+{
+    int data;
+    doubly_linked_list_node *next;
+    doubly_linked_list_node *prev;
+};
+
+void print(std::list<int> list)
+{
+    for (auto it = list.begin(); it != list.end(); it++)
+    {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
+}
+int main()
+{
+    std::list<int> list1 = {1, 2, 3, 4, 5};
+    list1.push_back(6);
+    list1.insert(list1.begin(), 0);
+    // list1.pust_front(0);
+    list1.insert(list1.end(), 7);
+    // list1.push_back(7);
+
+    std::cout << "원소 추가: " << std::endl;
+    print(list1);
+
+    std::cout << "원소 삭제: " << std::endl;
+    list1.pop_back();
+    print(list1);
+    list1.pop_front();
+    print(list1);
+}
+
+>>>
+원소 추가:
+0 1 2 3 4 5 6 7
+원소 삭제:
+0 1 2 3 4 5 6
+1 2 3 4 5 6
+```
+
+여튼 list는 이중 원형 리스트이므로 단일 연결 리스트보다 관리해야되는 포인터가 2배 많으믈 시간도 2배로 걸린다.
+
+### 양방향 반복자
+
+std::list의 반복자같은 경우, forward_list 기반의 순방향 반복자보다 유연성을 가지고 있다. 하지만 std::list 반복자는 **임의 접근 반복자** 보다는 유연하지 않다.
