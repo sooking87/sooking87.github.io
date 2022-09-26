@@ -55,5 +55,6 @@ ifconfig를 통해서 포트 번호 알기 -> VNC에 입력!
 ## 다음에 또 키려고 한다면
 
 1. PuTTy에서 `169.254.192.172 ` 해당 번호를 치고 open
-2. interfacing Options 들어가 -> VNC 클릭
-3. VNC에서 포트 번호 입력
+2. `sudo raspi-config` 입력
+3. interfacing Options 들어가 -> VNC 클릭
+4. VNC에서 포트 번호 입력
