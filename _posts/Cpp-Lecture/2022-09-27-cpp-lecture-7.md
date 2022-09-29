@@ -280,3 +280,5 @@ int solution(int order)
 
 - countDigit => 인자는 몇 개, 리턴형은 뭔지를 생각하고 그 함수이름을 solution 함수에서 사용해주는 것이다.
 - countDigit() 함수는 order에서 두 번째 인자가 몇 개인지를 count 해주는 함수이다.
+
+## Chap 05: Errors
