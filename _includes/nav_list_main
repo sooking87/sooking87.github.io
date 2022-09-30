@@ -132,6 +132,13 @@
                     {% endif %}
                 {% endfor %}
             </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "GDSC ML" %}
+                        <li><a href="/categories/gdsc-ml" class="">🔥GDSC ML({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
 
         <!--ALGORITHM 문제 풀이-->
          <span class="nav__sub-title">ALGORITHM</span>
