@@ -394,3 +394,307 @@ string solution(vector<string> id_pw, vector<vector<string>> db)
     return answer;
 }
 ```
+
+## 과제 3-1
+
+### 문제 설명
+
+2차원 좌표 평면에 변이 축과 평행한 직사각형이 있습니다. 직사각형 네 꼭짓점의 좌표 [[x1, y1], [x2, y2], [x3, y3], [x4, y4]]가 담겨있는 배열 dots가 매개변수로 주어질 때, 직사각형의 넓이를 return 하도록 solution 함수를 완성해보세요.
+
+### 제한사항
+
+dots의 길이 = 4 <br>
+dots의 원소의 길이 = 2 <br>
+-256 < dots[i]의 원소 < 256 <br>
+잘못된 입력은 주어지지 않습니다. <br>
+
+### 입출력 예
+
+|                 dots                 | result |
+| :----------------------------------: | :----: |
+|   [[1, 1], [2, 1], [2, 2], [1, 2]]   |   1    |
+| [[-1, -1], [1, 1], [1, -1], [-1, 1]] |   4    |
+
+### 내가 제출한 코드
+
+```cpp
+#include <string>
+#include <vector>
+#include <iostream>
+
+using namespace std;
+
+int solution(vector<vector<int>> dots)
+{
+    int answer = 0;
+    int start_x = dots[0][0]; // min x
+    int start_y = dots[0][1]; // min y
+    int end_x = dots[0][0];   // max x
+    int end_y = dots[0][1];   // max y
+    for (int i = 1; i < dots.size(); i++)
+    {
+        if (start_x > dots[i][0])
+        {
+            start_x = dots[i][0];
+        }
+        if (start_y > dots[i][1])
+        {
+            start_y = dots[i][1];
+        }
+        if (end_x < dots[i][0])
+        {
+            end_x = dots[i][0];
+        }
+        if (end_y < dots[i][1])
+        {
+            end_y = dots[i][1];
+        }
+    }
+
+    int width = end_x - start_x;
+    int height = end_y - start_y;
+    answer = width * height;
+
+    return answer;
+}
+
+int main()
+{
+    solution({{1, 1}, {2, 1}, {2, 2}, {1, 2}});
+}
+```
+
+### 교수님 코드
+
+## 과제 3-2
+
+### 문제 설명
+
+문자열 my_string이 매개변수로 주어집니다. my_string은 소문자, 대문자, 자연수로만 구성되어있습니다. my_string안의 자연수들의 합을 return하도록 solution 함수를 완성해주세요.
+
+### 제한사항
+
+1 ≤ my_string의 길이 ≤ 1,000 <br>
+1 ≤ my_string 안의 자연수 ≤ 1000 <br>
+연속된 수는 하나의 숫자로 간주합니다. <br>
+000123과 같이 0이 선행하는 경우는 없습니다. <br>
+
+### 입출력 예
+
+|    my_string    | result |
+| :-------------: | :----: |
+| "aAb1B2cC34oOp" |   37   |
+| "1a2b3c4d123Z"  |  133   |
+
+### 내가 제출한 코드
+
+```cpp
+#include <iostream>
+#include <string>
+#include <vector>
+#include <cmath>
+
+using namespace std;
+
+int makeInteger(string strNum)
+{
+    int num = 0;
+    for (int i = 0; i < strNum.size(); i++)
+    {
+        int temp = strNum[i] - '0';
+        int multiplier = 1;
+        // 자리수 맞추기
+        for (int j = 0; j < strNum.size() - i - 1; j++)
+        {
+            multiplier *= 10;
+            cout << "mul: " << multiplier << endl;
+        }
+
+        num += temp * multiplier;
+        cout << "num: " << num << endl;
+    }
+    // num = stoi(strNum);
+
+    return num;
+}
+int solution(string my_string)
+{
+    int answer = 0;
+    string connect = "";
+
+    for (int i = 0; i < my_string.size(); i++)
+    {
+        if (my_string[i] >= '0' && my_string[i] <= '9') // 현재는 숫자, 다음은 문자인 경우 또는 문자열 마지막인 경우
+        {
+            connect += my_string[i];
+            cout << "connect: " << connect << endl;
+        }
+        if ((my_string[i] < '0' || my_string[i] > '9') && connect != "")
+        {
+            answer += makeInteger(connect);
+            connect = "";
+            cout << answer << endl;
+        }
+    }
+
+    if (connect != "")
+    {
+        answer += makeInteger(connect);
+    }
+
+    cout << "answer: " << answer << endl;
+    return answer;
+}
+
+int main()
+{
+    solution("1a2b3c4d1234");
+}
+```
+
+### 교수님 코드
+
+## 과제 3-3
+
+문제 설명
+
+제한사항
+
+입출력 예
+
+### 문제 설명
+
+머쓱이는 RPG게임을 하고 있습니다. 게임에는 up, down, left, right 방향키가 있으며 각 키를 누르면 위, 아래, 왼쪽, 오른쪽으로 한 칸씩 이동합니다. 예를 들어 [0,0]에서 up을 누른다면 캐릭터의 좌표는 [0, 1], down을 누른다면 [0, -1], left를 누른다면 [-1, 0], right를 누른다면 [1, 0]입니다. 머쓱이가 입력한 방향키의 배열 keyinput와 맵의 크기 board이 매개변수로 주어집니다. 캐릭터는 항상 [0,0]에서 시작할 때 키 입력이 모두 끝난 뒤에 캐릭터의 좌표 [x, y]를 return하도록 solution 함수를 완성해주세요. <br>
+
+[0, 0]은 board의 정 중앙에 위치합니다. 예를 들어 board의 가로 크기가 9라면 캐릭터는 왼쪽으로 최대 [-4, 0]까지 오른쪽으로 최대 [4, 0]까지 이동할 수 있습니다.
+
+### 제한사항
+
+board은 [가로 크기, 세로 크기] 형태로 주어집니다. <br>
+board의 가로 크기와 세로 크기는 홀수입니다. <br>
+board의 크기를 벗어난 방향키 입력은 무시합니다. <br>
+0 ≤ keyinput의 길이 ≤ 50 <br>
+1 ≤ board[0] ≤ 99 <br>
+1 ≤ board[1] ≤ 99 <br>
+keyinput은 항상 up, down, left, right만 주어집니다. <br>
+
+### 입출력 예
+
+|                 keyinput                  |  board   | result  |
+| :---------------------------------------: | :------: | :-----: |
+| ["left", "right", "up", "right", "right"] | [10, 10] | [2, 1]  |
+| ["down", "down", "down", "down", "down"]  |  [6, 8]  | [0, -4] |
+
+### 내가 제출한 코드
+
+```cpp
+#include <string>
+#include <vector>
+#include <iostream>
+
+using namespace std;
+
+vector<int> solution(vector<string> keyinput, vector<int> board)
+{
+    vector<int> answer;
+    int x = 0;
+    int y = 0;
+    int max_x = board[0] / 2;
+    int min_x = -max_x;
+    int max_y = board[1] / 2;
+    int min_y = -max_y;
+    for (int i = 0; i < keyinput.size(); i++)
+    {
+        if (x == max_x || x == min_x)
+        {
+            continue;
+        }
+        if (y == max_y || y == min_y)
+        {
+            continue;
+        }
+        if (keyinput[i] == "left")
+        {
+            x--;
+        }
+        if (keyinput[i] == "right")
+        {
+            x++;
+        }
+        if (keyinput[i] == "up")
+        {
+            y++;
+        }
+        if (keyinput[i] == "down")
+        {
+            y--;
+        }
+    }
+    answer.push_back(x);
+    answer.push_back(y);
+
+    for (auto i : answer)
+    {
+        cout << i << endl;
+    }
+    return answer;
+}
+int main()
+{
+    solution({"right", "right", "right", "right", "right", "right", "right"}, {10, 10});
+}
+```
+
+처음에는 이렇게 했었는데, 이렇게 된다면 (5, 0), board (10, 10)인 경우 x는 더이상 오른쪽으로 이동할 수는 없지만 y는 이동이 가능해야된다. 하지만 이럴 경우, x에 의해서 continue가 되기 때문에 몇 가지가 실패가 나왔던 것이다.
+
+```cpp
+#include <string>
+#include <vector>
+#include <iostream>
+
+using namespace std;
+
+vector<int> solution(vector<string> keyinput, vector<int> board)
+{
+    vector<int> answer;
+    int x = 0;
+    int y = 0;
+    int max_x = board[0] / 2;
+    int min_x = -max_x;
+    int max_y = board[1] / 2;
+    int min_y = -max_y;
+    for (int i = 0; i < keyinput.size(); i++)
+    {
+        if (keyinput[i] == "left" && x > min_x)
+        {
+            x--;
+        }
+        if (keyinput[i] == "right" && x < max_x)
+        {
+            x++;
+        }
+        if (keyinput[i] == "up" && y < max_y)
+        {
+            y++;
+        }
+        if (keyinput[i] == "down" && y > min_y)
+        {
+            y--;
+        }
+    }
+    answer.push_back(x);
+    answer.push_back(y);
+
+    for (auto i : answer)
+    {
+        cout << i << endl;
+    }
+    return answer;
+}
+int main()
+{
+    solution({"right", "right", "right", "right", "right", "right", "right"}, {10, 10});
+}
+```
+
+### 교수님 코드
