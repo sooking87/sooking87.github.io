@@ -457,11 +457,6 @@ int solution(vector<vector<int>> dots)
 
     return answer;
 }
-
-int main()
-{
-    solution({{1, 1}, {2, 1}, {2, 2}, {1, 2}});
-}
 ```
 
 ### 교수님 코드
