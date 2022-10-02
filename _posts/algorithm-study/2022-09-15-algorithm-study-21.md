@@ -997,24 +997,84 @@ int main()
     std::cout << "맨 앞 + 3자리에서부터 끝까지 삭제: ";
     print(deq);
 }
+
+>>>
+맨 앞에 0 추가: 0 1 2 3
+맨 처음 원소 뒤에 5 추가: 0 5 1 2 3
+맨 처음 원소 뒤에 6 추가: 0 6 5 1 2 3
 ```
 
 각각의 컨테이너마다 유일하게 다른 점은 성능과 메모리 요구사항이다. 덱은 데이터 맨 뒤뿐만 아니라 맨 앞에서도 매우 빠르게 원소를 삽입하거나 삭제할 수 있다. 데이터 중간에서의 삽입 또는 삭제에 대한 시간 복잡도는 벡터와 동일하지만, 실제로는 벡터보다 약간 빠르다.
 
-## 시퀀스 컨테이너 정리
+## 컨테이너 어댑터
 
-### std::list
-
-### std::forward_list
-
-### std::array
-
-### std::vector
-
-### std::deque
+std::stack은 std::deque으로 만든 간단한 래퍼로서 스택 자료 구조에서 꼭 ㅠㅣㄹ요한 인터페이스만을 제공한다. 이러한 방식으로 만들어진 것을 컨테이너 어댑터라고 한다.
 
 ### std::stack
 
+std::stack은 스택이 기본적으로 제공해야 할 기능을 empty(), size(), top(), pop(), emplace() 등의 함수로 제공한다. push() 함수는 기본 컨테이너의 push_back()을 사용하여 구현되고, pop() 함수는 pop_back() 함수를 사용하여 구현한다. top() 함수는 기본 컨테이너의 back() 함수를 사용한다. <br>
+
+일반적으로는 덱을 이용해서 구현이 되어있지만, 덱이 아닌 벡터나 리스트를 통해서 스택을 만들기 위해서는 다음과 같이 하면 된다.
+
+```cpp
+std::stack<int, std::vector<int>> stk;
+std::stack<int, std::list<int>> stk;
+```
+
 ### std::queue
 
-### std:: priority_queue
+push()는 std::stack에서의 push_back()을 의미하지만, pop() 명령은 pop_front()를 의미한다.
+
+### std::priority_queue
+
+우선순위 큐는 힙이라고 부르는 매우 유용한 구조를 제공한다. 힙의 경우 최대 힙, 최소 힙으로 나눌 수 있으며, 최대값 또는 최소값에 접근한는데 O(1)의 시간 복잡도를 가진다. 원소 삽입은 O(log n) 시간 복잡도로 동작하고 원소 제거는 최소, 최대 원소에 대해서만 가능하다. <br>
+
+하지만 힙의 경우는 최대와 최소를 한꺼번에 빠르게 접근할 수는 없다. 우선순위 큐의 경우는 벡터를 기본 컨테이너로 사용하며, 필요한 경우 변경이 가능하다. 비교자는 기본적으로 std::less를 사용한다. 그러므로 기본적으로 최대 힙으로 생성되며, 이는 **최대 원소가 맨 위에 나타나게 됨을 의미한다.**
+
+## 벤치 마킹
+
+각각의 컨테이너는 장단점이 있으므로 어떤 컨테이너를 결정해서 사용할지는 프로그래머가 결정해야되는 사항이다. 여기서 벤치마킹을 사용할 수 있다. 벤치마킹이란 통계 데이터를 기반으로 더 나은 접근 방식을 결정하는 방법이다. <http://quick-bench.com/> 을 통해서 어떤 컨테이너가 유리한지를 판단할 수 있다.
+
+## 시퀀스 컨테이너 정리
+
+![download1](https://user-images.githubusercontent.com/96654391/193444063-b5decb4b-a5d2-4b90-a4f9-a7169793eb48.png)
+
+### std::list
+
+양방향 연결 리스트이다.
+
+- 장: 중간 삽입, 삭제 가능, 크기 변경 가능, 적은 양의 자료 유리, 순차 접근 가능
+- 단: 많은 양의 자료에 불리, 랜덤 엑세스 불가, 검색이 느림
+- push_back(), push_front(), insert(), emplace(), emplace_back() / pop_front(), pop_back(), erase(it), remove(), remove_if()
+
+### std::forward_list
+
+단방향 연결 리스트이다.
+
+- 장단점이 list와 동일하지만 성능적으로는 forward_list가 가벼워서 좋음
+- push_front(), insert_after(), emplace_front(), emplace_after() / pop_front(), erase_after(), remove(), remove_if()
+
+### std::array
+
+- 장: 적은 양의 자료에 유리
+- 단: 크기 변경 불가, 중간 삽입, 삭제, 검색이 느림
+
+### std::vector
+
+가변 크기의 배열, 용량이 부족하게 되면 벡터 용량의 두배로 늘리고, 그 전 벡터에 있던 원소들을 다 복사해서 늘어난 용량의 벡터에 넣게 된다.
+
+- 장: 적은 양의 자료에 유리, 크기 변경 가능, 순차 접근 가능, 랜덤 엑세스 가능
+- 단: 중간 삽입, 삭제, 검색이 느림, 많은 양의 자료 불리
+- push_back(), insert(), emplace_back(), emplace() / pop_back(), erase()
+
+### std::deque
+
+- 앞뒤로 넣고 빼는 큐
+
+### std::stack
+
+- LIFO 선입 후출 자료구조
+
+### std::queue, std:: priority_queue
+
+- FIFO 선입선출 자료구조
