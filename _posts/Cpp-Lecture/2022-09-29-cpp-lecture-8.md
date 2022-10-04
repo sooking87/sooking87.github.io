@@ -461,6 +461,48 @@ int solution(vector<vector<int>> dots)
 
 ### 교수님 코드
 
+```cpp
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int getDiff(vector<vector<int>> dots, int dim)
+{
+    int max = dots[0][dim];
+    int min = dots[0][dim]; // 초기화는 절대 될 수 없는 값으로 해라. 또는 0번째 값
+
+    for (int i = 1; i < dots.size(); i++)
+    {
+        if (max < dots[i][dim])
+        {
+            max = dots[i][dim];
+        }
+        if (min > dots[i][dim])
+        {
+            min = dots[i][dim];
+        }
+    }
+
+    return max - min;
+}
+int solution(vector<vector<int>> dots)
+{
+    int answer = 0;
+    // 네 점의 순서는 딱히 언급이 없음
+    int width, height;
+    // getDiff 2번째 있는 차원의 가장 작은값과 가장 큰 값의 차이를 리턴할 함수야.
+    width = getDiff(dots, 0);
+    height = getDiff(dots, 1);
+
+    answer = width * height;
+    return answer;
+}
+```
+
+2차원 리스트에서의 max값과 min값을 동시에 찾아내는 것일 뿐이다.
+
 ## 과제 3-2
 
 ### 문제 설명
@@ -548,6 +590,68 @@ int main()
 ```
 
 ### 교수님 코드
+
+```cpp
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int changeToDec(vector<int> temp)
+{
+    int k = 1;
+    int num = 0;
+    for (int i = temp.size() - 1; i >= 0; i--, k *= 10)
+    {
+        num += temp[i] * k;
+    }
+
+    return num;
+}
+// sol 1.
+vector<int> getNumbers(string my_string)
+{
+    vector<int> numbers;
+    // 반복문이 있는데 , 걔는 my_string을 한글자씩 볼 수 있도록 하는 애 -> 문자면 버리고, 숫자면 temp에다가 한자리씩 push 해서 넣는다. -> 그런 다음 vector 안에 있는 1, 2, 3을 123으로 바꾸어 주어야 한다. 문자가 나타나면, changeToDec을 호출(changeToDec()의 역할)
+    vector<int> temp;
+    for (int i = 0; i < my_string.size(); i++)
+    {
+        // 숫자가 아닌 경우 = 아무일도 안하던지, temp에 넣어놓은 숫자가 있다면 숫자형으로 바꾸는 일을 해주어야된다.
+        if (my_string[i] < '0' || my_string[i] > '9')
+        {
+            if (temp.size() > 0)
+            {
+                numbers.push_back(changeToDec(temp));
+                temp.clear();
+            }
+        }
+        else
+        {
+            temp.push_back(my_string[i] - '0');
+        }
+    }
+    if (temp.size() > 0)
+    {
+        numbers.push_back(changeToDec(temp));
+    }
+    return numbers;
+}
+
+int solution(string my_string)
+{
+    int answer = 0;
+    // 1. 숫자를 다 찾아서 찾은 숫자를 벡터에 저장된 저장된 숫자를 순서대로 더할까?
+    vector<int> numbers = getNumbers(my_string);
+    // getNumbers는 분리 -> 숫자를 찾아서 벡터를 리턴한다.
+    for (int i = 0; i < numbers.size(); i++)
+    {
+        answer += numbers[i];
+    }
+
+    return answer;
+}
+```
 
 ## 과제 3-3
 
@@ -693,3 +797,62 @@ int main()
 ```
 
 ### 교수님 코드
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+vector<int> move(vector<int> cur, string key, vector<int> board)
+{
+    // 지금 현재 위치를 입력받아ㅡ key값에 대해서 왼쪽인지, 오른쪽인지, 위, 아래인지를 받고, board를 전달받는다.
+    if (key == "up")
+    {
+        if (cur[1] + 1 < (board[1] / 2))
+        {
+            cur[1]++;
+        }
+    }
+    else if (key == "down")
+    {
+        if (cur[1] - 1 > -(board[1] / 2))
+        {
+            cur[1]--;
+        }
+    }
+    else if (key == "left")
+    {
+        if (cur[0] - 1 > -(board[0] / 2))
+        {
+            cur[0]--;
+        }
+    }
+    else
+    {
+        if (cur[0] + 1 < (board[0] / 2))
+        {
+            cur[0]++;
+        }
+    }
+
+    return cur;
+}
+vector<int> solution(vector<string> keyinput, vector<int> board)
+{
+    vector<int> answer;
+    // 모든 keyinput에 대해서 이동하겠다. 단. 일단 처음 출발은 (0, 0)이고 여기를 시작으로 keyinput에 대해서 move하겠다. 전체 사이즈를 조심해야된다. 전체 사이즈를 주의하면서 이동시킨다.
+    answer.push_back(0);
+    answer.push_back(0);
+    for (int i = 0; i < keyinput.size(); i++)
+    {
+        answer = move(answer, keyinput[i], board);
+    }
+    return answer;
+}
+int main()
+{
+    solution({"right", "right", "right", "right", "right", "right", "right"}, {10, 10});
+}
+```

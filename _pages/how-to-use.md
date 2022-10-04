@@ -199,3 +199,16 @@ Tags -> OpsyDopsy / WEB / Backjoon / Programmers / 그 외의 언어들
     ]
 }
 ```
+
+## Operating System
+
+1. sftp 2116313@itserver2.sookmyung.ac.kr
+2. 비번(바꾸지는 않음)
+3. put C:\STUDY\4학기\Operating_System\fork.c : 파일이 들어감
+4. exit
+5. ssh -l 2116313 itserver2.sookmyung.ac.kr
+6. 비번(바꾸지는 않음)
+7. ls 입력 : 파일이 들어가 있는 것을 확인할 수 있음
+8. gcc -o fork fork.c
+9. ./fork -> 실행되는 것을 확인할 수 있음.
+10. vi thread2.c : 코드 확인 가능
