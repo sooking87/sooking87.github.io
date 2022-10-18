@@ -138,10 +138,12 @@ string solution(string my_string)
     string answer = "";
     for (int i = 0; i < my_string.size(); i++)
     {
+        // 대문자
         if (my_string[i] >= 65 && my_string[i] <= 90)
         {
             answer.push_back(my_string[i] + 32);
         }
+        // 소문자
         else if (my_string[i] >= 97 && my_string[i] <= 122)
         {
             answer.push_back(my_string[i] - 32);

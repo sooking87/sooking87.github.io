@@ -64,9 +64,24 @@ int main()
 
 ## 수업
 
-### 문제 4
+### 실습 3
 
-입력받은 문자가 제곱인지 아닌지
+### 문제 설명
+
+어떤 자연수를 제곱했을 때 나오는 정수를 제곱수라고 합니다. 정수 n이 매개변수로 주어질 때, n이 제곱수라면 1을 아니라면 2를 return하도록 solution 함수를 완성해주세요.
+
+### 제한사항
+
+1 ≤ n ≤ 1,000,000
+
+### 입출력 예
+
+|  n  | result |
+| :-: | :----: |
+| 144 |   1    |
+| 976 |   2    |
+
+### 내가 제출한 코드
 
 ```cpp
 #include <iostream>
@@ -104,13 +119,58 @@ int main()
 }
 ```
 
+### 교수님 코드
+
+범위가 1000000까지라서 가능한 코드
+
+```cpp
+#include <iostream>
+#include <string>
+#include <vector>
+#include <cmath>
+
+using namespace std;
+
+int solution(int n)
+{
+    int answer = 0;
+    for (int i = 1; i <= 1000; i++)
+    {
+        if ((i * i) == n)
+            answer = 1;
+    }
+    if (answer == 0)
+        answer = 2;
+
+    return answer;
+}
+```
+
 결국 나는 sqrt를 사용했지만 교수님의 의도는 직접 반복문을 통해서 제곱을 시키면서 이게 제곱수인지 아닌지를 판단해보라는 의도
 
-### 문제 5
+### 실습 4
 
-개수와 이 개수만큼 합했을 때 나와야 되는 값이 입력된다. 예: 3, 12 -> (3, 4, 5) <br>
+### 문제 설명
 
-그래서 출력값은 3, 4, 5가 되어야 한다.
+연속된 세 개의 정수를 더해 12가 되는 경우는 3, 4, 5입니다. 두 정수 num과 total이 주어집니다. 연속된 수 num개를 더한 값이 total이 될 때, 정수 배열을 오름차순으로 담아 return하도록 solution함수를 완성해보세요.
+
+### 제한사항
+
+1 ≤ num ≤ 100 <br>
+0 ≤ total ≤ 1000 <br>
+
+num개의 연속된 수를 더하여 total이 될 수 없는 테스트 케이스는 없습니다.
+
+### 입출력 예
+
+| num | total |      result      |
+| :-: | :---: | :--------------: |
+|  3  |  12   |    [3, 4, 5]     |
+|  5  |  15   | [1, 2, 3, 4, 5]  |
+|  4  |  14   |   [2, 3, 4, 5]   |
+|  5  |   5   | [-1, 0, 1, 2, 3] |
+
+### 내 코드
 
 ```cpp
 #include <string>
@@ -163,6 +223,40 @@ int main()
 
 나는 getStartNum이라는 함수를 통해서 시작 숫자를 구했다. 근데 여기서 문제가 출력 가능 범위가 따로 정해지지 않았으므로 음수도 가능하다는 말이다. 그렇기 때문에 -1000부터 1000까지의 범위 중에서 num 개 만큼 더해가면서 getTotal이 total과 같은 경우 시작 숫자를 리턴한다. (두 번째 입력값 범위가 0부터 1000까지 였으므로)
 
+### 효율?
+
+```cpp
+#include <string>
+#include <vector>
+#include <iostream>
+
+using namespace std;
+
+vector<int> solution(int num, int total)
+{
+    vector<int> answer;
+    int start = (total / num);
+    int sub = num / 2;
+
+    if (num % 2 == 0)
+    {
+        sub--;
+    }
+    int standard = start - sub;
+
+    for (int i = 0; i < num; i++, standard++)
+    {
+        answer.push_back(standard);
+    }
+
+    for (auto i : answer)
+        cout << i << endl;
+    return answer;
+}
+```
+
+### 교수님 코드
+
 ```cpp
 // 교수님 풀이
 #include <iostream>
@@ -174,12 +268,14 @@ using namespace std;
 int sum(int i, int num)
 {
     int total = 0;
+
     for (int j = 0; j < num; j++)
     {
         total += i + j;
     }
     return total;
 }
+
 vector<int> solution(int num, int total)
 {
     vector<int> answer;
