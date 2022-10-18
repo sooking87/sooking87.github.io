@@ -664,11 +664,11 @@ while True :
     time.sleep(1)
     PWM_RC.ChangeDutyCycle(95)
     time.sleep(1)
-
-# servo motor: 정밀 조절이 목적 얘는 23번으로 무조건 정확히 얼마만큼 움직일 것인지를 정해야 돌아간다.
-
-# 서보 모터는 몇 퍼센트의 Duty Cycle을 주면 서보 모터에는 기어 위치가 정해져 있는데 그 위치로 가있게 되는 것이다. 5%의 위치로 이동했다가 95%의 위치로 이동한다.
 ```
+
+- servo motor: 정밀 조절이 목적 얘는 23번으로 무조건 정확히 얼마만큼 움직일 것인지를 정해야 돌아간다.
+
+- 서보 모터는 몇 퍼센트의 Duty Cycle을 주면 서보 모터에는 기어 위치가 정해져 있는데 그 위치로 가있게 되는 것이다. 5%의 위치로 이동했다가 95%의 위치로 이동한다.
 
 ## Motion Sensor
 
@@ -687,6 +687,16 @@ while True :
   거리 정보까지도 측정이 가능. (가까이 있을 때는 멀리 찍히고 멀리 있을 때는 가까이 찍히는 것을 알 수 있다. 이 거리의 차이를 통해서 최환할 수 있다.)
 
 ### PLR_Sensor.py
+
+GPIO에서 이벤트를 받는 함수이다. rising이란 0->1로 신호가 변하는 애가 rising, 1->0은 falling이다. 평소에는 low가 걸려있다가 어느 순간 detect가 되어서 0->1이 될때를 감지해서 그때 callback을 보내라. 27번에 신호가 왔다는 것은 지나갔다는 것이므로 별도의 쓰레드에게 시켜서 알아낸다.
+
+```py
+GPIO.add_event_detect(MOTION_IN, GPIO.RISING, callback=my_callback)
+```
+
+<br>
+
+전체 코드 ⏬
 
 ```py
 import RPi.GPIO as GPIO
@@ -718,8 +728,7 @@ humandetect = 0
 
 GPIO.setup(MOTION_IN, GPIO.IN)
 
-# GPIO에서 이벤트를 받는 함수. rising이란 0->1로 신호가 변하는 애가 rising, 1->0은 falling이다. 평소에는 low가 걸려있다가 어느 순간 detect가 되어서 0->1이 될때를 감지해서 그때 callback을 보내라. 27번에 신호가 왔다는 것은 지나갔다는 것이다.
-# 별도의 쓰레드에게 시킴
+# 이벤트 처리
 GPIO.add_event_detect(MOTION_IN, GPIO.RISING, callback=my_callback)
 
 while True:
@@ -740,6 +749,26 @@ while True:
 
 ### PIR_Sensor2.py
 
+0.1초마다 루프 반복 <br>
+
+-> 모션이 들어왔는지 아닌지 내가 직접 읽어 <br>
+
+-> 그래서 이거를 신호가 올 때까지 기다리냐, 내가 주기적으로 검사하냐에 따라 다른데 주기적으로 검사를 하는 애가 아래 코드에 속한다. 앞에 코드는 이벤트 방식이라고 하고, add_event_detect는 등록만 했지 실제로 도는 코드가 없으므로 별도의 쓰레드라는 것을 알 수 있다. 이벤트가 발생을 하면 이 함수를 호출한다. <br>
+
+근데 이 코드는 계속 호출한다. 주기적으로 확인하는 방법이 polling이다. <br>
+
+결과는 같을 수 있으나 두개는 정반대 방식이다.
+
+```py
+def loop():
+    cnt = 0
+    while True:
+        if (GPIO.input(motion_in) == True):
+            print("Detected %d" %cnt)
+            cnt += 1
+        time.sleep(0.1)
+```
+
 ```py
 import RPi.GPIO as GPIO
 import time
@@ -753,8 +782,6 @@ GPIO.setup(motion_in, GPIO.IN)
 def loop():
     cnt = 0
     while True:
-        # 0.1마다 루프 반복 -> 내가 직접 읽어 -> 그래서 이거를 신호가 올대까지 기다리냐, 내가 주기적으로 검사하냐에 따라 라느데 주기적으로 검사를 하는 애가 아래 코드에 속한다. 앞에 코드는 이벤트 방식이라고 하고, add_event_detect는 등록만 했지 실제로 도는 코드가 없으므로 별도의 쓰ㄹ드라는 것을 알 수 ㅣㅇㅆ다. 이벤트가 발생을 하면 이 함수를 홏ㄹ한다.
-        # 근데 이 코드는 계속 호출한다. 주기적으로 확인하는 방법이 polling이다. 결과는 같을 수 있으나 두개는 정반대 방식이다.
         if (GPIO.input(motion_in) == True):
             print("Detected %d" %cnt)
             cnt += 1
@@ -770,3 +797,208 @@ finally:
 ```
 
 ## Ultrasonic Sensor
+
+### 동작 원리
+
+초음파 신호를 전송하여 반사되는 신호를 수신하여 시간적으로 계산해 준다. 거리 측정에 주로 활용된다.
+
+![다운로드](https://user-images.githubusercontent.com/96654391/196374984-f9f15c76-c08e-47f2-9fb3-5b4e68ded869.jpg) <br>
+
+이렇게 생겼는데 한쪽은 TX(transmit), 다른 한쪽은 RX(receive)라고 부른다. <br>
+
+그래서 TX 부분에서 40kHz 속도로 음파를 내보냈을 때, 물체에 의해서 반사되는 음파를 RX가 인지를 한다. 음파를 보내는 속도도 알기 때문에 이를 통해서 물체까지의 거리를 구할 수 있다는 것이다. <br>
+
+정확한 거리를 계산하기 위해서 TX가 보낸 음파가 RX로 와야된다. RX에 다른 음파가 온 것으로 거리 계산을 하면 안되기 때문에. 따라서 최대 거리의 장애물에서 오는 시간 차가 있기 때문에 TX보다 RX는 늦게 감흥이 된다. RX가 켜지고 오는 어떤 주파수라도 TX가 보냄을 가정하고 인지를 하게 된다. <br>
+<br>
+
+### Ultrasonic_Sensor.py
+
+위에서 말했던 TX를 TRIGGER로서 변수를 잡았고 핀 번호는 18번이다. <br>
+
+RX는 EXHO로서 변수를 잡았고 핀 번호는 21번이다. <br>
+<br>
+
+여기서 TX를 잠깐 켰다가 끄고,
+
+```py
+# 먼저 트리거 핀을 OFF 상태로 유지한다.
+GPIO.output(GPIO_TRIGGER, False)
+time.sleep(2)
+
+# TX를 0.00001초 켰다가
+GPIO.output(GPIO_TRIGGER, True)
+time.sleep(0.00001)
+# 끈다.
+GPIO.output(GPIO_TRIGGER, False)
+```
+
+그 다음 RX에 오는 주파수를 감지한다고 했다.
+
+```py
+# 에코핀이 ON되는 시점을 시작 시간으로 잡는다.
+while GPIO.input(GPIO_ECHO) == 0:
+    start = time.time()
+
+# 에코 핀이 다시 OFF되는 시점을 반사파 수신 시간으로 잡는다.
+while GPIO.input(GPIO_ECHO) == 1:
+    stop = time.time()
+```
+
+<br>
+
+전체 코드 ⏬
+
+```py
+import time
+import RPi.GPIO as GPIO
+
+# 핀 넘버링을 BCM 방식을 사용한다.
+GPIO.setmode(GPIO.BCM)
+
+# HC-SR04의 트리거 핀을 GPIO 18번, 에코핀을 GPIO 21에 연결한다.
+GPIO_TRIGGER = 18
+GPIO_ECHO = 21
+
+print("Ultrasonic Distance Measurement")
+
+# 초음파를 내보낼 트리거 핀은 출력 모드로, 반사파를 수식할 에코 핀은 입력 모드로 설정한다.
+GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
+GPIO.setup(GPIO_ECHO, GPIO.IN)
+
+try:
+    while True:
+        stop = 0
+        start = 0
+        # 먼저 트리거 핀을 OFF 상태로 유지한다.
+        GPIO.output(GPIO_TRIGGER, False)
+        time.sleep(2)
+
+        # 10us 펄스를 내보낸다.
+        # 주파수릐 속도가 40키로헤르츠
+        # 파이썬에서 이 펄스는 실체 100us 근처가 될 것이다.
+        # 하지만 HC-SR04 센서는 이 오차를 받아준다.
+        GPIO.output(GPIO_TRIGGER, True)
+        time.sleep(0.00001)
+        GPIO.output(GPIO_TRIGGER, False)
+
+        # 에코핀이 ON되는 시점을 시작 시간으로 잡는다.
+        while GPIO.input(GPIO_ECHO) == 0:
+            start = time.time()
+
+        # 에코 핀이 다시 OFF되는 시점을 반사파 수신 시간으로 잡는다.
+        while GPIO.input(GPIO_ECHO) == 1:
+            stop = time.time()
+
+        # Calculate pulse length
+        elapsed = stop - start
+
+        # 초음파는 반사파이기 때문에 실제 이동거리는 2배이다 따라서 .2로 나눈다.
+        # 음속은 편의상 340m/s로 계산하낟. 현재 온도를 반영해서 보정할 수 있다.
+        if (stop and start):
+            distance = (elapsed * 34000.0) / 2
+            print("Distance: %.1f cm" %distance)
+except KeyboardInterrupt:
+    print("Ultrasoic Distance Measurement End")
+    GPIO.cleanup()
+
+# Reset GPIO settings
+GPIO.cleanup()
+```
+
+### Ultrasonic_Sensor2.py
+
+```py
+import RPi.GPIO as GPIO
+import time
+
+GPIO.setmode(GPIO.BCM)
+
+# 거리를 제는개 아니르 트리거에 온이 되는 순간부터 오프가 되는 순간까지의 거리를 구하는 것이다.
+trig = 18
+echo = 21
+
+print("start")
+
+GPIO.setup(trig, GPIO.OUT)
+GPIO.setup(echo, GPIO.IN)
+
+try:
+    while True:
+        GPIO.output(trig, False)
+        time.sleep(0.5)
+
+        GPIO.output(trig, True)
+        time.sleep(0.00001)
+        GPIO.output(trig, False)
+
+        while GPIO.input(echo) == 0:
+            pulse_start = time.time()
+            print("hello1")
+        while GPIO.input(echo) == 1:
+            pulse_end = time.time()
+            print("hello2")
+        pulse_duration = pulse_end - pulse_start
+        distance = pulse_duration * 17000
+        distance = round(distance, 2)
+
+        print("Distance: ", distance, "cm")
+
+except KeyboardInterrupt:
+    GPIO.cleanup()
+```
+
+### Ultrasonic_Sensor3.py
+
+```py
+import RPi.GPIO as GPIO
+import time
+# GPIO Mode (BOARD / BCM)
+GPIO.setmode(GPIO.BCM)
+
+# set GPIO Pins
+GPIO_TRIGGER = 18
+GPIO_ECHO = 21
+
+# set GPIO direction (IN / OUT)
+GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
+GPIO.setup(GPIO_ECHO, GPIO.IN, pull_up_down = GPIO.PUD_UP)
+
+def distance():
+    # set Trigger to HIGH
+    GPIO.output(GPIO_TRIGGER, True)
+
+    # set Trigger after 0.01ms to LOW
+    time.sleep(0.00001)
+    GPIO.output(GPIO_TRIGGER, False)
+    StartTime = time.time()
+    StopTime = time.time()
+
+    # save StartTime
+    while GPIO.input(GPIO_ECHO) == 0:
+        startTime = time.time()
+
+    # save time of arrival
+    while GPIO.input(GPIO_ECHO) == 1:
+        StopTime = time.time()
+
+    # time difference between start and arrival
+    TimeElapsed = StopTime - StartTime
+
+    # multiply with the sonic speed (34300 cm/s)
+    # and dive by 2 becase there and back
+    distance = (TimeElapsed * 34300) / 2
+
+    return distance
+
+if __name__ == '__main__':
+    try:
+        while True:
+            dist = distance()
+            print("Measured Distance = %.1f cm" %dist)
+            time.sleep(1)
+
+    # Reset by pressing CTRL + C
+    except KeyboardInterrupt:
+        print("Measurement stopped by User")
+        GPIO.cleanup()
+```
