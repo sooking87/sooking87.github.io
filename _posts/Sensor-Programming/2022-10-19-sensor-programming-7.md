@@ -128,3 +128,62 @@ while True:
 ## 불꽃 감지 센서
 
 불꽃에서 방출되는 특정 파장 대역의 에너지를 흡수 및 검출하여 불꽃의 존재 유무, 위치를 센싱한다.
+
+## 시험 예상 문제
+
+### 가까워지면 서보 모터를 90도 돌리는 문제
+
+```py
+import RPi.GPIO as GPIO
+import time
+
+GPIO.setmode(GPIO.BCM)
+GPIO_TRIGGER = 18
+GPIO_ECHO = 21
+GPIO_MOTOR = 23
+
+GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
+GPIO.setup(GPIO_ECHO, GPIO.IN)
+GPIO.setup(GPIO_MOTOR, GPIO.OUT)
+
+PWM_RC=GPIO.PWM(GPIO_MOTOR, 100)
+PWM_RC.start(7.5)
+
+try:
+    while True:
+        stop = 0
+        start = 0
+        # 먼저 트리거 핀을 OFF 상태로 유지한다.
+        GPIO.output(GPIO_TRIGGER, False)
+        time.sleep(2)
+
+        GPIO.output(GPIO_TRIGGER, True)
+        time.sleep(0.00001)
+        GPIO.output(GPIO_TRIGGER, False)
+
+        # 에코핀이 ON되는 시점을 시작 시간으로 잡는다.
+        while GPIO.input(GPIO_ECHO) == 0:
+            start = time.time()
+
+        # 에코 핀이 다시 OFF되는 시점을 반사파 수신 시간으로 잡는다.
+        while GPIO.input(GPIO_ECHO) == 1:
+            stop = time.time()
+
+        # Calculate pulse length
+        elapsed = stop - start
+
+        if (stop and start):
+            distance = (elapsed * 34000.0) / 2
+            if distance <= 10:
+                PWM_RC.ChangeDutyCycle(5)
+                time.sleep(1)
+                PWM_RC.ChangeDutyCycle(95)
+                time.sleep(1)
+
+except KeyboardInterrupt:
+    print("Ultrasoic Distance Measurement End")
+    GPIO.cleanup()
+
+# Reset GPIO settings
+GPIO.cleanup()
+```
