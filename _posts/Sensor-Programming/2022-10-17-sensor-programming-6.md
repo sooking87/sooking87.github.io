@@ -2,7 +2,7 @@
 title: "7.1주차"
 excerpt: "7.1주차"
 categories: [Sensor Programming]
-tags: [Cpp Programming, Cpp]
+tags: [Sensor Programming, Python]
 toc: true
 toc_sticky: true
 ---
@@ -320,6 +320,13 @@ event라는 것이 뭘까? 인터럽트란 간단히 말하면 기존의 CPU에�
 
 인터럽트를 맡게 해주는 event handler가 event 발생을 감시 중,,
 
+````py
+# Signal 수신 함수. signal(시그널:interrupt, 이벤트 핸들러 함수)
+signal.signal(signal.SIGINT, signal_handler)
+```
+Ctrl+C와 같은 키보드 인터럽트(SIGINT) 신호를 감지하고 다르게 동작하도록 하려면 signal 모듈을 사용해야 한다.
+
+
 ```py
 import RPi.GPIO as GPIO
 import signal
@@ -349,7 +356,7 @@ while True:
 
     GPIO.output(BUZCONTROL, 0)
     time.sleep(1)
-```
+````
 
 ### piezo2.py
 

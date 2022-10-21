@@ -2,7 +2,7 @@
 title: "4.2주차"
 excerpt: "4.2주차"
 categories: [Sensor Programming]
-tags: [Cpp Programming, Cpp]
+tags: [Sensor Programming, Python]
 toc: true
 toc_sticky: true
 ---
