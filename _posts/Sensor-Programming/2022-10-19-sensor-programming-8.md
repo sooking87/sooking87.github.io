@@ -10,19 +10,105 @@ toc_sticky: true
 ## GPIO 주요 핀 번호
 
 - 12번 : LED
+  ```py
+  # LED
+  LED = 12
+  GPIO.setup(LED, GPIO.OUT)
+  ```
 - 13번 : DC 모터
+
+  ```py
+  # DC Motor
+  DC = 13
+  GPIO.setup(DC, GPIO.OUT)
+
+  PWM_DC = GPIO.PWM(DC, 1000)
+  PWM_DC.start(0)
+  ```
+
 - 20번 : 부저
+
+  ```py
+  # Buzer
+  BUZ = 20
+  GPIO.setup(BUZ, GPIO.OUT)
+
+  PWM_BUZ = GPIO.PWM(BUZ, 1000)
+  PWM_BUZ.start(0)
+  ```
+
 - 2번 : B LED
 - 3번 : G LED
 - 4번 : R LED
 - 19번 : RGB Power
+
+  ```py
+  # RGB LED
+  RGBPOWER = 19
+  RED = 4
+  GREEN = 3
+  BLUE = 2
+  GPIO.setup(RGBPOWER, GPIO.OUT)
+  GPIO.setup(RED, GPIO.OUT)
+  GPIO.setup(GREEN, GPIO.OUT)
+  GPIO.setup(BLUE, GPIO.OUT)
+
+  GPIO.output(RGBPOWER, 1)
+
+  PWM_RED = GPIO.PWM(RED, 100)
+  PWM_RED.start(0)
+  PWM_GREEN = GPIO.PWM(GREEN, 100)
+  PWM_GREEN.start(0)
+  PWM_BLUE = GPIO.PWM(BLUE, 100)
+  PWM_BLUE.start(0)
+  ```
+
 - 5번 : Water Pump
 - 6번 : Fan
+
+  ```py
+  # FAN
+  FAN = 6
+  GPIO.setup(FAN, GPIO.OUT)
+
+  PWM_FAN = GPIO.PWM(FAN, 100)
+  PWM_FAN.start(0)
+  ```
+
 - 23번 : 서보 모터
+
+  ```py
+  # Servo Motor
+  RCSERVO = 23
+  GPIO.setup(RCSERVO, GPIO.OUT)
+
+  PWM_RC=GPIO.PWM(RCSERVO, 100)
+  PWM_RC.start(7.5)
+  ```
+
 - 27번 : 모션 센서(PLR_Sensor)
+  ```py
+  # 모션 센서(PIR Sensor)
+  MOTION = 27
+  GPIO.setup(MOTION, GPIO.IN)
+  ```
 - 18번 : GPIO_TRIGGER
 - 21번 : GPIO_ECHO
+  ```py
+  # Ultrasonic Sensor
+  ECHO = 21
+  GPIO.setup(ECHO, GPIO.IN)
+  TRIGGER = 18
+  GPIO.setup(TRIGGER, GPIO.OUT)
+  ```
 - 22번 : 근접 센서
+  ```py
+  # 근접 센서
+  PROXY = 22
+  GPIO.setup(PROXY, GPIO.IN)
+  ```
+
+GPIO.IN 1 / 0 구분
 
 ```py
 # GPIO.IN 종류
