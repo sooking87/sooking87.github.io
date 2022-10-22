@@ -76,7 +76,7 @@ GPIO.input 값이 1이라는 근접했다는 뜻, 그렇지 않다면 0을 의�
 
 ### 🌟 Proximity_Sensor2.py
 
-앞차와 접그 시 경고음을 3회 발생합니다. 근접 센서를 사용하여 근접 시 beep음을 3회 발생하는 응용 프로그램을 작성해 보세요.
+앞차와 접근 시 경고음을 3회 발생합니다. 근접 센서를 사용하여 근접 시 beep음을 3회 발생하는 응용 프로그램을 작성해 보세요.
 
 ```py
 import RPi.GPIO as GPIO
@@ -89,9 +89,6 @@ COLLISION = 22
 Buzer = 20
 GPIO.setup(COLLISION, GPIO.IN)
 GPIO.setup(Buzer, GPIO.OUT)
-
-# 이벤트 처리
-# GPIO.add_event_detect(MOTION_IN, GPIO.RISING, callback=my_callback)
 
 while True:
     #
@@ -106,7 +103,134 @@ while True:
     time.sleep(0.2)
 ```
 
-일반적으로 1이고, 막으면 0이 된다. 내꺼는 반대로 되어 있는듯?
+일반적으로 1이고, 막으면 0이 된다. 내꺼는 반대로 되어 있는듯? -> 바뀜... 이상하지만, ㅎ <br>
+
+여기서 하나의 센서에 대해서 두 개의 이벤트를 처리할 수 없다고 말이 나왔던 이유: <br>
+
+만약에 이벤트를 처리하기 위해서는
+
+```py
+import RPi.GPIO as GPIO
+import time
+import sys
+import signal
+
+def signal_handler(signal, frame):
+    print("pricess stop")
+    GPIO.cleanup()
+    sys.exit(0)
+
+# 충동시 이벤트 처리 함수
+def carefull(channel):
+    GPIO.output(SOUND, GPIO.HIGH)
+
+# 근접하지 않았을 경우 이벤트 처리 함수
+def carefull(channel):
+    GPIO.output(SOUND, GPIO.LOW)
+
+signal.signal(signal.SIGINT, signal_handler)
+
+GPIO.setmode(GPIO.BCM)
+COLLISION = 22
+SOUND = 20
+GPIO.setup(COLLISION, GPIO.IN)
+GPIO.setup(SOUND, GPIO.OUT)
+
+# 이벤트 처리
+GPIO.add_event_detect(COLLISION, GPIO.RISING, callback=carefull)
+GPIO.add_event_detect(COLLISION, GPIO.FALLING, callback=notColi)
+
+while True:
+    if GPIO.input(COLLISION) == 0:
+        print("Carefull ~~ Ooooooops")
+
+
+    if GPIO.input(COLLISION) == 1:
+        print("Not Collision")
+
+    time.sleep(0.2)
+```
+
+이렇게 코드를 작성할 수 있을 것이다. 하지만 이렇게 된다면 `RuntimeError: Conflicting edge detection already enabled for this GPIO channel` 이와 같은 에러가 나서 하나의 센서에 두개의 이벤트를 처리할 수 없다고 나오는 것 같다.
+
+### Proximity_Sensor3.py
+
+전압 변화를 확인하기 위해서 작성한 코드 <br>
+
+#### 🌟 이벤트 처리 예시 코드
+
+```py
+import RPi.GPIO as GPIO
+import sys
+import time
+import signal
+
+GPIO.setwarnings(False)
+def signal_handler(signal, frame):
+    print("process stop")
+    GPIO.cleanup()
+    sys.exit(0)
+
+signal.signal(signal.SIGINT, signal_handler)
+
+# 카운터 값을 하나 증가해준다.
+def my_callback(channel):
+    global eventCounter
+    eventCounter += 1
+    global humandetect
+    humandetect = 1
+
+GPIO.setmode(GPIO.BCM)
+
+## 근접 센서
+### 1: Not Detect / 0: Proxy Detect
+PROXY = 22
+GPIO.setup(PROXY, GPIO.IN)
+
+# global
+eventCounter = 0
+humandetect = 0
+counter = 0
+
+GPIO.add_event_detect(PROXY, GPIO.FALLING, callback=my_callback)
+
+while True:
+    if humandetect == 1:
+        print("Detect %d" %eventCounter)
+        humandetect = 0
+        while not GPIO.input(PROXY):
+            counter += 1
+            print("Low %d " %counter)
+            time.sleep(1)
+        counter = 0
+    else:
+        print("No detect")
+    time.sleep(0.5)
+```
+
+동작 원리는 default가 전압 5V이고, 어떤 물체가 근접한 경우는 0으로 떨어진다고 했다. 따라서 이벤트를 1에서 0으로 바뀐 FALLING인 경우 my_callback으로 넘어가도록 코드를 짰고, 그 안에 `while not GPIO.input(PROXY)` 를 통해서 0일 때(근접해있는 동안) 반복문을 계속 돌도록 했다.
+
+```
+No detect
+No detect
+No detect
+No detect
+Detect 2
+Low 1
+Low 2
+Low 3
+Low 4
+Low 5
+Low 6
+Low 7
+Detect 3
+No detect
+No detect
+No detect
+
+```
+
+이렇게 출력이 되었다면 처음에는 1이므로 detect되지 않다가 근접했을 때, 반복문을 돌리면서 계속 Low를 출력하는 것을 확인할 수 있다 .
 
 ## Gas Sensor
 

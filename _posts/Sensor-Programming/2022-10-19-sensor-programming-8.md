@@ -12,9 +12,9 @@ toc_sticky: true
 - 12번 : LED
 - 13번 : DC 모터
 - 20번 : 부저
-- 2번 : R LED
+- 2번 : B LED
 - 3번 : G LED
-- 4번 : B LED
+- 4번 : R LED
 - 19번 : RGB Power
 - 5번 : Water Pump
 - 6번 : Fan
@@ -23,6 +23,81 @@ toc_sticky: true
 - 18번 : GPIO_TRIGGER
 - 21번 : GPIO_ECHO
 - 22번 : 근접 센서
+
+```py
+# GPIO.IN 종류
+## 모션 센서(PIR Sensor)
+### 1: Motion Detect / 0: Not Detect
+MOTION = 27
+GPIO.setup(MOTION, GPIO.IN)
+
+## GPIO_ECHO (Ultrasonic 중)
+### 0: 에코핀 ON(이때부터 TRIGGER 감지 시작) / 1: 에코핀 OFF
+ECHO = 21
+GPIO.setup(ECHO, GPIO.IN)
+TRIGGER = 18
+GPIO.setup(TRIGGER, GPIO.OUT)
+
+## 근접 센서
+### 1: Not Detect / 0: Proxy Detect
+PROXY = 22
+GPIO.setup(PROXY, GPIO.IN)
+```
+
+## 주요 코드
+
+### default
+
+```py
+import RPi.GPIO as GPIO
+import sys
+import time
+import signal
+
+GPIO.setwarnings(False)
+def signal_handler(signal, frame):
+    print("process stop")
+    GPIO.cleanup()
+    sys.exit(0)
+
+signal.signal(signal.SIGINT, signal_handler)
+```
+
+### setRGB
+
+```py
+def setRGB(r, g, b):
+    PWM_RED.ChangeDutyCycle(r)
+    PWM_GREEN.ChangeDutyCycle(g)
+    PWM_BLUE.ChangeDutyCycle(b)
+```
+
+### Ultrasonic Sensor
+
+```py
+while True:
+    stop = 0
+    start = 0
+
+    GPIO.output(TRIGGER, False)
+    time.sleep(0.5)
+
+    GPIO.output(TRIGGER, True)
+    time.sleep(0.00001)
+    GPIO.output(TRIGGER, False)
+
+    while GPIO.input(ECHO) == 0:
+        start = time.time()
+
+    while GPIO.input(ECHO) == 1:
+        stop = time.time()
+
+    elapsed = stop - start
+
+    if (stop and start):
+        distance = (elapsed * 34000) / 2
+        print("Distance: %.1f cm" %distance)
+```
 
 ## GPIO 모듈
 
@@ -154,6 +229,7 @@ PWM_FAN = GPIO.PWM(FAN, 100)
 PWM_FAN.start(0)
 
 GPIO.output(RGBPOWER, 1)
+
 # start
 while True:
     command = input("low / middle / high / off: ")
@@ -281,7 +357,88 @@ while True:
 
 ### 모션 센서에 모션이 감지되면 빨간불 3번과 소리 3번이 교차로 발생
 
+부저가 너무 시끄러운 관계로 핀 12번 LED를 사용하였고, 동시에 FAN까지 컨트롤 하였다.
+
 ```py
+import RPi.GPIO as GPIO
+import time
+import sys
+import signal
+
+def signal_handler(signal, frame):
+    print('process stop')
+    GPIO.cleanup()
+    sys.exit(0)
+
+# Signal 수신 함수. signal(시그널:interrupt, 이벤트 핸들러 함수)
+signal.signal(signal.SIGINT, signal_handler)
+
+# 카운터 값을 하나 증가해준다.
+def my_callback(channel):
+    print("my_callback")
+
+
+def setRGB(r, g, b):
+    PWM_RED.ChangeDutyCycle(r)
+    PWM_GREEN.ChangeDutyCycle(g)
+    PWM_BLUE.ChangeDutyCycle(b)
+
+def loop():
+    print("loop()")
+    GPIO.output(FAN, 100)
+    setRGB(100, 0, 0)
+    time.sleep(0.3)
+    setRGB(0, 0, 0)
+    time.sleep(0.3)
+    PWM_BUZ.ChangeDutyCycle(20)
+    time.sleep(0.3)
+    PWM_BUZ.ChangeDutyCycle(0)
+    time.sleep(0.3)
+
+# default
+# PIN NUM
+# MOTION = 27
+MOTION = 22
+RGBPOWER = 19
+R = 4
+G = 3
+B = 2
+# BUZ = 20
+BUZ = 12
+FAN = 6
+
+# SET
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(MOTION, GPIO.IN)
+GPIO.setup(RGBPOWER, GPIO.OUT)
+GPIO.setup(R, GPIO.OUT)
+GPIO.setup(G, GPIO.OUT)
+GPIO.setup(B, GPIO.OUT)
+GPIO.setup(BUZ, GPIO.OUT)
+GPIO.setup(FAN, GPIO.OUT)
+
+# PWM 굳이 넣기 위해서 소리가 커졌다가 작아졌다가 하는 것으로 함.
+PWM_BUZ = GPIO.PWM(BUZ, 1000)
+PWM_BUZ.start(0)
+PWM_RED = GPIO.PWM(R, 100)
+PWM_RED.start(0)
+PWM_GREEN = GPIO.PWM(G, 100)
+PWM_GREEN.start(0)
+PWM_BLUE = GPIO.PWM(B, 100)
+PWM_BLUE.start(0)
+
+GPIO.output(RGBPOWER, 1)
+# 이벤트 처리
+GPIO.add_event_detect(MOTION, GPIO.RISING, callback=my_callback)
+
+while True:
+    # motion sensor가 1이 된다는 것은 모션을 인지를 했다는 것
+    # 조도 센서의 경우는 열 감지 X -> 1
+    if (GPIO.input(MOTION) == 0):
+        print("*")
+        loop()
+    else:
+        GPIO.output(FAN, 0)
 
 ```
 
@@ -385,4 +542,86 @@ while True:
                 time.sleep(0.01 * distance)
         else:
             setRGB(0, 0, 100)
+```
+
+### 감성 조명 구현
+
+인풋이 너무 제한적이라서,,, 결국, 전에 했던 rainbow.py와 비슷해질듯. <br>
+
+해봐야 Ultrasonic 써가지고 가까워지면 밝아지고, 멀어지면 어두워지는 정도?
+
+```py
+import RPi.GPIO as GPIO
+import sys
+import time
+import signal
+
+GPIO.setwarnings(False)
+def signal_handler(signal, frame):
+    print("process stop")
+    GPIO.cleanup()
+    sys.exit(0)
+
+signal.signal(signal.SIGINT, signal_handler)
+
+def setRGB(r, g, b):
+    PWM_RED.ChangeDutyCycle(r)
+    PWM_GREEN.ChangeDutyCycle(g)
+    PWM_BLUE.ChangeDutyCycle(b)
+
+# default
+RGBPOWER = 19
+R = 4
+G = 3
+B = 2
+TRIGGER = 18
+ECHO = 21
+
+# SET
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(ECHO, GPIO.IN)
+GPIO.setup(TRIGGER, GPIO.OUT)
+GPIO.setup(RGBPOWER, GPIO.OUT)
+GPIO.setup(R, GPIO.OUT)
+GPIO.setup(G, GPIO.OUT)
+GPIO.setup(B, GPIO.OUT)
+
+# PWM Instance
+PWM_RED = GPIO.PWM(R, 100)
+PWM_RED.start(0)
+PWM_GREEN = GPIO.PWM(G, 100)
+PWM_GREEN.start(0)
+PWM_BLUE = GPIO.PWM(B, 100)
+PWM_BLUE.start(0)
+
+GPIO.output(RGBPOWER, 1)
+
+while True:
+    stop = 0
+    start = 0
+
+    GPIO.output(TRIGGER, False)
+    time.sleep(0.5)
+
+    GPIO.output(TRIGGER, True)
+    time.sleep(0.00001)
+    GPIO.output(TRIGGER, False)
+
+    while GPIO.input(ECHO) == 0:
+        start = time.time()
+
+    while GPIO.input(ECHO) == 1:
+        stop = time.time()
+
+    elapsed = stop - start
+
+    if (stop and start):
+        distance = (elapsed * 34000) / 2
+        print("Distance: %.1f cm" %distance)
+
+        redPercent = abs(20 - distance)
+        greenPercent = distance
+        bluePercent = abs(100 - distance)
+
+        setRGB(redPercent, greenPercent, bluePercent)
 ```
