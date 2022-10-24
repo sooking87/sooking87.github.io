@@ -125,7 +125,7 @@ TRIGGER = 18
 GPIO.setup(TRIGGER, GPIO.OUT)
 
 ## 근접 센서
-### 1: Not Detect / 0: Proxy Detect
+### 1: Not Detect(불 1개) / 0: Proxy Detect(불 2개)
 PROXY = 22
 GPIO.setup(PROXY, GPIO.IN)
 ```
