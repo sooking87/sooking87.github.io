@@ -103,6 +103,7 @@ int getDigit(string bin, int i)
         return bin[bin.length() - i - 1] - '0';
         // '0'을 빼야 진짜로 integer 가 리턴된다. 그렇지 아니면 0또는 1의 문자의 아스키코드가 리턴된다.
     }
+    // 길이가 짧은 경우
     else
     {
         return 0;
