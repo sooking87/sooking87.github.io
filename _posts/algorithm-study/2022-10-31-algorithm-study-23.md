@@ -250,3 +250,160 @@ A를 넣을 때 B가 들어있다면 B 자리에 A를 넣고, B는 다른 해시
 하지만 이렇게 된다면 무한 루프에 빠질 수 있다. 순환에 빠진다면 새로운 해시 함수를 이용하여 재해싱을 수행해야 된다. 그러나 적절한 해시 함수를 사용하면 높은 확률로 O(1)의 성능을 갖는다. <br>
 
 열린 주소 지정 방법과 뻐꾸기 해싱 모두 전체 해시 테이블 크기 이상의 원소를 저장할 수 없다. 높은 성능을 보장하려면 부하율이 0.5보다 작게끔 설정해야된다.
+
+## C++ 해시 테이블
+
+룩업 연산은 주로 정수값보다는 문자열인 경우가 많은데, 문자열인 경우는 어떻게 해시 테이블을 만들까? <br>
+
+sol 1. 모든 문자에 대한 ASCII 코드 값을 모두 더한 후에 모듈로 연산하는 것 -> 단: 같은 문자로 구성된 문자열이 너무 많아서 충돌이 빈번하게 발생 <br>
+sol 2. `std::hash<std::string>` 함수 객체 사용. <br>
+sol 3. 해시 테이블 코드를 템플릿 형태로 바꾸면 된다. -> `std:unordered_set<Key>` 와 `std::unordered_map<Key, Value>` <br>
+
+- `std::unordered_set<Key>` : 키만 저장 가능
+- `std::unordered_map<Key, Value>` : 키와 값 저장 가능 <br>
+  각 행을 버킷이라고 부른다.
+
+### std::unordered_set 사용 예제
+
+```cpp
+#include <iostream>
+#include <unordered_map>
+#include <unordered_set>
+
+void print(const std::unordered_set<int> &container)
+{
+    for (const auto &element : container)
+    {
+        std::cout << element << " ";
+    }
+    std::cout << std::endl;
+}
+
+// 검색
+void find(const std::unordered_set<int> &container, const int element)
+{
+    if (container.find(element) == container.end())
+    {
+        std::cout << element << " 검색: 실패" << std::endl;
+    }
+    else
+    {
+        std::cout << element << " 검색: 성공" << std::endl;
+    }
+}
+
+int main()
+{
+    std::cout << "*** std::unordered_set 예제 ***" << std::endl;
+    std::unordered_set<int> set1 = {1, 2, 3, 4, 5};
+    std::cout << "set1 초깃값: ";
+    print(set1);
+
+    // 삽입: insert
+    set1.insert(2);
+    std::cout << "2 삽입: ";
+    print(set1);
+
+    set1.insert(10);
+    set1.insert(300);
+    std::cout << "10, 300 삽입: ";
+    print(set1);
+
+    find(set1, 4);
+    find(set1, 100);
+
+    // 삭제: erase
+    set1.erase(2);
+    std::cout << "2 삭제: ";
+    print(set1);
+
+    find(set1, 2);
+}
+
+>>>
+*** std::unordered_set 예제 ***
+set1 초깃값: 5 1 2 3 4
+2 삽입: 5 1 2 3 4
+10, 300 삽입: 10 5 1 2 300 3 4
+4 검색: 성공
+100 검색: 실패
+2 삭제: 10 5 1 300 3 4
+2 검색: 실패
+```
+
+### std::unordered_map 사용 예제
+
+```cpp
+#include <iostream>
+#include <unordered_map>
+#include <unordered_set>
+
+void print(const std::unordered_map<int, int> &container)
+{
+    for (const auto &element : container)
+    {
+        std::cout << element.first << ": " << element.second << ", ";
+    }
+    std::cout << std::endl;
+}
+
+// 검색
+void find(const std::unordered_map<int, int> &container, const int element)
+{
+    auto it = container.find(element);
+    if (it == container.end())
+    {
+        std::cout << element << " 검색: 실패" << std::endl;
+    }
+    else
+    {
+        std::cout << element << " 검색: 성공, 값 = " << it->second << std::endl;
+    }
+}
+
+int main()
+{
+    std::cout << "*** std::unordered_map 예제 ***" << std::endl;
+    std::unordered_map<int, int> squareMap;
+
+    squareMap.insert({2, 4});
+    squareMap[3] = 9;
+    std::cout << "2, 3의 제곱 삽입: ";
+    print(squareMap);
+
+    squareMap[20] = 400;
+    squareMap[30] = 900;
+    std::cout << "20, 30의 제곱 삽입: ";
+    print(squareMap);
+
+    find(squareMap, 10);
+    find(squareMap, 20);
+    std::cout << "squareMap[3] = " << squareMap[3] << std::endl;
+    std::cout << "squareMap[100] = " << squareMap[100] << std::endl;
+}
+
+>>>
+*** std::unordered_map 예제 ***
+2, 3의 제곱 삽입: 3: 9, 2: 4,
+20, 30의 제곱 삽입: 30: 900, 20: 400, 3: 9, 2: 4,
+10 검색: 실패
+20 검색: 성공, 값 = 400
+squareMap[3] = 9
+squareMap[100] = 0
+```
+
+[] 연산자와 키를 이용해서 값을 받아올 수 있다. 값이 없을 경우(squareMap[100])를 통해서 기본값 0을 추가한 후 반환하는 것을 확인할 수 있다. <br>
+
+- bucket_count(): 현재 버킷의 개수를 알고 싶다면
+- rehash() <br>
+
+std::unordered_map, std::unordered_set는 중복된 키를 허용하지 않는다. 중복된 값을 저장하고 싶다면 `std::unordered_multiset` 또는 `std::unordered_multimap` 을 사용해야 한다.
+
+## 블룸 필터
+
+해시 테이블에 비해 공간 효율이 매우 높은 방법이지만 결정적 솔루션 대신 부정확한 겨로가를 얻을 수 있다. <br>
+블룸 필터는 실제 값을 저장하지 않으며, 특정 값이 있는지 없는지를 나타내는 부울 타입 배열을 사용한다. 비트가 1이면 True, 해당 원소가 있다는 의미이고, 비트가 0이면 False, 해당 원소가 없다는 의미이다. <br>
+
+<img width="1000" alt="download1" src="https://user-images.githubusercontent.com/96654391/200454782-298d7035-ac0d-4ac4-a704-ab0c9964a347.png"> <br>
+
+뻐꾸기 해싱과 마찬가지고 해시 함수가 최소 3개 이상은 필요하다. 특정 값에 대한 모든 해시값 위치에 True로 바꾸게 된다. 그렇기 때문에 위에서 값이 결정적이지 않다고 했던 것이다. 나머지만 같고, 다른 값인 경우에도 True를 반환하고, 아예 다른 값도 우연히 True로 반환이 될 수도 있기 때문이다.
