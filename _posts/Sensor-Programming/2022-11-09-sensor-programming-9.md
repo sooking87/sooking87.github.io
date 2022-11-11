@@ -71,3 +71,7 @@ Preferences – Raspberry Pi Configuration 실행(Interfaces 메뉴에서 SSH, V
 
 -> 파이참 연결,,, <br>
 -> 카메라 설정 해야됨
+
+## 10.2 주차
+
+7 세그먼트 사용
