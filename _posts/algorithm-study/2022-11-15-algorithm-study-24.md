@@ -1,6 +1,6 @@
 ---
-title: "[C++] 정렬"
-excerpt: "정렬"
+title: "[C++] 분할 정복"
+excerpt: "분할 정복"
 categories: [Algorithm Study]
 tags: [Algorithm Study, C++, Algorithm]
 toc: true
