@@ -70,7 +70,20 @@ Preferences – Raspberry Pi Configuration 실행(Interfaces 메뉴에서 SSH, V
 ```
 
 -> 파이참 연결,,, <br>
--> 카메라 설정 해야됨
+-> 카메라 설정 해야됨 <br>
+
+```py
+$ sudo nano /boot/config.txt
+```
+
+다음 옵션을 찾아 주석(#)을 해제한 후 값을 입력
+
+```py
+hdmi_force_hotplug=1
+hdmi_group=1
+hdmi_mode=16
+hdmi_drive=2
+```
 
 ## 10.2 주차
 
