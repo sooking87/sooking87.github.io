@@ -3,203 +3,212 @@
 {% assign sum = site.posts | size %}
 
 <nav class="nav__list">
-  <input id="ac-toc" name="accordion-toc" type="checkbox" />
-  <label for="ac-toc">{{ site.data.ui-text[site.locale].menu_label }}</label>
-  <ul class="nav__items" id="category_tag_menu">
-      <!--전체 글 수-->
-      <li>
-        🚀 <span>전체 </span> <span>{{sum}}</span> <span>개</span> 
-      </li>
-      
-      <!--프로젝트 결과물-->
-      <li>
-        {% for category in site.categories %}
+    <input id="ac-toc" name="accordion-toc" type="checkbox" />
+    <label for="ac-toc">{{ site.data.ui-text[site.locale].menu_label }}</label>
+    <ul class="nav__items" id="category_tag_menu">
+        <!--전체 글 수-->
+        <li>
+            🚀 <span>전체 </span> <span>{{sum}}</span> <span>개</span>
+        </li>
+
+        <!--프로젝트 결과물-->
+        <li>
+            {% for category in site.categories %}
             {% if category[0] == "Project" %}
-                <a href="/categories/project" class=""><span class="nav__sub-title">PROJECT ({{category[1].size}})</span></a>
+            <a href="/categories/project" class=""><span class="nav__sub-title">PROJECT
+                    ({{category[1].size}})</span></a>
             {% endif %}
-        {% endfor %}
-    <li>
-      
-      <!--프로젝트 준비-->
-      <li>
-          {% for category in site.categories %}
-              {% if category[0] == "Preparation" %}
-                  <a href="/categories/preparation" class=""><span class="nav__sub-title">PREPARATION ({{category[1].size}})</span></a>
-              {% endif %}
-          {% endfor %}
-      <li>
+            {% endfor %}
+        <li>
 
-        <!--Temp-->
-        <span class="nav__sub-title">LECTURE</span>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "Android Studio" %}
-                        <li><a href="/categories/android-studio" class="">🧾창안앱 ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "Cpp Programming" %}
-                        <li><a href="/categories/cpp-programming" class="">🧾C++프로그래밍 ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "Sensor Programming" %}
-                        <li><a href="/categories/sensor-programming" class="">🧾센서 프로그래밍 ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
+            <!--프로젝트 준비-->
+        <li>
+            {% for category in site.categories %}
+            {% if category[0] == "Preparation" %}
+            <a href="/categories/preparation" class=""><span class="nav__sub-title">PREPARATION
+                    ({{category[1].size}})</span></a>
+            {% endif %}
+            {% endfor %}
+        <li>
 
-        <!--STUDY-->
-         <span class="nav__sub-title">STUDY</span>
+            <!--Temp-->
+            <span class="nav__sub-title">LECTURE</span>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "Do it Java" %}
-                        <li><a href="/categories/do-it-java" class="">🔥Do it Java ({{category[1].size}})</a></li>
-                    {% endif %}
+                {% if category[0] == "Android Studio" %}
+                <li><a href="/categories/android-studio" class="">🧾창안앱 ({{category[1].size}})</a></li>
+                {% endif %}
                 {% endfor %}
             </ul>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "Algorithm Study" %}
-                        <li><a href="/categories/algorithm-study" class="">🔥Algorithm ({{category[1].size}})</a></li>
-                    {% endif %}
+                {% if category[0] == "Cpp Programming" %}
+                <li><a href="/categories/cpp-programming" class="">🧾C++프로그래밍 ({{category[1].size}})</a></li>
+                {% endif %}
                 {% endfor %}
             </ul>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "Java Programming" %}
-                        <li><a href="/categories/java-programming" class="">🔥명품 자바 ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "C++ Programming" %}
-                        <li><a href="/categories/c++-programming" class="">🔥열혈 C++({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-            
-
-        <!--WEB-->
-        <span class="nav__sub-title">WEB</span>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "생활 코딩" %}
-                        <li><a href="/categories/codding-everybody" class="">🔥생활 코딩 ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "React" %}
-                        <li><a href="/categories/react" class="">🔥React ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "Interactive Web" %}
-                        <li><a href="/categories/interactive-web" class="">🔥Interactive Web ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "Figma" %}
-                        <li><a href="/categories/figma" class="">🔥Figma ({{category[1].size}})</a></li>
-                    {% endif %}
+                {% if category[0] == "Sensor Programming" %}
+                <li><a href="/categories/sensor-programming" class="">🧾센서 프로그래밍 ({{category[1].size}})</a></li>
+                {% endif %}
                 {% endfor %}
             </ul>
 
-        <!--AI-->
-        <span class="nav__sub-title">AI</span>
+            <!--STUDY-->
+            <span class="nav__sub-title">STUDY</span>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "Ai Study" %}
-                        <li><a href="/categories/ai-study" class="">🔥혼공머 ({{category[1].size}})</a></li>
-                    {% endif %}
+                {% if category[0] == "Do it Java" %}
+                <li><a href="/categories/do-it-java" class="">🔥Do it Java ({{category[1].size}})</a></li>
+                {% endif %}
                 {% endfor %}
             </ul>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "ML" %}
-                        <li><a href="/categories/ml" class="">🔥ML({{category[1].size}})</a></li>
-                    {% endif %}
+                {% if category[0] == "Algorithm Study" %}
+                <li><a href="/categories/algorithm-study" class="">🔥Algorithm ({{category[1].size}})</a></li>
+                {% endif %}
                 {% endfor %}
             </ul>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "GDSC ML" %}
-                        <li><a href="/categories/gdsc-ml" class="">🔥GDSC ML({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-
-        <!--ALGORITHM 문제 풀이-->
-         <span class="nav__sub-title">ALGORITHM</span>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "Algorithm Java" %}
-                        <li><a href="/categories/algorithm-java" class="">🔗Java ({{category[1].size}})</a></li>
-                    {% endif %}
+                {% if category[0] == "Java Programming" %}
+                <li><a href="/categories/java-programming" class="">🔥명품 자바 ({{category[1].size}})</a></li>
+                {% endif %}
                 {% endfor %}
             </ul>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "Algorithm C_C++" %}
-                        <li><a href="/categories/algorithm-c_c++" class="">🔗C/C++ ({{category[1].size}})</a></li>
-                    {% endif %}
+                {% if category[0] == "C++ Programming" %}
+                <li><a href="/categories/c++-programming" class="">🔥열혈 C++({{category[1].size}})</a></li>
+                {% endif %}
                 {% endfor %}
             </ul>
 
-        <!--Backjoon-->
-        <span class="nav__sub-title">Backjoon</span>
+
+            <!--WEB-->
+            <span class="nav__sub-title">WEB</span>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "Backjoon Java" %}
-                        <li><a href="/categories/backjoon-java" class="">🔗Java ({{category[1].size}})</a></li>
-                    {% endif %}
+                {% if category[0] == "생활 코딩" %}
+                <li><a href="/categories/codding-everybody" class="">🔥생활 코딩 ({{category[1].size}})</a></li>
+                {% endif %}
                 {% endfor %}
             </ul>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "Backjoon JavaScript" %}
-                        <li><a href="/categories/backjoon-javascript" class="">🔗JavaScript ({{category[1].size}})</a></li>
-                    {% endif %}
+                {% if category[0] == "React" %}
+                <li><a href="/categories/react" class="">🔥React ({{category[1].size}})</a></li>
+                {% endif %}
                 {% endfor %}
             </ul>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "Backjoon C++" %}
-                        <li><a href="/categories/backjoon-c++" class="">🔗C++ ({{category[1].size}})</a></li>
-                    {% endif %}
+                {% if category[0] == "Interactive Web" %}
+                <li><a href="/categories/interactive-web" class="">🔥Interactive Web ({{category[1].size}})</a></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
+                {% if category[0] == "Figma" %}
+                <li><a href="/categories/figma" class="">🔥Figma ({{category[1].size}})</a></li>
+                {% endif %}
                 {% endfor %}
             </ul>
 
-        <!--Programmers-->
-        <span class="nav__sub-title">Programmers</span>
+            <!--AI-->
+            <span class="nav__sub-title">AI</span>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "Programmers Java" %}
-                        <li><a href="/categories/programmers-java" class="">🔗Java ({{category[1].size}})</a></li>
-                    {% endif %}
+                {% if category[0] == "Ai Study" %}
+                <li><a href="/categories/ai-study" class="">🔥혼공머 ({{category[1].size}})</a></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
+                {% if category[0] == "ML" %}
+                <li><a href="/categories/ml" class="">🔥ML({{category[1].size}})</a></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
+                {% if category[0] == "GDSC ML" %}
+                <li><a href="/categories/gdsc-ml" class="">🔥GDSC ML({{category[1].size}})</a></li>
+                {% endif %}
                 {% endfor %}
             </ul>
 
-        <!--OpsyDopsy-->
-        <span class="nav__sub-title">OpsyDopsy</span>
+            <!--ALGORITHM 문제 풀이-->
+            <span class="nav__sub-title">ALGORITHM</span>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "OpsyDopsy" %}
-                        <li><a href="/categories/opsydopsy" class="">😂하하핫 ({{category[1].size}})</a></li>
-                    {% endif %}
+                {% if category[0] == "Algorithm Java" %}
+                <li><a href="/categories/algorithm-java" class="">🔗Java ({{category[1].size}})</a></li>
+                {% endif %}
                 {% endfor %}
             </ul>
-      </li>
-  </ul>
+            <ul>
+                {% for category in site.categories %}
+                {% if category[0] == "Algorithm C_C++" %}
+                <li><a href="/categories/algorithm-c_c++" class="">🔗C/C++ ({{category[1].size}})</a></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+
+            <!--Backjoon-->
+            <span class="nav__sub-title">Backjoon</span>
+            <ul>
+                {% for category in site.categories %}
+                {% if category[0] == "Backjoon Java" %}
+                <li><a href="/categories/backjoon-java" class="">🔗Java ({{category[1].size}})</a></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
+                {% if category[0] == "Backjoon JavaScript" %}
+                <li><a href="/categories/backjoon-javascript" class="">🔗JavaScript ({{category[1].size}})</a></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
+                {% if category[0] == "Backjoon C++" %}
+                <li><a href="/categories/backjoon-c++" class="">🔗C++ ({{category[1].size}})</a></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+
+            <!--Programmers-->
+            <span class="nav__sub-title">Programmers</span>
+            <ul>
+                {% for category in site.categories %}
+                {% if category[0] == "Programmers Java" %}
+                <li><a href="/categories/programmers-java" class="">🔗Java ({{category[1].size}})</a></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
+                {% if category[0] == "Programmers Cpp" %}
+                <li><a href="/categories/programmers-cpp" class="">🔗C++ ({{category[1].size}})</a></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+
+            <!--OpsyDopsy-->
+            <span class="nav__sub-title">OpsyDopsy</span>
+            <ul>
+                {% for category in site.categories %}
+                {% if category[0] == "OpsyDopsy" %}
+                <li><a href="/categories/opsydopsy" class="">😂하하핫 ({{category[1].size}})</a></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </li>
+    </ul>
 </nav>
