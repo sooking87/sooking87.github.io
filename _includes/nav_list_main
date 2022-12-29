@@ -31,7 +31,7 @@
             {% endfor %}
         <li>
 
-            <!--Temp-->
+            <!--LECTURE-->
             <span class="nav__sub-title">LECTURE</span>
             <ul>
                 {% for category in site.categories %}
