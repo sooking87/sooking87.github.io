@@ -8,28 +8,6 @@ sidebar_main: true
 
 ## How to Use🚀
 
-Category -> PREPARATION / STUDY / WEB / ALGORITHM / BACKJOON / PROGRAMMERS / OpsyDopsy
-
-- PREPARATION : 프로젝트 준비하면서 찾아본 자료(categories: [프젝 제목] / tags: [분야, 언어]
-- STUDY(WEB 제외 프로그래밍 언어 공부)
-  - **_Do it Java_** (categories: [Do it Java] / tags: [Java])
-  - **_Algorithm_** (categories: [Algorithm Study] / tags: [Algorithm Study, Java, Algorithm])
-  - **_혼공머_** (categories: [Ai Study] / tags: [Ai Study, Python])
-  - **_명품 자바_** (categories: [Java Programming] / tags: [Java Programming, Java])
-- WEB(WEB관련 언어 공부)
-  - **_생활 코딩_** (categories:[생활 코딩] / tags: [생활 코딩, WEB])
-  - **_React_** (categories: [React] / tags: [React, WEB])
-- ALGORITHM(알고리즘 관련 문제 풀이 업로드)
-  - **_Java_** (categories: [Algorithm Java, Backjoon Java] / tags: [Algorithm Study, Java, Algorithm, Backjoon])
-- Backjoon
-  - **_Java_** (categories:[Backjoon Java] / tags: [Backjoon, Java])
-  - **_JavaScript_** (categories: [Backjoon JavaScript] / tags: [Backjoon, JavaScript])
-- Programmers
-  - **_Java_** (categories:[Programmers Java] / tags: [Programmers, Java]) /
-- OpsyDopsy: **_개같은 코딩_** (categories: [OpsyDopsy])
-
-Tags -> OpsyDopsy / WEB / Backjoon / Programmers / 그 외의 언어들
-
 <https://kr.piliapp.com/emoji/list/>
 -> 이모티콘
 <br>
@@ -38,6 +16,8 @@ Tags -> OpsyDopsy / WEB / Backjoon / Programmers / 그 외의 언어들
 <hr>
 
 ## Git & Github
+
+[커밋컨벤션 링크](https://tech.10000lab.xyz/git/git-commit-discipline.html)
 
 ### 📍 init
 
