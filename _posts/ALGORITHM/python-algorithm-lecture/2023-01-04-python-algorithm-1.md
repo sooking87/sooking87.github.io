@@ -1,8 +1,8 @@
 ---
 title: "[Python] 섹션 2. 코드 구현력 기르기"
 excerpt: "섹션 2. 코드 구현력 기르기"
-categories: [Algorithm Study]
-tags: [Algorithm Study, Python, Algorithm]
+categories: [Python Algorithm]
+tags: [Python Algorithm, Python, Algorithm]
 toc: true
 toc_sticky: true
 ---
