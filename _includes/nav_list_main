@@ -76,13 +76,6 @@
             </ul>
             <ul>
                 {% for category in site.categories %}
-                {% if category[0] == "Algorithm Study" %}
-                <li><a href="/categories/algorithm-study" class="">🔥Algorithm ({{category[1].size}})</a></li>
-                {% endif %}
-                {% endfor %}
-            </ul>
-            <ul>
-                {% for category in site.categories %}
                 {% if category[0] == "Java Programming" %}
                 <li><a href="/categories/java-programming" class="">🔥명품 자바 ({{category[1].size}})</a></li>
                 {% endif %}
@@ -160,6 +153,20 @@
             </ul>
 
             <!--ALGORITHM 문제 풀이-->
+            <ul>
+                {% for category in site.categories %}
+                {% if category[0] == "Algorithm Study" %}
+                <li><a href="/categories/algorithm-study" class="">🔥Algorithm ({{category[1].size}})</a></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
+                {% if category[0] == "Python Algorithm" %}
+                <li><a href="/categories/python-algorithm" class="">🔥Python 강의 ({{category[1].size}})</a></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
             <span class="nav__sub-title">ALGORITHM</span>
             <ul>
                 {% for category in site.categories %}
