@@ -1,5 +1,5 @@
 ---
-title: "파이썬 머신러닝 완벽 가이드"
+title: "프로메테우스 머신러닝 스터디"
 layout: archive
 permalink: categories/ml
 author_profile: true
