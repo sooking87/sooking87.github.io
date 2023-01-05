@@ -182,6 +182,13 @@
                 {% endif %}
                 {% endfor %}
             </ul>
+            <ul>
+                {% for category in site.categories %}
+                {% if category[0] == "Algorithm Python" %}
+                <li><a href="/categories/algorithm-python" class="">🔗Python ({{category[1].size}})</a></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
 
             <!--Backjoon-->
             <span class="nav__sub-title">Backjoon</span>
