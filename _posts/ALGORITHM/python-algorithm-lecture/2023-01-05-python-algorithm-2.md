@@ -1,6 +1,6 @@
 ---
-title: "[+a] DFS"
-excerpt: "DFS"
+title: "[+a] DFS & BFS"
+excerpt: "DFS & BFS"
 categories: [Python Algorithm]
 tags: [Python Algorithm, Python, Algorithm]
 toc: true
@@ -12,7 +12,7 @@ toc_sticky: true
 DFS란 Depth First Search의 약자로 그래프 자료에서 데이터를 탐색하는 알고리즘이다. <br>
 DFS는 한 루트로 계속 들어가 탐색한 뒤 탐색을 마치면 다시 돌아가 방문하지 않은 루트로 들어가 탐색하는 과정을 말하며 보통 모든 경우의 수를 찾기 위한 _백 트래킹_ 시 자주 사용되는 탐색 알고리즘이다. <br>
 
-<samll>담주에는 백 트래킹 공부해봐야지</small>
+<small>담주에는 백 트래킹 공부해봐야지</small>
 
 ## DFS의 기본 원칙
 
