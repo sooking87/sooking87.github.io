@@ -1,6 +1,6 @@
 ---
-title: "[백준 1017] DFS"
-excerpt: "[백준 1017] DFS"
+title: "🏳️[백준 1017] DFS"
+excerpt: "🏳️[백준 1017] DFS"
 categories: [Algorithm Python]
 tags: [Algorithm Study, Python, Algorithm]
 toc: true
