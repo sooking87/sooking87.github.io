@@ -66,3 +66,7 @@ print(bfs(0, 0))
 그리고 queue에 값이 없을 때까지 반복문을 돌리면서 맨 앞에 있는 x와 y를 빼서 다음에 이동할 수 있는 위치를 찾는다. <br>
 
 여기서 visited에 대한 표시는 방문한 곳은 `graph[nx][ny] = graph[x][y] + 1` 를 통해서 방문했음을 표시했다. 여기서 1이 아니면 방문을 이미 했다는 뜻이기 때문이다. 동시에 저 코드를 통해서 몇 번 이동을 했는지를 알 수 있다.
+
+## 앞으로 풀 문제 리스트
+
+<img width="500" alt="download1" src="https://user-images.githubusercontent.com/96654391/212027902-64420c83-6a12-4951-8beb-90153e973da3.png">
