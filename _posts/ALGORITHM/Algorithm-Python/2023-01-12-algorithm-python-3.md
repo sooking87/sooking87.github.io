@@ -1,6 +1,6 @@
 ---
-title: "[백준 2178] 미로 탐색"
-excerpt: "[백준 2178] 미로 탐색"
+title: "[백준 2178][BFS] 미로 탐색"
+excerpt: "[백준 2178][BFS] 미로 탐색"
 categories: [Algorithm Python]
 tags: [Algorithm Study, Python, Algorithm]
 toc: true

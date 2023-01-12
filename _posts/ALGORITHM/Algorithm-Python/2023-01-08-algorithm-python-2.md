@@ -1,6 +1,6 @@
 ---
-title: "[백준 1260] DFS & BFS"
-excerpt: "[백준 1260] DFS & BFS"
+title: "[백준 1260][DFS & BFS] DFS와 BFS"
+excerpt: "[백준 1260][DFS & BFS] DFS와 BFS"
 categories: [Algorithm Python]
 tags: [Algorithm Study, Python, Algorithm]
 toc: true
