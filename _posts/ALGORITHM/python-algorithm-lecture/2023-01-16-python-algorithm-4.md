@@ -190,14 +190,163 @@ print(res)
 
 <hr>
 
+## 그리디 알고리즘
+
+이 단계에서 가장 좋은 것을 선택하는 알고리즘 -> 정렬을 한 다음 선택을 해가면 된다.
+
 ## 회의실 배정(그리디)
+
+```python
+n = int(input())
+# 회의가 끝나는 기준으로 정렬하면 됨
+meeting = []
+for _ in range(n):
+    start, end = map(int, input().split())
+    meeting.append((start, end))
+# 회의가 끝나는 시간을 우선적으로 정렬 -> 그 다음 회의 시작 시간을 정렬
+meeting.sort(key=lambda x: (x[1], x[0]))
+endTime = 0
+cnt = 0
+for s, e in meeting:
+    if s >= endTime:
+        endTime = e
+        cnt += 1
+print(cnt)
+```
+
+sort() 함수를 사용할 때, 우선적으로 정렬을 해야되는 것을 결정할 때는 lambda를 사용해서 해주면 된다. <br>
+
+그리디 알고리즘에서는 어떤 것을 기준으로 정렬을 해서 어떤 조건에 맞는 애들을 선택을 할 건지를 결정하는 것이 중요한 것 같다.
 
 ## 씨름 선수(그리디)
 
+```python
+n = int(input())
+profile = []
+for _ in range(n):
+    height, weight = map(int, input().split())
+    profile.append((height, weight))
+
+profile.sort()
+cnt = 0
+for i in range(n):
+    current = profile[i][1]
+    canIn = True
+    for j in range(i + 1, n):
+        if current < profile[j][1]:
+            canIn = False
+    if canIn:
+        cnt += 1
+
+print(cnt)
+```
+
+정렬 기준을 키로 하고, 기준인 사람의 몸무게보다 뒤에 있는(정렬 기준 키큰 사람이) 모든 사람이 작으면 된다.
+
 ## 창고 정리(그리디)
+
+가장 높은 열에서 가장 낮은 열로 n만큼 반복한다.
+
+```python
+l = int(input())
+dummy = list(map(int, input().split()))
+n = int(input())
+
+for _ in range(n):
+    highest = max(dummy)
+    lowest = min(dummy)
+    hIdx = dummy.index(highest)
+    lIdx = dummy.index(lowest)
+    dummy[hIdx] -= 1
+    dummy[lIdx] += 1
+
+print(max(dummy) - min(dummy))
+```
+
+그냥 dummy 리스트에서 큰 값과 작은 값의 인덱스를 찾아서 +/- 1을 하면 된다.
 
 ## 침몰하는 타이타닉(그리디)
 
+```python
+from collections import deque
+
+n, m = map(int, input().split())
+weight = list(map(int, input().split()))
+
+weight.sort()
+weight = deque(weight)
+cnt = 0
+temp = 0
+while weight:
+    if len(weight) == 1:
+        cnt += 1
+        break
+    if weight[0] + weight[-1] > m:
+        weight.pop()
+        cnt += 1
+    else:
+        weight.popleft()
+        weight.pop()
+        cnt += 1
+
+print(cnt)
+```
+
+- 앞뒤로 제거가 필요하다 -> deque 활용
+- pop, popleft를 해서 리스트의 길이가 달라져서 for문을 사용할 수 없다 -> while을 사용해서 안에 값이 있을동안 반복문을 돌린다.
+
 ## 증가 수열 만들기(그리디)
 
+```python
+from collections import deque
+
+n = int(input())
+nums = list(map(int, input().split()))
+nums = deque(nums)
+cnt = 0
+res = ""
+delNum = 0
+while nums:
+    if delNum < min(nums[0], nums[-1]):
+        if nums[0] > nums[-1]:
+            res += "R"
+            delNum = nums.pop()
+        else:
+            res += "L"
+            delNum = nums.popleft()
+    else:
+        if max(nums[0], nums[-1]) == nums[0]:
+            res += "L"
+            delNum = nums.popleft()
+        else:
+            res += "R"
+            delNum = nums.pop()
+    cnt += 1
+
+    if (delNum > nums[0]) and (delNum > nums[-1]):
+        break
+print(cnt)
+print(res)
+```
+
+살짝 비효율적이긴 한데,,,,,,,,, 그래도 처음부터 이렇게 풀고 싶었으니까 꾸역꾸역 품,,
+
 ## 역수열(그리디)
+
+```python
+n = int(input())
+reverse = list(map(int, input().split()))
+res = [0 for i in range(n)]
+for i in range(n):
+    for j in range(n):
+        if (reverse[i] == 0 and res[j] == 0):
+            res[j] = i + 1
+            break
+        elif res[j] == 0:
+            reverse[i] -= 1
+for x in res:
+    print(x, end=' ')
+```
+
+n개의 0을 리스트로 만들어서 그 리스트가 0인 자리를 카운트하면서 0인 자리에 해당 숫자를 넣는다. <br>
+여기서 카운트를 하는 방법은 res에서 0을 찾을 때마다 1씩 역순열을 줄여나가면 된다.
