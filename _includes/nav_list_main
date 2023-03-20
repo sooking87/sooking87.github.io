@@ -64,6 +64,13 @@
                 {% endif %}
                 {% endfor %}
             </ul>
+            <ul>
+                {% for category in site.categories %}
+                {% if category[0] == "Algorithm Intro" %}
+                <li><a href="/categories/algorithm-intro" class="">🧾알고리즘 입문 ({{category[1].size}})</a></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
 
             <!--STUDY-->
             <span class="nav__sub-title">STUDY</span>
