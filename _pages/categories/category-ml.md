@@ -1,5 +1,5 @@
 ---
-title: "프로메테우스 머신러닝 스터디"
+title: "Object & Background Style Transfer with Text"
 layout: archive
 permalink: categories/ml
 author_profile: true
