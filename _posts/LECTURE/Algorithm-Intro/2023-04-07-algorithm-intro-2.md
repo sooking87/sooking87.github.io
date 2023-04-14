@@ -1,6 +1,6 @@
 ---
-title: "4.1주차"
-excerpt: "4.1주차"
+title: "Chap 03"
+excerpt: "Chap 03"
 categories: [Algorithm Intro]
 tags: [Algorithm Intro, Python]
 toc: true
