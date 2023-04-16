@@ -1,6 +1,6 @@
 ---
-title: "Chap 02"
-excerpt: "Chap 02"
+title: "Chap 01"
+excerpt: "Chap 01"
 categories: [Algorithm Intro]
 tags: [Algorithm Intro, Python]
 toc: true
