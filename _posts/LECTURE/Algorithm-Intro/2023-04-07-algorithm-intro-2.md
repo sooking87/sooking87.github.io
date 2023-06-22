@@ -1,6 +1,6 @@
 ---
-title: "Chap 02"
-excerpt: "Chap 02"
+title: "Chap 02. 알고리즘 효율성 분석"
+excerpt: "Chap 02. 알고리즘 효율성 분석"
 categories: [Algorithm Intro]
 tags: [Algorithm Intro, Python]
 toc: true

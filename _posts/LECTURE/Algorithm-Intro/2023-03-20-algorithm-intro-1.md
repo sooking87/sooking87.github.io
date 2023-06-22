@@ -1,6 +1,6 @@
 ---
-title: "Chap 01"
-excerpt: "Chap 01"
+title: "Chap 01. 알고리즘 개요"
+excerpt: "Chap 01. 알고리즘 개요"
 categories: [Algorithm Intro]
 tags: [Algorithm Intro, Python]
 toc: true

@@ -1,6 +1,6 @@
 ---
-title: "Chap 03"
-excerpt: "Chap 03"
+title: "Chap 03. 억지 기법과 완전 탐색"
+excerpt: "Chap 03. 억지 기법과 완전 탐색"
 categories: [Algorithm Intro]
 tags: [Algorithm Intro, Python]
 toc: true

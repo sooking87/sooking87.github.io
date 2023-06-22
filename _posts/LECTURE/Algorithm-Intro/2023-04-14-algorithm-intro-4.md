@@ -1,6 +1,6 @@
 ---
-title: "Chap 04"
-excerpt: "Chap 04"
+title: "Chap 04. 축소 정복 기법"
+excerpt: "Chap 04. 축소 정복 기법"
 categories: [Algorithm Intro]
 tags: [Algorithm Intro, Python]
 toc: true
