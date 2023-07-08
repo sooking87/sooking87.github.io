@@ -2,7 +2,7 @@
 title: "[백준 19598][Greedy] 최소 회의실 개수"
 excerpt: "[백준 19598][Greedy] 최소 회의실 개수"
 categories: [Algorithm Python]
-tags: [Algorithm Study, Python, Algorithm]
+tags: [Algorithm Study, Python, Algorithm, Backjoon]
 toc: true
 toc_sticky: true
 ---

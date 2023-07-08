@@ -2,7 +2,7 @@
 title: "[백준 11047][Greedy] 동전 0"
 excerpt: "[백준 11047][Greedy] 동전 0"
 categories: [Algorithm Python]
-tags: [Algorithm Study, Python, Algorithm]
+tags: [Algorithm Study, Python, Algorithm, Backjoon]
 toc: true
 toc_sticky: true
 ---

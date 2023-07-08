@@ -2,7 +2,7 @@
 title: "[백준 1260][DFS & BFS] DFS와 BFS"
 excerpt: "[백준 1260][DFS & BFS] DFS와 BFS"
 categories: [Algorithm Python]
-tags: [Algorithm Study, Python, Algorithm]
+tags: [Algorithm Study, Python, Algorithm, Backjoon]
 toc: true
 toc_sticky: true
 ---

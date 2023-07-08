@@ -2,7 +2,7 @@
 title: "[백준 14916][Greedy] 거스름돈"
 excerpt: "[백준 14916][Greedy] 거스름돈"
 categories: [Algorithm Python]
-tags: [Algorithm Study, Python, Algorithm]
+tags: [Algorithm Study, Python, Algorithm, Backjoon]
 toc: true
 toc_sticky: true
 ---

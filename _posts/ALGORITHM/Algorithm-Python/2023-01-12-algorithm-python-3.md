@@ -2,7 +2,7 @@
 title: "[백준 2178][BFS] 미로 탐색"
 excerpt: "[백준 2178][BFS] 미로 탐색"
 categories: [Algorithm Python]
-tags: [Algorithm Study, Python, Algorithm]
+tags: [Algorithm Study, Python, Algorithm, Backjoon]
 toc: true
 toc_sticky: true
 ---

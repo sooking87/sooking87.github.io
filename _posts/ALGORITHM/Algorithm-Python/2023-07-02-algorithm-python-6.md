@@ -2,7 +2,7 @@
 title: "[백준 11000][Greedy] 강의실 배정"
 excerpt: "[백준 11000][Greedy] 강의실 배정"
 categories: [Algorithm Python]
-tags: [Algorithm Study, Python, Algorithm]
+tags: [Algorithm Study, Python, Algorithm, Backjoon]
 toc: true
 toc_sticky: true
 ---
