@@ -10,7 +10,7 @@ published: true
 
 ## 선택 정렬
 
-![download1](https://github.com/sooking87/image/assets/96654391/16726527-4635-475a-b0e4-2657e9de6872)
+![download1](https://gmlwjd9405.github.io/images/algorithm-selection-sort/selection-sort.png)
 <br>
 
 인덱스 0을 기준으로 두 번째 인덱스부터 마지막까지 비교하여 가장 작은 값과 교환 <br>
