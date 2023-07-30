@@ -164,7 +164,54 @@ ans = 25
 ## 풀이 코드
 
 ```python
+# 1744 수 묶기
+
+# 입력 받은 수를 단 한 번 또는 0번 묶어서 최대 수 출력하기
+
+import sys
+
+input = sys.stdin.readline
+n = int(input())
+pos = []
+neg = []
+ans = 0
+for _ in range(n):
+    num = int(input())
+    if num > 1:
+        pos.append(num)
+    elif num == 1:
+        ans += 1 # 1 1 이렇게 입력이 된다면 밑에서는 무조건 곱하면서 더해지기 때문에 1이 입력되는 경우는 그냥 더해주면 된다.
+    else:
+        neg.append(num)
+
+pos.sort(reverse=True) # 양수는 내림차순 정렬
+neg.sort() # 음수는 오름차순 정렬
+
+# 양수 더하기
+if len(pos) % 2 == 0:
+    for i in range(0, len(pos), 2):
+        ans += pos[i] * pos[i + 1]
+else:
+    for i in range(0, len(pos) - 1, 2):
+        ans += pos[i] * pos[i + 1]
+    ans += pos[-1]
+
+# 음수 더하기
+if len(neg) % 2 == 0:
+    for i in range(0, len(neg), 2):
+        ans += neg[i] * neg[i + 1]
+else:
+    for i in range(0, len(neg) - 1, 2):
+        ans += neg[i] * neg[i + 1]
+    ans += neg[-1]
+
+print(ans)
 
 ```
+결국 음수, 양수를 나누고 그냥 규칙대로 곱해주면 됨. 그리고 1을 따로 뺀 이유는 밑에 반복문에서는 무조건 *를 통해서 더할 것이기 때문에 + 1의 경우는 양수든 음수든 무조건 (1 + 음수/양수) 라는 숫자가 차피 더 크다. 1은 곱했을 때 자기 자신을 결과로 내기 때문에 `1` 이라는 숫자를 조금 특이하게 생각했어야 된다. <br>
+
+대부분의 숫자 곱이 덧셈보다 크기 때문에 이를 이용해서 반복문에 *만 넣을 생각을 했어야 됐고, 여기서 1이라는 숫자만 반례가 있다는 것을 인지했어야 됐다.
 
 ## 코드 설명
+
+양수랑 음수를 나누었기 때문에 굳이 +, *를 비교할 필요없이 무조건 곱해주면서 더해주면 됨.
