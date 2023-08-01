@@ -1,8 +1,8 @@
 ---
 title: "[백준 2562번] 최댓값"
 excerpt: "[백준 2562번] 최댓값"
-categories: [Backjoon JavaScript]
-tags: [Backjoon, JavaScript]
+categories: [Algorithm JavaScript]
+tags: [Algorithm Study, JavaScript, Algorithm, Backjoon]
 toc: true
 toc_sticky: true
 ---

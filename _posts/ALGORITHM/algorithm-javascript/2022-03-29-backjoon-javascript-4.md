@@ -1,8 +1,8 @@
 ---
 title: "[백준 10809번] 알파벳 찾기"
 excerpt: "[백준 10809번] 알파벳 찾기"
-categories: [Backjoon JavaScript]
-tags: [Backjoon, JavaScript]
+categories: [Algorithm JavaScript]
+tags: [Algorithm Study, JavaScript, Algorithm, Backjoon]
 toc: true
 toc_sticky: true
 ---

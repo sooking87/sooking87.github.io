@@ -1,8 +1,8 @@
 ---
 title: "[백준 1924번] 2007년"
 excerpt: "[백준 1924번] 2007년"
-categories: [Backjoon JavaScript]
-tags: [Backjoon, JavaScript]
+categories: [Algorithm JavaScript]
+tags: [Algorithm Study, JavaScript, Algorithm, Backjoon]
 toc: true
 toc_sticky: true
 ---

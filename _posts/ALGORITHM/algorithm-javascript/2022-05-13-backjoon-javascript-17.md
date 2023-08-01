@@ -1,8 +1,8 @@
 ---
 title: "[백준 1085번] 직사각형에서 탈출"
 excerpt: "[백준 1085번] 직사각형에서 탈출"
-categories: [Backjoon JavaScript]
-tags: [Backjoon, JavaScript]
+categories: [Algorithm JavaScript]
+tags: [Algorithm Study, JavaScript, Algorithm, Backjoon]
 toc: true
 toc_sticky: true
 ---

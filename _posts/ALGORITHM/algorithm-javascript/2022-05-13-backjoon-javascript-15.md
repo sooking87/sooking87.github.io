@@ -1,8 +1,8 @@
 ---
 title: "[백준 1427번] 소트인사이드"
 excerpt: "[백준 1427번] 소트인사이드"
-categories: [Backjoon JavaScript]
-tags: [Backjoon, JavaScript]
+categories: [Algorithm JavaScript]
+tags: [Algorithm Study, JavaScript, Algorithm, Backjoon]
 toc: true
 toc_sticky: true
 ---

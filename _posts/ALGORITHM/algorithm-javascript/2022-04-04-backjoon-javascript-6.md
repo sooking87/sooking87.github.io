@@ -1,8 +1,8 @@
 ---
 title: "[백준 2839번] 설탕 배달"
 excerpt: "[백준 2839번] 설탕 배달"
-categories: [Backjoon JavaScript]
-tags: [Backjoon, JavaScript]
+categories: [Algorithm JavaScript]
+tags: [Algorithm Study, JavaScript, Algorithm, Backjoon]
 toc: true
 toc_sticky: true
 ---

@@ -1,8 +1,8 @@
 ---
 title: "[백준 11021번] A + B - 7"
 excerpt: "[백준 11021번] A + B - 7"
-categories: [Backjoon JavaScript]
-tags: [Backjoon, JavaScript]
+categories: [Algorithm JavaScript]
+tags: [Algorithm Study, JavaScript, Algorithm, Backjoon]
 toc: true
 toc_sticky: true
 ---

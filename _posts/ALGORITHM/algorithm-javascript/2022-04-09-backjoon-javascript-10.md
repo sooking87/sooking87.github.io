@@ -1,8 +1,8 @@
 ---
 title: "[백준 2622번] 삼각형만들기"
 excerpt: "[백준 2622번] 삼각형만들기"
-categories: [Backjoon JavaScript]
-tags: [Backjoon, JavaScript]
+categories: [Algorithm JavaScript]
+tags: [Algorithm Study, JavaScript, Algorithm, Backjoon]
 toc: true
 toc_sticky: true
 ---

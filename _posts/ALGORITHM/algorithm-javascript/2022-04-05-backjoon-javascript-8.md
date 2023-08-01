@@ -1,8 +1,8 @@
 ---
 title: "[백준 2869번] 달팽이는 올라가고 싶다."
 excerpt: "[백준 2869번] 달팽이는 올라가고 싶다."
-categories: [Backjoon JavaScript]
-tags: [Backjoon, JavaScript]
+categories: [Algorithm JavaScript]
+tags: [Algorithm Study, JavaScript, Algorithm, Backjoon]
 toc: true
 toc_sticky: true
 ---

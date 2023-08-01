@@ -177,6 +177,13 @@
             </ul>
             <ul>
                 {% for category in site.categories %}
+                {% if category[0] == "Algorithm Python" %}
+                <li><a href="/categories/algorithm-python" class="">🔗Python ({{category[1].size}})</a></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
                 {% if category[0] == "Algorithm Java" %}
                 <li><a href="/categories/algorithm-java" class="">🔗Java ({{category[1].size}})</a></li>
                 {% endif %}
@@ -191,49 +198,19 @@
             </ul>
             <ul>
                 {% for category in site.categories %}
-                {% if category[0] == "Algorithm Python" %}
-                <li><a href="/categories/algorithm-python" class="">🔗Python ({{category[1].size}})</a></li>
+                {% if category[0] == "Algorithm JavaScript" %}
+                <li><a href="/categories/algorithm-javascript" class="">JavaScript ({{category[1].size}})</a></li>
                 {% endif %}
                 {% endfor %}
             </ul>
+            
 
             <!--Backjoon-->
             <span class="nav__sub-title">Backjoon</span>
             <ul>
                 {% for category in site.categories %}
-                {% if category[0] == "Backjoon Java" %}
-                <li><a href="/categories/backjoon-java" class="">🔗Java ({{category[1].size}})</a></li>
-                {% endif %}
-                {% endfor %}
-            </ul>
-            <ul>
-                {% for category in site.categories %}
                 {% if category[0] == "Backjoon JavaScript" %}
                 <li><a href="/categories/backjoon-javascript" class="">🔗JavaScript ({{category[1].size}})</a></li>
-                {% endif %}
-                {% endfor %}
-            </ul>
-            <ul>
-                {% for category in site.categories %}
-                {% if category[0] == "Backjoon C++" %}
-                <li><a href="/categories/backjoon-c++" class="">🔗C++ ({{category[1].size}})</a></li>
-                {% endif %}
-                {% endfor %}
-            </ul>
-
-            <!--Programmers-->
-            <span class="nav__sub-title">Programmers</span>
-            <ul>
-                {% for category in site.categories %}
-                {% if category[0] == "Programmers Java" %}
-                <li><a href="/categories/programmers-java" class="">🔗Java ({{category[1].size}})</a></li>
-                {% endif %}
-                {% endfor %}
-            </ul>
-            <ul>
-                {% for category in site.categories %}
-                {% if category[0] == "Programmers Cpp" %}
-                <li><a href="/categories/programmers-cpp" class="">🔗C++ ({{category[1].size}})</a></li>
                 {% endif %}
                 {% endfor %}
             </ul>

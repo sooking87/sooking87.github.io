@@ -1,5 +1,5 @@
 ---
-title: "Object & Background Style Transfer with Text"
+title: "ML 공부"
 layout: archive
 permalink: categories/ml
 author_profile: true

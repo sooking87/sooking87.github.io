@@ -1,8 +1,8 @@
 ---
 title: "[백준 4641번] Doubles"
 excerpt: "[백준 4641번] Doubles"
-categories: [Backjoon JavaScript]
-tags: [Backjoon, JavaScript]
+categories: [Algorithm JavaScript]
+tags: [Algorithm Study, JavaScript, Algorithm, Backjoon]
 toc: true
 toc_sticky: true
 ---

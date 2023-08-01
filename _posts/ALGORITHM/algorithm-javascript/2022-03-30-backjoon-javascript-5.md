@@ -1,8 +1,8 @@
 ---
 title: "[백준 1145번] 적어도 대부분의 배수"
 excerpt: "[백준 1145번] 적어도 대부분의 배수"
-categories: [Backjoon JavaScript]
-tags: [Backjoon, JavaScript]
+categories: [Algorithm JavaScript]
+tags: [Algorithm Study, JavaScript, Algorithm, Backjoon]
 toc: true
 toc_sticky: true
 ---
