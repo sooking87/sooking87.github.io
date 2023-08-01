@@ -177,13 +177,6 @@
             </ul>
             <ul>
                 {% for category in site.categories %}
-                {% if category[0] == "Algorithm Python" %}
-                <li><a href="/categories/algorithm-python" class="">🔗Python ({{category[1].size}})</a></li>
-                {% endif %}
-                {% endfor %}
-            </ul>
-            <ul>
-                {% for category in site.categories %}
                 {% if category[0] == "Algorithm Java" %}
                 <li><a href="/categories/algorithm-java" class="">🔗Java ({{category[1].size}})</a></li>
                 {% endif %}
@@ -196,7 +189,13 @@
                 {% endif %}
                 {% endfor %}
             </ul>
-            
+            <ul>
+                {% for category in site.categories %}
+                {% if category[0] == "Algorithm Python" %}
+                <li><a href="/categories/algorithm-python" class="">🔗Python ({{category[1].size}})</a></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
 
             <!--Backjoon-->
             <span class="nav__sub-title">Backjoon</span>
