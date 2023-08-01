@@ -1,7 +1,7 @@
 ---
 title: "[백준 10809번] 알파벳 찾기"
-categories: [Backjoon Java]
-tags: [Backjoon, Java]
+categories: [Algorithm Java]
+tags: [Algorithm Study, Java, Algorithm, Backjoon]
 excerpt: "[백준 10809번] 알파벳 찾기"
 toc: true
 toc_sticky: true
@@ -14,6 +14,6 @@ toc_sticky: true
 알파벳이 없다면 -1을 출력하라고 했으므로 `ans` 배열에 처음부터 **Arrays.fill(배열, 채울 숫자)** 를 사용하여서 -1로 채워놓았다. 그 후 문자열의 문자 하나하나를 아스키코드 숫자로 바꾸어서 `asciiAlpha` 배열에 넣어주고, 아스키코드를 활용하여서 인덱스를 만들어 주었다. 이때, 같은 문자가 2번이상 나올 경우, 처음의 인덱스만 출력해야되므로 **continue** 를 사용하여 처리해주었다.
 
 ## ! 중요 !
-1. 자바에서 문자열의 문자를 사용하려면 인덱스를 사용하는 것이 아닌 **.charAt(index)** 를 사용해주어야 한다.
-2. 배열의 길이를 구하기 위해서는 length를 사용해야되고 문자열의 길이를 구하기 위해서는 **length()** 를 사용해주어야 한다. 
 
+1. 자바에서 문자열의 문자를 사용하려면 인덱스를 사용하는 것이 아닌 **.charAt(index)** 를 사용해주어야 한다.
+2. 배열의 길이를 구하기 위해서는 length를 사용해야되고 문자열의 길이를 구하기 위해서는 **length()** 를 사용해주어야 한다.

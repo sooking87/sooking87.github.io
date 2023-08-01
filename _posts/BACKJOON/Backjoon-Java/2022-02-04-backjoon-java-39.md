@@ -1,8 +1,8 @@
 ---
 title: "[백준 1764번] 듣보잡"
 excerpt: "[백준 1764번] 듣보잡"
-categories: [Backjoon Java]
-tags: [Backjoon, Java]
+categories: [Algorithm Java]
+tags: [Algorithm Study, Java, Algorithm, Backjoon]
 toc: true
 toc_sticky: true
 ---

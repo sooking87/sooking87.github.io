@@ -1,8 +1,8 @@
 ---
 title: "[백준 2798번] 블랙잭"
 excerpt: "[백준 2798번] 블랙잭"
-categories: [Backjoon Java]
-tags: [Backjoon, Java]
+categories: [Algorithm Java]
+tags: [Algorithm Study, Java, Algorithm, Backjoon]
 toc: true
 toc_sticky: true
 ---
@@ -13,4 +13,5 @@ toc_sticky: true
 <br>
 
 ## 배운 점
-리스트에서 인덱스를 통해서 요소 하나를 출력하기 위해서는 **.get** 메서드를 사용한다. list.get(index)형식으로 사용! 그리고 리스트에 값을 추가하기 위해서는 **.add** 메서드를 사용한다. 
+
+리스트에서 인덱스를 통해서 요소 하나를 출력하기 위해서는 **.get** 메서드를 사용한다. list.get(index)형식으로 사용! 그리고 리스트에 값을 추가하기 위해서는 **.add** 메서드를 사용한다.

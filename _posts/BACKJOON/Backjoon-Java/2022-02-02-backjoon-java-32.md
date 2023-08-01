@@ -1,8 +1,8 @@
 ---
 title: "[백준 1032번] 명령 프롬프트"
 excerpt: "[백준 1032번] 명령 프롬프트"
-categories: [Backjoon Java]
-tags: [Backjoon, Java]
+categories: [Algorithm Java]
+tags: [Algorithm Study, Java, Algorithm, Backjoon]
 toc: true
 toc_sticky: true
 ---

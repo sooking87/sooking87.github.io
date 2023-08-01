@@ -1,7 +1,7 @@
 ---
 title: "[백준 1922번] 네트워크 연결"
 excerpt: "[백준 1922번] 네트워크 연결"
-categories: [Algorithm Java, Backjoon Java]
+categories: [Algorithm Java]
 tags: [Algorithm Study, Java, Algorithm, Backjoon]
 toc: true
 toc_sticky: true

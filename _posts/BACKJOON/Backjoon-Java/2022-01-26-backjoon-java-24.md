@@ -1,7 +1,7 @@
 ---
 title: "[백준 14681번] 사분면 구하기"
-categories: [Backjoon Java]
-tags: [Backjoon, Java]
+categories: [Algorithm Java]
+tags: [Algorithm Study, Java, Algorithm, Backjoon]
 excerpt: "[백준 14681번] 사분면 구하기"
 toc: true
 toc_sticky: true

@@ -1,8 +1,8 @@
 ---
 title: "‼ [백준 2108번] 통계학 ‼"
 excerpt: "결론적으론 틀림"
-categories: [Backjoon Java]
-tags: [Backjoon, Java]
+categories: [Algorithm Java]
+tags: [Algorithm Study, Java, Algorithm, Backjoon]
 toc: true
 toc_sticky: true
 ---

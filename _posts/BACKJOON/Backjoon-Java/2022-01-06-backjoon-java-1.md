@@ -1,7 +1,7 @@
 ---
 title: "[백준 1000번] A + B"
 excerpt: "[백준 1000번] A + B"
-categories: [Algorithm Java, Backjoon Java]
+categories: [Algorithm Java]
 tags: [Algorithm Study, Java, Algorithm, Backjoon]
 toc: true
 toc_sticky: true

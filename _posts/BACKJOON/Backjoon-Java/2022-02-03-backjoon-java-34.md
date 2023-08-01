@@ -1,8 +1,8 @@
 ---
 title: "[백준 2407번] 조합"
 excerpt: "[백준 2407번] 조합"
-categories: [Backjoon Java]
-tags: [Backjoon, Java]
+categories: [Algorithm Java]
+tags: [Algorithm Study, Java, Algorithm, Backjoon]
 toc: true
 toc_sticky: true
 ---
@@ -14,4 +14,4 @@ toc_sticky: true
 
 ## import java.math.BigInteger
 
-`BigInteger` 은 long보다도 올 수 있는 범위가 크다. 여기서 초기화 할 때, BigInteger.ONE을 사용했는데 ONE은 객체가 미리 정의된 상수 중 하나로 정수 1을 의미한다. ONE이외에 ZERO, TEN 이 있다. `BigInteger` 은 객체 이름이 integer이긴 하지만 매개변수로는 문자열만 들어올 수 있다. 또 객체에서 제공하는 매서드들은 데이터형(?)이 bigInteger 인 것만 계산이 가능하다. 그렇기 때문에 반복문에서 돌려가면서 `bigNumN` 과 `bigNumM` 에 곱해나갈 때, 문자열로 바꾼 값을 bigInteger로 바꾸고 곱한 것이다. 
+`BigInteger` 은 long보다도 올 수 있는 범위가 크다. 여기서 초기화 할 때, BigInteger.ONE을 사용했는데 ONE은 객체가 미리 정의된 상수 중 하나로 정수 1을 의미한다. ONE이외에 ZERO, TEN 이 있다. `BigInteger` 은 객체 이름이 integer이긴 하지만 매개변수로는 문자열만 들어올 수 있다. 또 객체에서 제공하는 매서드들은 데이터형(?)이 bigInteger 인 것만 계산이 가능하다. 그렇기 때문에 반복문에서 돌려가면서 `bigNumN` 과 `bigNumM` 에 곱해나갈 때, 문자열로 바꾼 값을 bigInteger로 바꾸고 곱한 것이다.
