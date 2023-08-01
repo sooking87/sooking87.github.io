@@ -1,7 +1,7 @@
 ---
 title: "[백준 2346번] 원형 리스트"
 excerpt: "[백준 2346번] 원형 리스트"
-categories: [Algorithm Java, Backjoon Java]
+categories: [Algorithm Java]
 tags: [Algorithm Study, Java, Algorithm, Backjoon]
 toc: true
 toc_sticky: true

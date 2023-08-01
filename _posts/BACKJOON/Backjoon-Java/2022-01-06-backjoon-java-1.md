@@ -1,8 +1,8 @@
 ---
 title: "[백준 1000번] A + B"
-categories: [Backjoon Java]
-tags: [Backjoon, Java]
 excerpt: "[백준 1000번] A + B"
+categories: [Algorithm Java, Backjoon Java]
+tags: [Algorithm Study, Java, Algorithm, Backjoon]
 toc: true
 toc_sticky: true
 
@@ -21,4 +21,5 @@ last_modified_at: 2022-01-06
 자세한 사항은 좀더 공부를 해봐야 알 것 같다.
 
 ## new 예약어
+
 클래스 생성 시 사용되며, sc라는 변수에 new 예약어를 통해서 생성자를 호출하여 대입, 새로운 클래스 생성된다. 여기서 클래스가 생성된다는 말은 클래스를 변수를 통해서 사용할 수 있도록 힙 메모리에 메모리 공간을 확보한다는 말이다. 결국 new 예약어를 통해서 클래스를 import하여 사용할 수 있도록 만들어 준다.

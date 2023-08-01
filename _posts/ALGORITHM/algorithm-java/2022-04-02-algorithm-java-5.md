@@ -1,7 +1,7 @@
 ---
 title: "[백준 2750번] 선택 정렬"
 excerpt: "[백준 2750번] 선택 정렬"
-categories: [Algorithm Java, Backjoon Java]
+categories: [Algorithm Java]
 tags: [Algorithm Study, Java, Algorithm, Backjoon]
 toc: true
 toc_sticky: true

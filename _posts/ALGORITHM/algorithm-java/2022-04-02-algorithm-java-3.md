@@ -1,7 +1,7 @@
 ---
 title: "❗ [백준 1874번] 스택 ❗"
 excerpt: "❗ [백준 1874번] 스택 ❗"
-categories: [Algorithm Java, Backjoon Java]
+categories: [Algorithm Java]
 tags: [Algorithm Study, Java, Algorithm, Backjoon]
 toc: true
 toc_sticky: true
