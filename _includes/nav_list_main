@@ -129,6 +129,13 @@
             </ul>
             <ul>
                 {% for category in site.categories %}
+                {% if category[0] == "Flask" %}
+                <li><a href="/categories/flask" class="">🔥Flask ({{category[1].size}})</a></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
                 {% if category[0] == "Figma" %}
                 <li><a href="/categories/figma" class="">🔥Figma ({{category[1].size}})</a></li>
                 {% endif %}
