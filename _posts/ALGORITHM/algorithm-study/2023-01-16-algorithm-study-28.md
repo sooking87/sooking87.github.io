@@ -1,8 +1,8 @@
 ---
 title: "[Python] 이분탐색(결정알고리즘) & 그리디 알고리즘"
 excerpt: "이분탐색(결정알고리즘) & 그리디 알고리즘"
-categories: [Python Algorithm]
-tags: [Python Algorithm, Python, Algorithm]
+categories: [Algorithm Study]
+tags: [Algorithm Study, Python, Algorithm]
 toc: true
 toc_sticky: true
 ---

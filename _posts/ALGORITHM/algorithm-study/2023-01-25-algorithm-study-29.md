@@ -1,8 +1,8 @@
 ---
 title: "[Python] 자료구조 활용(스택, 큐, 해쉬, 힙)"
 excerpt: "자료구조 활용(스택, 큐, 해쉬, 힙)"
-categories: [Python Algorithm]
-tags: [Python Algorithm, Python, Algorithm]
+categories: [Algorithm Study]
+tags: [Algorithm Study, Python, Algorithm]
 toc: true
 toc_sticky: true
 ---

@@ -1,8 +1,8 @@
 ---
 title: "[Python] 탐색&시뮬레이션(string, 1차원, 2차원 리스트 탐색 )"
 excerpt: "탐색&시뮬레이션(string, 1차원, 2차원 리스트 탐색 )"
-categories: [Python Algorithm]
-tags: [Python Algorithm, Python, Algorithm]
+categories: [Algorithm Study]
+tags: [Algorithm Study, Python, Algorithm]
 toc: true
 toc_sticky: true
 ---

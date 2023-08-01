@@ -1,8 +1,8 @@
 ---
 title: "[+a] DFS & BFS"
 excerpt: "DFS & BFS"
-categories: [Python Algorithm]
-tags: [Python Algorithm, Python, Algorithm]
+categories: [Algorithm Study]
+tags: [Algorithm Study, Python, Algorithm]
 toc: true
 toc_sticky: true
 ---

@@ -1,8 +1,8 @@
 ---
 title: "[Python] 코드 구현력 기르기"
 excerpt: "코드 구현력 기르기"
-categories: [Python Algorithm]
-tags: [Python Algorithm, Python, Algorithm]
+categories: [Algorithm Study]
+tags: [Algorithm Study, Python, Algorithm]
 toc: true
 toc_sticky: true
 ---
