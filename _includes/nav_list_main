@@ -199,21 +199,11 @@
             <ul>
                 {% for category in site.categories %}
                 {% if category[0] == "Algorithm JavaScript" %}
-                <li><a href="/categories/algorithm-javascript" class="">JavaScript ({{category[1].size}})</a></li>
+                <li><a href="/categories/algorithm-javascript" class="">🔗JavaScript ({{category[1].size}})</a></li>
                 {% endif %}
                 {% endfor %}
             </ul>
             
-
-            <!--Backjoon-->
-            <span class="nav__sub-title">Backjoon</span>
-            <ul>
-                {% for category in site.categories %}
-                {% if category[0] == "Backjoon JavaScript" %}
-                <li><a href="/categories/backjoon-javascript" class="">🔗JavaScript ({{category[1].size}})</a></li>
-                {% endif %}
-                {% endfor %}
-            </ul>
 
             <!--OpsyDopsy-->
             <span class="nav__sub-title">OpsyDopsy</span>
