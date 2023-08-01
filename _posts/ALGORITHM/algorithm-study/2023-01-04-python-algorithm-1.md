@@ -1,6 +1,6 @@
 ---
-title: "[Python] 섹션 2. 코드 구현력 기르기"
-excerpt: "섹션 2. 코드 구현력 기르기"
+title: "[Python] 코드 구현력 기르기"
+excerpt: "코드 구현력 기르기"
 categories: [Python Algorithm]
 tags: [Python Algorithm, Python, Algorithm]
 toc: true

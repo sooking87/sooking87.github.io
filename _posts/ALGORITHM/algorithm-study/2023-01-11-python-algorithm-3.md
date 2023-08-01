@@ -1,6 +1,6 @@
 ---
-title: "[Python] 섹션 3. 탐색&시뮬레이션(string, 1차원, 2차원 리스트 탐색 )"
-excerpt: "섹션 3. 탐색&시뮬레이션(string, 1차원, 2차원 리스트 탐색 )"
+title: "[Python] 탐색&시뮬레이션(string, 1차원, 2차원 리스트 탐색 )"
+excerpt: "탐색&시뮬레이션(string, 1차원, 2차원 리스트 탐색 )"
 categories: [Python Algorithm]
 tags: [Python Algorithm, Python, Algorithm]
 toc: true
