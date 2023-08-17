@@ -1,6 +1,6 @@
 ---
-title: "[백준 11660][Greedy] 거스름돈"
-excerpt: "[백준 11660][Greedy] 거스름돈"
+title: "[백준 11660][DynamicProgramming2] 구간 합 구하기 5"
+excerpt: "[백준 11660][DynamicProgramming2] 구간 합 구하기 5"
 categories: [Algorithm Python]
 tags: [Algorithm Study, Python, Algorithm, Backjoon]
 toc: true
@@ -81,6 +81,6 @@ for k in range(m):
 
 📌 [참고 링크](https://sodehdt-ldkt.tistory.com/76) <br>
 
-![Alt text](img1.daumcdn.png) <br>
+![Alt text](../../../assets/image/Algorithm-Python/img1.daumcdn.png) <br>
 
 뭐 이런 느낌으로 누적합을 사용한다고 한다. 아니 근데 코드가 짜기 어렵다기 보다는 에바야 ㅜㅜ 어케 생각하누
