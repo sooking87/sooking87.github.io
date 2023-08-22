@@ -48,6 +48,8 @@ while len(string) != 0:
 print(result)
 ```
 
+
+
 ## 코드 설명
 
 규칙에 맞게 풀면 되는 문제.
