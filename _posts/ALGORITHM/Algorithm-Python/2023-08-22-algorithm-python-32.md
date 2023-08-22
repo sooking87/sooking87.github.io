@@ -6,10 +6,10 @@ tags: [Algorithm Study, Python, Algorithm, Backjoon]
 toc: true
 toc_sticky: true
 ---
+
 📌 [백준 17413 문제 링크](https://www.acmicpc.net/problem/17413) <br>
 
 ## 백준 17413 단어 뒤집기 2
-
 
 <로 시작해서 >로 끝나는 문자열은 안 뒤집고, 그 외의 문자열만 뒤집는 프로그램
 
@@ -47,8 +47,6 @@ while len(string) != 0:
         result += temp
 print(result)
 ```
-
-
 
 ## 코드 설명
 

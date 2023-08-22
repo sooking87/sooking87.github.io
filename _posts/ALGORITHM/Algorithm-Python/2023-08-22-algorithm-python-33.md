@@ -129,29 +129,29 @@ for _ in range(n):
     end = len(string) - 1
     is_possible = False # 회문인지 아닌지를 판별
     while start < end:
-        # print(string[start], string[end])
+        # 회문이라면
         if string[start] == string[end]:
             start += 1
             end -= 1
             is_possible = True
+        # 유사회문 또는 회문이 아니라면
         else:
             is_possible = False
             if start <= end-1:
                 temp = string[:end] + string[end+1:]
-                # print('temp:', temp)
                 if temp[:] == temp[::-1]:
                     print(1)
                     break
             if start+1 < end:
                 temp = string[:start] + string[start+1:]
-                # print('temp:', temp)
                 if temp[:] == temp[::-1]:
                     print(1)
                     break
             print(2)
             break
     if is_possible:
-        print(0)             
+        print(0)
+                            
 ```
 
 ## 코드 설명
