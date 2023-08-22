@@ -102,6 +102,13 @@
                 {% endif %}
                 {% endfor %}
             </ul>
+            <ul>
+                {% for category in site.categories %}
+                {% if category[0] == "GCP" %}
+                <li><a href="/categories/gcp" class="">🔥Google Cloud Skills Boost({{category[1].size}})</a></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
 
 
             <!--WEB-->
