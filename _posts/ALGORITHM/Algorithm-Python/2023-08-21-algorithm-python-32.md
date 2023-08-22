@@ -1,6 +1,6 @@
 ---
-title: "[백준 17413][Greedy] 단어 뒤집기 2"
-excerpt: "[백준 17413][Greedy] 단어 뒤집기 2"
+title: "[백준 17413][String] 단어 뒤집기 2"
+excerpt: "[백준 17413][String] 단어 뒤집기 2"
 categories: [Algorithm Python]
 tags: [Algorithm Study, Python, Algorithm, Backjoon]
 toc: true
