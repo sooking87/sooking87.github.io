@@ -109,7 +109,6 @@ if temp>0:
     min += str(10**(temp-1))
 print(max)
 print(min)
-
 ```
 
 ## 코드 설명
