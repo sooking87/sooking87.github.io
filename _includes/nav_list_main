@@ -49,6 +49,15 @@
             {% endif %}
             {% endfor %}
         <li>
+            <!--Graduation Project-->
+        <li>
+            {% for category in site.categories %}
+            {% if category[0] == "Graduation Project" %}
+            <a href="/categories/graduation-project" class=""><span class="nav__sub-title">Graduation Project
+                    ({{category[1].size}})</span></a>
+            {% endif %}
+            {% endfor %}
+        <li>
 
             <!--LECTURE-->
             <span class="nav__sub-title">LECTURE</span>
