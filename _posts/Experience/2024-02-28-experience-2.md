@@ -24,14 +24,14 @@ toc_sticky: true
 
 - Mar.2021-Dec.2022: IT공학전공 학회 Code-IT 부대표
 - Mar.2022-Jun.2023: 대학생 인공지능 연합동아리 프로메테우스 활동
-- Sep.2022-Jun.2023: GDSC(Google Developer Student Clubs) 활동
+- Sep.2022-Jun.2023: GDSC(Google Developer Student Clubs) SookMyung 활동
 
 ### 자격증
 
 ### 수상내역
 
 - Sep.2022: 신한 빅데이터 해커톤 장려상
-- Jun.2023: Solution Chalenge Global Top 100
+- Jun.2023: Solution Challenge Global Top 100
 - Sep.2023: 숙명여자대학교 프로그래밍 경진대회 SMUPC 금상
 
 ### 산학협동프로그램 소개
