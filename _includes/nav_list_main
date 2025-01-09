@@ -192,7 +192,7 @@
             </ul>
             <ul>
                 {% for category in site.categories %}
-                {% if category[0] == "SCRATCH" %}
+                {% if category[0] == "Scratch" %}
                 <li><a href="/categories/scratch" class="">🔥Deep Learning from Scratch 5({{category[1].size}})</a></li>
                 {% endif %}
                 {% endfor %}
