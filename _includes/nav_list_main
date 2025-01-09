@@ -11,15 +11,6 @@
             🚀 <span>전체 </span> <span>{{sum}}</span> <span>개</span>
         </li>
 
-        <!--대외활동 경력-->
-        <li>
-            {% for category in site.categories %}
-            {% if category[0] == "Experience" %}
-            <a href="/categories/experience" class=""><span class="nav__sub-title">EXPERIENCE
-                    ({{category[1].size}})</span></a>
-            {% endif %}
-            {% endfor %}
-        <li>
         <!--프로젝트 결과물-->
         <li>
             {% for category in site.categories %}
