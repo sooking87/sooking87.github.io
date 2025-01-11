@@ -184,7 +184,7 @@
             <ul>
                 {% for category in site.categories %}
                 {% if category[0] == "Scratch" %}
-                <li><a href="/categories/scratch" class="">🔥Scratch({{category[1].size}})</a></li>
+                <li><a href="/categories/scratch" class="">🔥DL from Scratch 5({{category[1].size}})</a></li>
                 {% endif %}
                 {% endfor %}
             </ul>
