@@ -49,6 +49,16 @@
             {% endif %}
             {% endfor %}
         <li>
+            <!--PostGraduate-->
+            <span class="nav__sub-title">PostGraduate</span>
+            <ul>
+                {% for category in site.categories %}
+                {% if category[0] == "Mujoco" %}
+                <li><a href="/categories/Mujoco" class="">🔥Mujoco ({{category[1].size}})</a></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+
             <!--AI-->
             <span class="nav__sub-title">AI</span>
             <ul>
