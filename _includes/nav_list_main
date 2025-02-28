@@ -54,7 +54,7 @@
             <ul>
                 {% for category in site.categories %}
                 {% if category[0] == "Mujoco" %}
-                <li><a href="/categories/Mujoco" class="">🔥Mujoco ({{category[1].size}})</a></li>
+                <li><a href="/categories/mujoco" class="">🔥Mujoco ({{category[1].size}})</a></li>
                 {% endif %}
                 {% endfor %}
             </ul>
